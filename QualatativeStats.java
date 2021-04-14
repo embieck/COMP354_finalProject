@@ -35,6 +35,7 @@ public class QualatativeStats {
         this.align = alignment.unaligned;
         this.languages = null;
         this.size = size.medium;
+    }
 
     public ArrayList<String> getLanguages() {
         return this.languages;
