@@ -45,7 +45,8 @@ public class UserInterfaceMain {
     }
 
     public static void main(String[] args){
-        DungeonMaster dm = new DungeonMaster(properUsernameLogin());
+        String username = properUsernameLogin();
+        DungeonMaster dm = new DungeonMaster(username);
 
     }
     
