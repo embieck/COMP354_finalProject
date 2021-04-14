@@ -1,15 +1,16 @@
+package src;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class partyMember {
+public class PartyMember {
 
     private String name;
 
     /**
      * Default constructor
      */
-    public partyMember(){
+    public PartyMember(){
         name = "Jack";
         
     }
