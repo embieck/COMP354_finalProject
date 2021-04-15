@@ -1,3 +1,4 @@
+package edu.ithaca;
 import java.util.*;
 /**
  * extended by Character class

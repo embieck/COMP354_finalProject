@@ -1,4 +1,4 @@
-package src;
+package edu.ithaca;
 public class DungeonMaster{
     private String username;
 

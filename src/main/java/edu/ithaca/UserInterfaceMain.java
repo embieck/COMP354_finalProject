@@ -1,4 +1,4 @@
-package src;
+package edu.ithaca;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;

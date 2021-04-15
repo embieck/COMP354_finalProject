@@ -1,3 +1,5 @@
+package edu.ithaca;
+
 public class EnemyQuantStats {
     public double cr;
     public int exp;

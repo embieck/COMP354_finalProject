@@ -1,3 +1,5 @@
+package edu.ithaca;
+
 /**
  * extended by Character class
  * Includes a constructor to set inital stats
