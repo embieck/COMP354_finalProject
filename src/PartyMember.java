@@ -1,17 +1,42 @@
+package src;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+<<<<<<< HEAD:partyMember.java
 enum CharacterClass {BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE, SORCERER, 
     WARLOCK, WIZARD}
 
 enum CharacterRace {DRAGONBORNE, DWARF, ELF, GNOME, HALFELF, HALFLING, HALFORC, HUMAN, TIEFLING}     
 
 public class partyMember {
+=======
+public class PartyMember {
+>>>>>>> d9e2c802cf42c5559e494caf624764e1dcff7c75:src/PartyMember.java
 
     private String name;
     private CharacterClass CharacterClass;
     private CharacterRace CharacterRace;
+
+
+
+<<<<<<< HEAD:partyMember.java
+    // /**
+    //  * Default constructor
+    //  */
+    // public partyMember(){
+    //     name = "Jack";
+=======
+    /**
+     * Default constructor
+     */
+    public PartyMember(){
+        name = "Jack";
+>>>>>>> d9e2c802cf42c5559e494caf624764e1dcff7c75:src/PartyMember.java
+        
+    // }
+    
+
 
     public String getName(){
         return name;
@@ -24,19 +49,6 @@ public class partyMember {
     public CharacterRace getCharacterRace(){
         return CharacterRace;
     }
-
-    /**
-     * Constructor
-     * @param name - String that contains name of the character
-     * @param CharacterClass - enum that indicates class of the character
-     * @param CharacterRace - enum that indicates race of the character
-     */
-    // public partyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
-    //     String name = "";
-    //     this.characterClass = characterClass;
-    //     this.characterRace = characterRace;
-        
-    // }
 
 }
 
