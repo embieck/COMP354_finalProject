@@ -6,19 +6,10 @@ import java.util.Iterator;
 
 public class Party {
 
-    private List<PartyMember> characters;
+    private ArrayList<PartyMember> characters;
     private int partySize;
 
-    /**
-     * Default constructor
-     */
-    public Party(){
-        characters = null;
-        partySize = 5;
-        
-    // }
-
-    public void addCharacter(partyMember newMember){
+    public void addCharacter(PartyMember newMember){
         characters.add(newMember);
     }
 
@@ -26,13 +17,13 @@ public class Party {
         return partySize;
     }
 
-    public partyMember getCharacter(int placeInList){
+    public PartyMember getCharacter(int placeInList){
         return characters.get(placeInList);
     }
 
-    public partyMember findCharacterByName(String name){
+    public PartyMember findCharacterByName(String name){
         for(int i = 0; i < characters.size(); i++){
-            partyMember currentCharacter = characters.get(i);
+            PartyMember currentCharacter = characters.get(i);
             if(currentCharacter.getName().equals(name)){
                 return currentCharacter;
             }
@@ -41,14 +32,25 @@ public class Party {
 
     }
 
-    public partyMember findCharacterByClass(CharacterClass cc){
+    public PartyMember findCharacterByClass(CharacterClass cc){
         for(int i = 0; i < characters.size(); i++){
-            partyMember currentCharacter = characters.get(i);
+            PartyMember currentCharacter = characters.get(i);
             if(currentCharacter.getCharacterClass().equals(cc)){
                 return currentCharacter;
             }
         }
         return null;
+    }
+
+    /**
+     * Constructor
+     * @param characters - arraylist of all characters in the party
+     * @param partySize - int representing number of characters in the party
+     */
+    public Party(ArrayList<PartyMember> characters, int partySize){
+        this.characters = characters;
+        this.partySize = partySize;
+        
     }
 
 
