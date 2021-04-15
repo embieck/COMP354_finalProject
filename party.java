@@ -3,12 +3,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Iterator;
 
-public class party {
+public class Party {
 
-    private ArrayList<partyMember> characters;
+    private ArrayList<PartyMember> characters;
     private int partySize;
 
-    public void addCharacter(partyMember newMember){
+    public void addCharacter(PartyMember newMember){
         characters.add(newMember);
     }
 
@@ -16,13 +16,13 @@ public class party {
         return partySize;
     }
 
-    public partyMember getCharacter(int placeInList){
+    public PartyMember getCharacter(int placeInList){
         return characters.get(placeInList);
     }
 
-    public partyMember findCharacterByName(String name){
+    public PartyMember findCharacterByName(String name){
         for(int i = 0; i < characters.size(); i++){
-            partyMember currentCharacter = characters.get(i);
+            PartyMember currentCharacter = characters.get(i);
             if(currentCharacter.getName().equals(name)){
                 return currentCharacter;
             }
@@ -31,9 +31,9 @@ public class party {
 
     }
 
-    public partyMember findCharacterByClass(CharacterClass cc){
+    public PartyMember findCharacterByClass(CharacterClass cc){
         for(int i = 0; i < characters.size(); i++){
-            partyMember currentCharacter = characters.get(i);
+            PartyMember currentCharacter = characters.get(i);
             if(currentCharacter.getCharacterClass().equals(cc)){
                 return currentCharacter;
             }
@@ -46,7 +46,7 @@ public class party {
      * @param characters - arraylist of all characters in the party
      * @param partySize - int representing number of characters in the party
      */
-    public party(ArrayList<partyMember> characters, int partySize){
+    public Party(ArrayList<PartyMember> characters, int partySize){
         this.characters = characters;
         this.partySize = partySize;
         
