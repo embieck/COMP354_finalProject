@@ -1,4 +1,4 @@
-package edu.ithaca;
+package src.main.java.edu.ithaca;
 
 /**
  * extended by Character class
