@@ -6,17 +6,6 @@ import java.util.Iterator;
 
 public class Party {
 
-<<<<<<< HEAD:party.java
-    private ArrayList<partyMember> characters;
-    private int partySize;
-
-    // /**
-    //  * Default constructor
-    //  */
-    // public party(){
-    //     characters = null;
-    //     partySize = 5;
-=======
     private List<PartyMember> characters;
     private int partySize;
 
@@ -26,7 +15,6 @@ public class Party {
     public Party(){
         characters = null;
         partySize = 5;
->>>>>>> d9e2c802cf42c5559e494caf624764e1dcff7c75:src/Party.java
         
     // }
 

@@ -12,21 +12,12 @@ public class Enemy {
     private String movementType;
 
 
-<<<<<<< HEAD:enemy.java
-    // /**
-    //  * Default constructor
-    //  */
-    // public enemy(){
-    //     isHumanoid = false;
-    //     terrain = "Tundra";
-=======
     /**
      * Default constructor
      */
     public Enemy(){
         isHumanoid = false;
         terrain = "Tundra";
->>>>>>> d9e2c802cf42c5559e494caf624764e1dcff7c75:src/Enemy.java
         
     // }
 
