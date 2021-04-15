@@ -7,7 +7,9 @@ import java.util.*;
 public class Enemy {
 
     private boolean isHumanoid;
+    private boolean isMagicUser;
     private String terrain;
+    private String movementType;
 
 
     /**
@@ -17,5 +19,21 @@ public class Enemy {
         isHumanoid = false;
         terrain = "Tundra";
         
+    // }
+
+    public boolean getIsHumanoid(){
+        return isHumanoid;
+    }
+
+    public boolean getIsMagicUser(){
+        return isMagicUser;
+    }
+
+    public String getTerrain(){
+        return terrain;
+    }
+
+    public String getMovementType(){
+        return movementType;
     }
 }

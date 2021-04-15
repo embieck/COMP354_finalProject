@@ -1,22 +1,12 @@
-package edu.ithaca;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Iterator;
 
-public class Party {
+public class party {
 
-    private List<PartyMember> characters;
+    private ArrayList<partyMember> characters;
     private int partySize;
-
-    /**
-     * Default constructor
-     */
-    public Party(){
-        characters = null;
-        partySize = 5;
-        
-    // }
 
     public void addCharacter(partyMember newMember){
         characters.add(newMember);
@@ -49,6 +39,17 @@ public class Party {
             }
         }
         return null;
+    }
+
+    /**
+     * Constructor
+     * @param characters - arraylist of all characters in the party
+     * @param partySize - int representing number of characters in the party
+     */
+    public party(ArrayList<partyMember> characters, int partySize){
+        this.characters = characters;
+        this.partySize = partySize;
+        
     }
 
 

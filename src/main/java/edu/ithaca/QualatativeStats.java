@@ -5,6 +5,7 @@ import java.util.*;
  * Includes a constructor to set inital stats
  * Includes public getters and setters for all stats to allow the DungeonMaster to edit stats
  **/
+
 public class QualatativeStats {        
     public enum alignment{
         unaligned,
@@ -23,7 +24,8 @@ public class QualatativeStats {
         small,
         medium,
         large,
-        huge;
+        huge,
+        gargantuan;
     }
     public ArrayList<String> languages;
     public alignment align;
