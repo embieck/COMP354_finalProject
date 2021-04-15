@@ -7,7 +7,7 @@ enum CharacterClass {BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RAN
 
 enum CharacterRace {DRAGONBORNE, DWARF, ELF, GNOME, HALFELF, HALFLING, HALFORC, HUMAN, TIEFLING}     
 
-public class partyMember {
+public class PartyMember {
 
     private String name;
     private CharacterClass CharacterClass;
@@ -31,8 +31,8 @@ public class partyMember {
      * @param CharacterClass - enum that indicates class of the character
      * @param CharacterRace - enum that indicates race of the character
      */
-    // public partyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
-    //     String name = "";
+    // public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
+    //     this.name = "";
     //     this.characterClass = characterClass;
     //     this.characterRace = characterRace;
         

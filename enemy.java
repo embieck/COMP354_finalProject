@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.graalvm.compiler.core.amd64.AMD64NodeLIRBuilder;
-
 import java.util.*;
 
-public class enemy {
-
+public class Enemy {
     private boolean isHumanoid;
     private boolean isMagicUser;
     private String terrain;
@@ -37,11 +33,11 @@ public class enemy {
      * @param terrain - list of languages the character can speak
      * @param movementType - the char used to seperate in the languages parameter
      */
-    // public enemy(boolean isHumanoid, boolean isMagicUser, String terrain, String movementType){
-    //     isHumanoid = null;
-    //     isMagicUser = null;
+    // public Enemy(boolean isHumanoid, boolean isMagicUser, String terrain, String movementType){
+    //     isHumanoid = false;
+    //     isMagicUser = false;
     //     String terrain = "";
     //     String movementType = "";
         
-    //     }
-    // }
+        //}
+    }
