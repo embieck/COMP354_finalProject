@@ -3,27 +3,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-enum CharacterClass {BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE, SORCERER, 
-    WARLOCK, WIZARD}
-
-enum CharacterRace {DRAGONBORNE, DWARF, ELF, GNOME, HALFELF, HALFLING, HALFORC, HUMAN, TIEFLING}     
-
 public class PartyMember {
 
     private String name;
-    private CharacterClass CharacterClass;
-    private CharacterRace CharacterRace;
+    private CharacterClass characterClass;
+    private CharacterRace characterRace;
 
     public String getName(){
         return name;
     }
 
     public CharacterClass getCharacterClass(){
-        return CharacterClass;
+        return characterClass;
     }
 
     public CharacterRace getCharacterRace(){
-        return CharacterRace;
+        return characterRace;
     }
 
     /**
@@ -32,12 +27,12 @@ public class PartyMember {
      * @param CharacterClass - enum that indicates class of the character
      * @param CharacterRace - enum that indicates race of the character
      */
-    // public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
-    //     this.name = "";
-    //     this.characterClass = characterClass;
-    //     this.characterRace = characterRace;
+    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
+        this.name = "";
+        this.characterClass = characterClass;
+        this.characterRace = characterRace;
         
-    // }
+    }
 
 }
 
