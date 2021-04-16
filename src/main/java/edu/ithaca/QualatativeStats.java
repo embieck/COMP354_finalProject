@@ -17,7 +17,7 @@ public class QualatativeStats {
     /**
      * Default constructor
      */
-    public QualatativeStats() {
+    public QualatativeStats() { //TODO: Fix
         this.align = alignment.unaligned;
         this.languages.add("common");
         this.size = size.medium;
@@ -31,7 +31,7 @@ public class QualatativeStats {
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
-    public QualatativeStats(alignment align, size size, String languages, char delimiter) {
+    public QualatativeStats(alignment align, size size, String languages, char delimiter) { //TODO: Fix
         this.align = align;
         this.size = size;
         String curLang = "";

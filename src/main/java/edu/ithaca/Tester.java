@@ -82,8 +82,8 @@ class Tester {
     }
 
     public static void main(String args[]) {
-        //partyTest();
-        statsTest();
+        partyTest();
+        // statsTest();
         //uiTest();
     }
 }
