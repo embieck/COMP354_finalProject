@@ -1,9 +1,9 @@
-package src.main.java.edu.ithaca;
+package edu.ithaca;
 
 import java.util.*;
 
-import src.main.java.edu.ithaca.QualatativeStats.alignment;
-import src.main.java.edu.ithaca.QualatativeStats.size;
+import edu.ithaca.QualatativeStats.*;
+
 
 class Tester {
     private static void statsTest() {
