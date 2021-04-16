@@ -39,71 +39,72 @@ public class UserInterfaceMain {
     
         for(int i=0;i<p.getPartySize();i++){
             PartyMember c = p.getCharacter(i);
-            bw.write(c.getName());
+            String delim = ",";
+            bw.write(c.getName()+delim);
             //write class
             if(c.getCharacterClass()==CharacterClass.BARD){
-                bw.write("bard");
+                bw.write("bard"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.BARBARIAN){
-                bw.write("barbarian");
+                bw.write("barbarian"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.FIGHTER){
-                bw.write("fighter");
+                bw.write("fighter"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.ROGUE){
-                bw.write("rogue");
+                bw.write("rogue"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.SORCERER){
-                bw.write("sorcerer");
+                bw.write("sorcerer"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.WARLOCK){
-                bw.write("warlock");
+                bw.write("warlock"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.WIZARD){
-                bw.write("wizard");
+                bw.write("wizard"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.CLERIC){
-                bw.write("cleric");
+                bw.write("cleric"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.MONK){
-                bw.write("monk");
+                bw.write("monk"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.RANGER){
-                bw.write("ranger");
+                bw.write("ranger"+delim);
             }
             else if(c.getCharacterClass()==CharacterClass.PALADIN){
-                bw.write("paladin");
+                bw.write("paladin"+delim);
             }
             else{
-                bw.write("druid");
+                bw.write("druid"+delim);
             }
             //write race
             if(c.getCharacterRace()==CharacterRace.DRAGONBORNE){
-                bw.write("dragonborne");
+                bw.write("dragonborne"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.HALFELF){
-                bw.write("half-elf");
+                bw.write("half-elf"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.HALFLING){
-                bw.write("halfling");
+                bw.write("halfling"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.HALFORC){
-                bw.write("half-orc");
+                bw.write("half-orc"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.GNOME){
-                bw.write("gnome");
+                bw.write("gnome"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.DWARF){
-                bw.write("dwarf");
+                bw.write("dwarf"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.ELF){
-                bw.write("elf");
+                bw.write("elf"+delim);
             }
             else if(c.getCharacterRace()==CharacterRace.TIEFLING){
-                bw.write("tiefling");
+                bw.write("tiefling"+delim);
             }
             else{
-                bw.write("human");
+                bw.write("human"+delim);
             }
         }
         bw.close();
