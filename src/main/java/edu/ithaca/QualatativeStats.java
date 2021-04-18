@@ -17,7 +17,7 @@ public class QualatativeStats {
     /**
      * Default constructor
      */
-    public QualatativeStats() { //TODO: Fix
+    public QualatativeStats() {
         this.align = alignment.unaligned;
         this.languages.add("common");
         this.size = size.medium;
@@ -31,20 +31,22 @@ public class QualatativeStats {
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
-    public QualatativeStats(alignment align, size size, String languages, char delimiter) { //TODO: Fix
+    public QualatativeStats(alignment align, size size, String languageStr, char delimiter) {
         this.align = align;
         this.size = size;
         String curLang = "";
-        if (languages.isEmpty()) {
-            this.languages.add("common");
+        if (languageStr.isEmpty()) {
+            languages.add("common");
         } else {
-            for (int i = 0; i < languages.length(); i++) {
-                if (languages.charAt(i) != delimiter)
-                    curLang += languages.charAt(i);
+            for (int i = 0; i < languageStr.length(); i++) {
+                if (languageStr.charAt(i) != delimiter)
+                    curLang += languageStr.charAt(i);
                 else {
                     this.languages.add(curLang);
+                    curLang =""; 
                 }
             }
+            languages.add(curLang);
         }
     }
 
