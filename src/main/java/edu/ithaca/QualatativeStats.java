@@ -34,10 +34,8 @@ public class QualatativeStats {
     public QualatativeStats(alignment align, size size, String languageStr, char delimiter) {
         this.align = align;
         this.size = size;
-        String curLang = "";
-        if (languageStr.isEmpty()) {
-            languages.add("common");
-        } else {
+        if (!languageStr.isEmpty()) { 
+            String curLang = "";
             for (int i = 0; i < languageStr.length(); i++) {
                 if (languageStr.charAt(i) != delimiter)
                     curLang += languageStr.charAt(i);

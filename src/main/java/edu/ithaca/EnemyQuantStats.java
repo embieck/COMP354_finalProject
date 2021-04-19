@@ -12,7 +12,7 @@ public class EnemyQuantStats {
     /**
      * 
      * @param cr  - Combat rating, can range from 0-30
-     * @param exp - Eexperience points
+     * @param exp - Experience points
      */
     public EnemyQuantStats(double cr, int exp) {
         this.cr = cr;
