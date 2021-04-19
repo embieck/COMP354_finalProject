@@ -17,12 +17,15 @@ class Tester {
         //Testing  Contructor
         System.out.println("------Testing QualStats: Contructor-------");
         String delimeter = ",";
-        QualatativeStats qualStats2 = new QualatativeStats(alignment.chaoticGood, size.tiny, "common, dragon", delimeter.charAt(0));
+        QualatativeStats qualStats2 = new QualatativeStats(alignment.chaoticGood, size.tiny, "common,dragon", delimeter.charAt(0));
         System.out.println(qualStats2.getLanguages() + ": Should be [common, dragon]");
 
         String delimeter2 = " ";
         QualatativeStats qualStats3 = new QualatativeStats(alignment.chaoticNeutral, size.huge, "dragon common spanish", delimeter2.charAt(0));
         System.out.println(qualStats3.getLanguages() + ": Should be [dragon, common, spanish]");
+
+        QualatativeStats qualStats4 = new QualatativeStats(alignment.chaoticNeutral, size.huge, "", delimeter2.charAt(0));
+        System.out.println(qualStats4.getLanguages() + ": Should be [common]");
     }
 
     private static void uiTest() {
@@ -82,7 +85,7 @@ class Tester {
     }
 
     public static void main(String args[]) {
-        //partyTest();
+        // partyTest();
         statsTest();
         //uiTest();
     }
