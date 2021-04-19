@@ -18,6 +18,9 @@ public class Party {
     }
 
     public PartyMember getCharacter(int placeInList){
+        if(placeInList >= characters.size()){
+            return null;
+        }
         return characters.get(placeInList);
     }
 

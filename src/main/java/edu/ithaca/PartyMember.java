@@ -86,16 +86,19 @@ public class PartyMember {
      */
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
     QualatativeStats qualStats, QuantativeStats quanStats){
-        this.name = "";
+        this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
         this.qualStats = qualStats;
         this.quanStats = quanStats;
+<<<<<<< HEAD
+=======
     }
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
         this.name = "";
         this.characterClass = characterClass;
         this.characterRace = characterRace;
+>>>>>>> 9d5e6467632c1aa7e7e97c1eee3117de2bc799e5
         
     }
 

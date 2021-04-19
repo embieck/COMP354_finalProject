@@ -38,11 +38,11 @@ class Tester {
     private static void partyTest() {
         // Create characters in PartyMemberClass & add them to arrayList
         ArrayList<PartyMember> characters = new ArrayList<>();
-        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF);
-        PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE);
-        PartyMember juliet = new PartyMember("juliet", CharacterClass.CLERIC, CharacterRace.GNOME);
-        PartyMember jomi = new PartyMember("Jomi", CharacterClass.DRUID, CharacterRace.HUMAN);
-        PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF);
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, null, null);
+        PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, null, null);
+        PartyMember juliet = new PartyMember("juliet", CharacterClass.CLERIC, CharacterRace.GNOME, null, null);
+        PartyMember jomi = new PartyMember("jomi", CharacterClass.DRUID, CharacterRace.HUMAN, null, null);
+        PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF, null, null);
         characters.add(soromi);
         characters.add(juliet);
         characters.add(jomi);
@@ -54,25 +54,26 @@ class Tester {
         Party testParty = new Party(characters, 5);
         System.out.println(testParty.findCharacterByClass(CharacterClass.BARD).getName() + ": Should be kemi");
         System.out.println(testParty.findCharacterByClass(CharacterClass.ROGUE).getName() + ": Should be SJ");
-        // System.out.println(testParty.findCharacterByClass(CharacterClass.WIZARD).getName() + ": Should return null");
-        //TODO: Error checking for null values
+        System.out.println((testParty.findCharacterByClass(CharacterClass.WIZARD) == null) + ": Should be true");
+        
 
         // Testing Party: FindCharacterByName
         System.out.println("------Testing Party: FindCharacterByName-------");
         System.out.println(testParty.findCharacterByName("soromi").getCharacterClass() + ": Should be Warlock");
         System.out.println(testParty.findCharacterByName("jomi").getCharacterClass() + ": Should be Druid");
-        // System.out.println(testParty.findCharacterByName("wanda").getCharacterClass() + ": Should be null");
-         //TODO: Error checking for null values
+        System.out.println((testParty.findCharacterByName("wanda") == null )+ ": Should be true");
+        
 
 
         // Testing Party: Getters
         System.out.println("------Testing Party: Getters-------");
-        System.out.println(testParty.getCharacter(0) + ": Should be soromi");
-        System.out.println(testParty.getCharacter(4) + ": Should be kemi");
-        // System.out.println(testParty.getCharacter(5) + ": Should be null");
-        //TODO: Error checking for null values
+        System.out.println(testParty.getCharacter(0).getName() + ": Should be soromi");
+        System.out.println(testParty.getCharacter(4).getName() + ": Should be kemi");
+        System.out.println(testParty.getCharacter(5) + ": Should be null");
+        
         // Note: If this getter will be included in the UI, we might want to offset the
         // indexes by 1
+
         System.out.println(testParty.getPartySize() + ": Should be 5");
         // Add a remove function (that updates party size) so parties can be changed
         // dynamically
@@ -85,8 +86,8 @@ class Tester {
     }
 
     public static void main(String args[]) {
-        // partyTest();
-        statsTest();
+        partyTest();
+        //statsTest();
         //uiTest();
     }
 }
