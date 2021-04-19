@@ -1,20 +1,17 @@
 package edu.ithaca;
 
-public class EnemyQuantStats {
+public class EnemyQuantStats extends QuantativeStats {
     public double cr;
     public int exp;
-
-    public EnemyQuantStats() {
-        this.cr = 0;
-        this.exp = 0;
-    }
 
     /**
      * 
      * @param cr  - Combat rating, can range from 0-30
      * @param exp - Eexperience points
      */
-    public EnemyQuantStats(double cr, int exp) {
+    public EnemyQuantStats(double cr, int exp, int moveSpeed, int armorClass, int hp, int con, int str, int wis, int intel, int dex,
+    int cha) {
+        super(moveSpeed, armorClass, hp, con, str, wis, intel, dex, cha);
         this.cr = cr;
         this.exp = exp;
     }
