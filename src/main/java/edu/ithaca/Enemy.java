@@ -91,7 +91,7 @@ public class Enemy {
      * @param movementType - the char used to seperate in the languages parameter
      */
     public Enemy(boolean isHumanoid, boolean isMagicUser, String terrain, String movementType,
-    QuantativeStats qualStats, QuantativeStats quanStats){
+    QualatativeStats qualStats, QuantativeStats quanStats){
         this.isHumanoid = isHumanoid;
         this.isMagicUser = isMagicUser;
         this.terrain = terrain;
