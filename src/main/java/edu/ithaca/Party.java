@@ -56,6 +56,12 @@ public class Party {
         
     }
 
+    public Party(ArrayList<PartyMember> characters){
+        this.characters = characters;
+        this.partySize = characters.size();
+        
+    }
+
 
     
 }
