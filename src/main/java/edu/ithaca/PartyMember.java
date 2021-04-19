@@ -8,18 +8,16 @@ import edu.ithaca.QuantativeStats;
 import edu.ithaca.QualatativeStats.alignment;
 import edu.ithaca.QualatativeStats.size;
 
-enum CharacterClass {BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE, SORCERER, 
-    WARLOCK, WIZARD}
-
-enum CharacterRace {DRAGONBORNE, DWARF, ELF, GNOME, HALFELF, HALFLING, HALFORC, HUMAN, TIEFLING}     
-
 public class PartyMember {
 
     private String name;
     private CharacterClass characterClass;
     private CharacterRace characterRace;
+<<<<<<< HEAD
     private QualatativeStats qualStats;
     private QuantativeStats quanStats;
+=======
+>>>>>>> 5f3296d2148989731d3e140ebe75b81740d818d0
 
     public String getName(){
         return name;
@@ -31,6 +29,7 @@ public class PartyMember {
 
     public CharacterRace getCharacterRace(){
         return characterRace;
+<<<<<<< HEAD
     }
 
     //qualitative stats
@@ -81,6 +80,8 @@ public class PartyMember {
 
     public int getCha(){
         return quanStats.getCha();
+=======
+>>>>>>> 5f3296d2148989731d3e140ebe75b81740d818d0
     }
 
     /**
@@ -89,6 +90,7 @@ public class PartyMember {
      * @param CharacterClass - enum that indicates class of the character
      * @param CharacterRace - enum that indicates race of the character
      */
+<<<<<<< HEAD
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
     QualatativeStats qualStats, QuantativeStats quanStats){
         this.name = "";
@@ -96,6 +98,12 @@ public class PartyMember {
         this.characterRace = characterRace;
         this.qualStats = qualStats;
         this.quanStats = quanStats;
+=======
+    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace){
+        this.name = "";
+        this.characterClass = characterClass;
+        this.characterRace = characterRace;
+>>>>>>> 5f3296d2148989731d3e140ebe75b81740d818d0
         
     }
 
