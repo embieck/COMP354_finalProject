@@ -5,12 +5,14 @@ public class EnemyQuantStats extends QuantativeStats {
     public int exp;
 
     /**
+     * Extends Quantatative Stats to include those only held by enemies and provide
+     * getters and setters for the agent to utilize
      * 
      * @param cr  - Combat rating, can range from 0-30
      * @param exp - Experience points
      */
-    public EnemyQuantStats(double cr, int exp, int moveSpeed, int armorClass, int hp, int con, int str, int wis, int intel, int dex,
-    int cha) {
+    public EnemyQuantStats(double cr, int exp, int moveSpeed, int armorClass, int hp, int con, int str, int wis,
+            int intel, int dex, int cha) {
         super(moveSpeed, armorClass, hp, con, str, wis, intel, dex, cha);
         this.cr = cr;
         this.exp = exp;
