@@ -1,4 +1,5 @@
 package edu.ithaca;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,36 +10,67 @@ public class Party {
     private ArrayList<PartyMember> characters;
     private int partySize;
 
-    public void addCharacter(PartyMember newMember){
+    /**
+     * Constructor
+     * 
+     * @param characters - arraylist of all characters in the party
+     * @param partySize  - int representing number of characters in the party
+     */
+    public Party(ArrayList<PartyMember> characters, int partySize) {
+        this.characters = characters;
+        this.partySize = partySize;
+    }
+
+    /**
+     * Constructor
+     * 
+     * @param characters - arraylist of all characters in the party
+     */
+    public Party(ArrayList<PartyMember> characters) {
+        this.characters = characters;
+        this.partySize = characters.size();
+    }
+
+    /**
+     * Adds a party member to the party (i.e. characters list)
+     * 
+     * @param newMember - Party member to add
+     */
+    public void addCharacter(PartyMember newMember) {
         characters.add(newMember);
     }
 
-    public int getPartySize(){
+    public int getPartySize() {
         return partySize;
     }
 
-    public PartyMember getCharacter(int placeInList){
-        if(placeInList >= characters.size()){
+    /**
+     * Returns a party member given their index in the party member list
+     * (characters)
+     * 
+     * @param placeInList - index of party member to return
+     * @return - party member at specified index, null if index is larger than party
+     *         size
+     */
+    public PartyMember getCharacter(int placeInList) {
+        if (placeInList >= characters.size()) {
             return null;
         }
         return characters.get(placeInList);
     }
 
-    public PartyMember findCharacterByName(String name){
-        for(int i = 0; i < characters.size(); i++){
+    /**
+     * Iterates through list of Party members and returns the first member with the
+     * given name
+     * 
+     * @param name - name of character to search for
+     * @return - Party member with specified name, null if none exists in the party
+     *         (characters list)
+     */
+    public PartyMember findCharacterByName(String name) {
+        for (int i = 0; i < characters.size(); i++) {
             PartyMember currentCharacter = characters.get(i);
-            if(currentCharacter.getName().equals(name)){
-                return currentCharacter;
-            }
-        }
-        return null;
-
-    }
-
-    public PartyMember findCharacterByClass(CharacterClass cc){
-        for(int i = 0; i < characters.size(); i++){
-            PartyMember currentCharacter = characters.get(i);
-            if(currentCharacter.getCharacterClass().equals(cc)){
+            if (currentCharacter.getName().equals(name)) {
                 return currentCharacter;
             }
         }
@@ -46,16 +78,20 @@ public class Party {
     }
 
     /**
-     * Constructor
-     * @param characters - arraylist of all characters in the party
-     * @param partySize - int representing number of characters in the party
+     * Iterates through list of Party members and returns the first member of the
+     * given class
+     * 
+     * @param cc - enum of character class to search by
+     * @return - Party member of Character Class cc, null if none exists in the
+     *         party (characters list)
      */
-    public Party(ArrayList<PartyMember> characters, int partySize){
-        this.characters = characters;
-        this.partySize = partySize;
-        
+    public PartyMember findCharacterByClass(CharacterClass cc) {
+        for (int i = 0; i < characters.size(); i++) {
+            PartyMember currentCharacter = characters.get(i);
+            if (currentCharacter.getCharacterClass().equals(cc)) {
+                return currentCharacter;
+            }
+        }
+        return null;
     }
-
-
-    
 }

@@ -4,8 +4,7 @@ import java.util.*;
 
 /**
  * extended by Character class Includes a constructor to set inital stats
- * Includes public getters and setters for all stats to allow the DungeonMaster
- * to edit stats
+ * Includes public getters and setters for all stats to allow edits to stats
  **/
 
 public class QualatativeStats {
@@ -34,16 +33,14 @@ public class QualatativeStats {
     public QualatativeStats(alignment align, size size, String languageStr, char delimiter) {
         this.align = align;
         this.size = size;
-        String curLang = "";
-        if (languageStr.isEmpty()) {
-            languages.add("common");
-        } else {
+        if (!languageStr.isEmpty()) {
+            String curLang = "";
             for (int i = 0; i < languageStr.length(); i++) {
                 if (languageStr.charAt(i) != delimiter)
                     curLang += languageStr.charAt(i);
                 else {
                     this.languages.add(curLang);
-                    curLang =""; 
+                    curLang = "";
                 }
             }
             languages.add(curLang);

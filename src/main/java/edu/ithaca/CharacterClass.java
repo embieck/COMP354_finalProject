@@ -1,5 +1,8 @@
 package edu.ithaca;
 
+/**
+ * Enum for possible party member/character class options
+ */
 public enum CharacterClass {
     BARBARIAN, 
     BARD, 

@@ -85,9 +85,58 @@ class Tester {
         System.out.println(juliet.getCharacterRace() + ": Should be Gnome");
     }
 
+    private static void characterInheritanceTest() {
+        // Create partyMembers and check if they are connected to qualatative and quantitative classes
+
+        //QUANT STAT: moveSpeed, AC, hp, con, str, wis, intel, dex, cha
+        //QUAL STAT: alignment, size, languages, delimiter
+        
+        QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
+        QualatativeStats qualKemi = new QualatativeStats(alignment.lawfulGood, size.medium, "common", ',');
+        
+        QuantativeStats quantSJ = new QuantativeStats(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        QualatativeStats qualSJ = new QualatativeStats(alignment.chaoticGood, size.tiny, "dragon", ',');
+        
+        QuantativeStats quantJuliet = new QuantativeStats(25, 14, 13, 14, 13, 11, 13, 14, 9);
+        QualatativeStats qualJuliet = new QualatativeStats(alignment.chaoticNeutral, size.large, "celestial, common", ',');
+        
+        QuantativeStats quantJomi = new QuantativeStats(20, 12, 11, 8, 10, 13, 12, 13, 16);
+        QualatativeStats qualJomi = new QualatativeStats(alignment.chaoticEvil, size.small, "common, dragon", ',');
+        
+        QuantativeStats quantSoromi = new QuantativeStats(30, 15, 65, 14, 15, 11, 14, 16, 14);
+        QualatativeStats qualSoromi = new QualatativeStats(alignment.neutralGood, size.huge, "common", ',');
+
+
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, qualKemi, quantKemi);
+        PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, qualSJ, quantSJ);
+        PartyMember juliet = new PartyMember("juliet", CharacterClass.CLERIC, CharacterRace.GNOME, qualJuliet, quantJuliet);
+        PartyMember jomi = new PartyMember("jomi", CharacterClass.DRUID, CharacterRace.HUMAN, qualJomi, quantJomi);
+        PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF, qualSoromi, quantSoromi);
+
+        System.out.println("------Testing PartyMember: Qualitative Getters-------");
+        System.out.println(soromi.getAlignment() + ": should be neutralGood");
+        System.out.println(jomi.getSize() + ": should be small");
+        System.out.println(juliet.getLanguages() + ": should be celestial and common");
+        System.out.println(sj.getLanguages() + ": should be dragon");
+
+        System.out.println("------Testing PartyMember: Quantitative Getters-------");
+        System.out.println(kemi.getMoveSpeed() + ": should be 30");
+        System.out.println(sj.getArmorClass() + ": should be 2");
+        System.out.println(juliet.getHP() + ": should be 13");
+        System.out.println(jomi.getCon() + ": should be 8");
+        System.out.println(soromi.getStr() + ": should be 15");
+        System.out.println(kemi.getWis() + ": should be 11");
+        System.out.println(sj.getIntel() + ": should be 7");
+        System.out.println(juliet.getDex() + ": should be 14");
+        System.out.println(jomi.getCha() + ": should be 16");
+
+        
+    }
+
     public static void main(String args[]) {
-        partyTest();
+        //partyTest();
         //statsTest();
         //uiTest();
+        characterInheritanceTest();
     }
 }

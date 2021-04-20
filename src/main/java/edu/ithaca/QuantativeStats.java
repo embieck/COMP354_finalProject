@@ -1,9 +1,9 @@
 package edu.ithaca;
 
 /**
- * extended by Character class
- * Includes a constructor to set inital stats
- * Includes public getters and setters for all stats to allow the DungeonMaster to edit stats w/o creating a new character
+ * extended by Character class Includes a constructor to set inital stats
+ * Includes public getters and setters for all stats to allow edits to stats w/o
+ * creating a new character
  **/
 public class QuantativeStats {
     public int moveSpeed;
@@ -18,15 +18,17 @@ public class QuantativeStats {
 
     /**
      * Contructor
-     * @param moveSpeed - Range a character can move in a single turn
+     * 
+     * @param moveSpeed  - Range a character can move in a single turn
      * @param armorClass - armor class, how difficult the creature is to hit
-     * @param hp - hit points, how much damage the creature must take before being defeated
-     * @param con - Consititution ability score
-     * @param str - Strength ability score
-     * @param wis - Wisdom ability score
-     * @param intel - Intelligence ability score
-     * @param dex - Dexterity ability score
-     * @param cha - Charisma ability score
+     * @param hp         - hit points, how much damage the creature must take before
+     *                   being defeated
+     * @param con        - Consititution ability score
+     * @param str        - Strength ability score
+     * @param wis        - Wisdom ability score
+     * @param intel      - Intelligence ability score
+     * @param dex        - Dexterity ability score
+     * @param cha        - Charisma ability score
      */
     public QuantativeStats(int moveSpeed, int armorClass, int hp, int con, int str, int wis, int intel, int dex,
             int cha) {
@@ -40,6 +42,7 @@ public class QuantativeStats {
         this.dex = dex;
         this.cha = cha;
     }
+
     public int getMoveSpeed() {
         return this.moveSpeed;
     }
