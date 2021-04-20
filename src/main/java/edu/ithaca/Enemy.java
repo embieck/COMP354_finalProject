@@ -13,7 +13,7 @@ public class Enemy {
     private boolean isMagicUser;
     private String terrain;
     private String movementType;
-    private QuantativeStats quanStats;
+    private EnemyQuantStats quanStats;
     private QualatativeStats qualStats;
 
 
@@ -83,6 +83,14 @@ public class Enemy {
         return quanStats.getCha();
     }
 
+    public double getCr(){
+        return quanStats.getCr();
+    }
+
+    public double getExp(){
+        return quanStats.getexp();
+    }
+
     /**
      * Constructor
      * @param isHumanoid - gives a clue to the default behavior of the creatures
@@ -91,7 +99,7 @@ public class Enemy {
      * @param movementType - the char used to seperate in the languages parameter
      */
     public Enemy(boolean isHumanoid, boolean isMagicUser, String terrain, String movementType,
-    QualatativeStats qualStats, QuantativeStats quanStats){
+    QualatativeStats qualStats, EnemyQuantStats quanStats){
         this.isHumanoid = isHumanoid;
         this.isMagicUser = isMagicUser;
         this.terrain = terrain;
