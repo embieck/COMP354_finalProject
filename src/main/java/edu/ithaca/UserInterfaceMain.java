@@ -44,6 +44,7 @@ public class UserInterfaceMain {
      */
     public static Party readPartyFile(String filename) throws FileNotFoundException, RuntimeException {
         File f = new File(filename);
+        System.out.println(f.exists());
         Scanner scan = new Scanner(f);
         scan.useDelimiter(",");
         ArrayList<PartyMember> partyMembers = new ArrayList<>();
