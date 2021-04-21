@@ -17,7 +17,7 @@ import java.util.*;
 public class Enemy {
     private boolean isHumanoid;
     private boolean isMagicUser;
-    private String terrain;
+    private Terrain terrain;
     private String movementType;
     private EnemyQuantStats quanStats;
     private QualatativeStats qualStats;
@@ -29,12 +29,12 @@ public class Enemy {
      *                     desires
      * @param isMagicUser  - boolean for whether the enemy is a magic user, this
      *                     provides more versatility in combat moves
-     * @param terrain      - type of landscape the encounter will take place in
+     * @param terrain      - enum that indicates type of landscape the encounter will take place in
      * @param movementType - enemy's primary movement type - ground, fly, or swim
      * @param qualStats    - class that holds qualatative enemy stats
      * @param quanStats    - class that holds quantatative enemy stats
      */
-    public Enemy(boolean isHumanoid, boolean isMagicUser, String terrain, String movementType,
+    public Enemy(boolean isHumanoid, boolean isMagicUser, Terrain terrain, String movementType,
             QualatativeStats qualStats, EnemyQuantStats quanStats) {
         this.isHumanoid = isHumanoid;
         this.isMagicUser = isMagicUser;
@@ -52,7 +52,7 @@ public class Enemy {
         return isMagicUser;
     }
 
-    public String getTerrain() {
+    public Terrain getTerrain() {
         return terrain;
     }
 

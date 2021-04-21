@@ -130,13 +130,27 @@ class Tester {
         System.out.println(juliet.getDex() + ": should be 14");
         System.out.println(jomi.getCha() + ": should be 16");
 
-        
+    }
+
+    private static void enemyInheritanceTest() {
+        // Create enemies and make sure that enemyquant stats inherets correctly
+        //ENEMY: isHumanoid, isMagicUser, terrain, movementType, qualStats, quanStats
+        //QUAL: alignment, size, languages, delimiter
+        //QUAN: 
+        Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, "ground", null, null);
+        Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, "fly", null, null);
+
+        System.out.println("------Testing Enemy: Qualitative Getters-------");
+        System.out.println(yeti.getTerrain() + ": should be Arctic");
+        System.out.println(dragon.getTerrain() + ": should be Mountain");
+
     }
 
     public static void main(String args[]) {
         //partyTest();
         //statsTest();
         //uiTest();
-        characterInheritanceTest();
+        //characterInheritanceTest();
+        enemyInheritanceTest();
     }
 }
