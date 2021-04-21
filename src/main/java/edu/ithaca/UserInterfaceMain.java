@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
@@ -46,11 +47,18 @@ public class UserInterfaceMain {
         Scanner scan = new Scanner(f);
         scan.useDelimiter(",");
         ArrayList<PartyMember> partyMembers = new ArrayList<>();
-        while (scan.hasNext()) {
-            String charName = scan.next();
-            CharacterClass cc = stringToClass(scan.next());
-            CharacterRace cr = stringToRace(scan.next());
-            partyMembers.add(new PartyMember(charName, cc, cr));
+        // remove file header 
+        scan.nextLine();
+        try{
+            while (scan.hasNext()) {
+                String charName = scan.next();
+                CharacterClass cc = stringToClass(scan.next());
+                CharacterRace cr = stringToRace(scan.next());
+                partyMembers.add(new PartyMember(charName, cc, cr));
+            }
+        }catch(InputMismatchException e){
+            System.out.println("type mismatch takes place. Party member list will be emptied");
+
         }
 
         scan.close();
@@ -148,7 +156,7 @@ public class UserInterfaceMain {
      * Converts a string representing a character race to its proper enum
      * counterpart
      * 
-     * @return enum Character Racw
+     * @return enum Character Race
      */
     public static CharacterRace stringToRace(String race) throws IllegalArgumentException {
         EnumMap<CharacterRace, String> racesAndStrings = createStringToRaceMapping();
