@@ -18,7 +18,7 @@ public class Enemy {
     private boolean isHumanoid;
     private boolean isMagicUser;
     private Terrain terrain;
-    private String movementType;
+    private MovementType movementType;
     private EnemyQuantStats quanStats;
     private QualatativeStats qualStats;
 
@@ -34,7 +34,7 @@ public class Enemy {
      * @param qualStats    - class that holds qualatative enemy stats
      * @param quanStats    - class that holds quantatative enemy stats
      */
-    public Enemy(boolean isHumanoid, boolean isMagicUser, Terrain terrain, String movementType,
+    public Enemy(boolean isHumanoid, boolean isMagicUser, Terrain terrain, MovementType movementType,
             QualatativeStats qualStats, EnemyQuantStats quanStats) {
         this.isHumanoid = isHumanoid;
         this.isMagicUser = isMagicUser;
@@ -56,7 +56,7 @@ public class Enemy {
         return terrain;
     }
 
-    public String getMovementType() {
+    public MovementType getMovementType() {
         return movementType;
     }
 

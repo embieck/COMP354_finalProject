@@ -136,13 +136,35 @@ class Tester {
         // Create enemies and make sure that enemyquant stats inherets correctly
         //ENEMY: isHumanoid, isMagicUser, terrain, movementType, qualStats, quanStats
         //QUAL: alignment, size, languages, delimiter
-        //QUAN: 
-        Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, "ground", null, null);
-        Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, "fly", null, null);
+        //ENEMYQUAN: cr, exp, moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
-        System.out.println("------Testing Enemy: Qualitative Getters-------");
+        QualatativeStats qualYeti = new QualatativeStats(alignment.chaoticEvil, size.large, "Yeti", ',');
+        EnemyQuantStats quanYeti = new EnemyQuantStats(cr, exp, moveSpeed, armorClass, hp, con, str, wis, intel, dex, cha)
+
+        QualatativeStats qualDragon = new QualatativeStats(alignment.neutralEvil, size.huge, "Dragon", ',');
+
+        QualatativeStats qualGelatinousCube = new QualatativeStats(alignment.unaligned, size.medium, "None", ',');
+
+        QualatativeStats qualBandit = new QualatativeStats(alignment.neutralEvil, size.medium, "Common", ',');
+
+        QualatativeStats qualAboleth = new QualatativeStats(alignment.lawfulEvil, size.gargantuan, "Aboleth, Aquan, Undercommon", ',');
+
+        QualatativeStats qualBeholder = new QualatativeStats(alignment.lawfulEvil, size.large, "Beholder, Undercommon", ',');
+
+        Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, MovementType.GROUND, null, null);
+        Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, MovementType.FLY, null, null);
+        Enemy gelatinousCube = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
+        Enemy bandit = new Enemy(true, false, Terrain.GRASSLAND, MovementType.GROUND, null, null);
+        Enemy aboleth = new Enemy(false, false, Terrain.COAST, MovementType.SWIM, null, null);
+        Enemy beholder = new Enemy(false, true, Terrain.UNDERDARK, MovementType.FLY, null, null);
+
+        System.out.println("------Testing Enemy: Basic Getters-------");
         System.out.println(yeti.getTerrain() + ": should be Arctic");
         System.out.println(dragon.getTerrain() + ": should be Mountain");
+
+        System.out.println("------Testing Enemy: Qualitative Getters-------");
+
+        System.out.println("------Testing Enemy: Quantitative Getters-------");
 
     }
 
