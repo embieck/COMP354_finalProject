@@ -139,32 +139,62 @@ class Tester {
         //ENEMYQUAN: cr, exp, moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
         QualatativeStats qualYeti = new QualatativeStats(alignment.chaoticEvil, size.large, "Yeti", ',');
-        EnemyQuantStats quanYeti = new EnemyQuantStats(cr, exp, moveSpeed, armorClass, hp, con, str, wis, intel, dex, cha)
+        EnemyQuantStats quanYeti = new EnemyQuantStats(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
         QualatativeStats qualDragon = new QualatativeStats(alignment.neutralEvil, size.huge, "Dragon", ',');
+        EnemyQuantStats quanDragon = new EnemyQuantStats(11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 
         QualatativeStats qualGelatinousCube = new QualatativeStats(alignment.unaligned, size.medium, "None", ',');
+        EnemyQuantStats quanGelationusCube = new EnemyQuantStats(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22);
 
         QualatativeStats qualBandit = new QualatativeStats(alignment.neutralEvil, size.medium, "Common", ',');
+        EnemyQuantStats quanBandit = new EnemyQuantStats(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21);
 
         QualatativeStats qualAboleth = new QualatativeStats(alignment.lawfulEvil, size.gargantuan, "Aboleth, Aquan, Undercommon", ',');
+        EnemyQuantStats quanAboleth = new EnemyQuantStats(5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55);
 
         QualatativeStats qualBeholder = new QualatativeStats(alignment.lawfulEvil, size.large, "Beholder, Undercommon", ',');
+        EnemyQuantStats quanBeholder = new EnemyQuantStats(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33);
 
-        Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, MovementType.GROUND, null, null);
-        Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, MovementType.FLY, null, null);
-        Enemy gelatinousCube = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        Enemy bandit = new Enemy(true, false, Terrain.GRASSLAND, MovementType.GROUND, null, null);
-        Enemy aboleth = new Enemy(false, false, Terrain.COAST, MovementType.SWIM, null, null);
-        Enemy beholder = new Enemy(false, true, Terrain.UNDERDARK, MovementType.FLY, null, null);
+        Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, MovementType.GROUND, qualYeti, quanYeti);
+        Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, MovementType.FLY, qualDragon, quanDragon);
+        Enemy gelatinousCube = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, qualGelatinousCube, quanGelationusCube);
+        Enemy bandit = new Enemy(true, false, Terrain.GRASSLAND, MovementType.GROUND, qualBandit, quanBandit);
+        Enemy aboleth = new Enemy(false, false, Terrain.COAST, MovementType.SWIM, qualAboleth, quanAboleth);
+        Enemy beholder = new Enemy(false, true, Terrain.UNDERDARK, MovementType.FLY, qualBeholder, quanBeholder);
 
         System.out.println("------Testing Enemy: Basic Getters-------");
+        System.out.println(dragon.getIsHumanoid() + ": should be False");
+        System.out.println(bandit.getIsHumanoid() + ": should be True");
+        System.out.println(beholder.getIsMagicUser() + ": should be True");
+        System.out.println(aboleth.getIsMagicUser() + ": should be False");
         System.out.println(yeti.getTerrain() + ": should be Arctic");
         System.out.println(dragon.getTerrain() + ": should be Mountain");
+        System.out.println(gelatinousCube.getMovementType() + ": should be Ground");
+        System.out.println(aboleth.getMovementType() + ": should be Swim");
+        
 
         System.out.println("------Testing Enemy: Qualitative Getters-------");
+        System.out.println(gelatinousCube.getAlignment() + ": should be Unaligned");
+        System.out.println(bandit.getAlignment()+ ": should be Neutral Evil");
+        System.out.println(aboleth.getSize() + ": should be Gargantuan");
+        System.out.println(beholder.getSize() + ": should be Large");
+        System.out.println(yeti.getLanguages() + ": should be Yeti");
+        System.out.println(aboleth.getLanguages() + ": should be Aboleth, Aquan, and Undercommon");
+
 
         System.out.println("------Testing Enemy: Quantitative Getters-------");
+        System.out.println(yeti.getCr() + ": should be 1.0");
+        System.out.println(dragon.getExp() + ": should be 10.0");
+        System.out.println(gelatinousCube.getMoveSpeed() + ": should be 6");
+        System.out.println(bandit.getArmorClass() + ": should be 7");
+        System.out.println(aboleth.getHP() + ": should be 25");
+        System.out.println(beholder.getCon() + ": should be 18");
+        System.out.println(yeti.getStr() + ": should be 7");
+        System.out.println(dragon.getWis() + ": should be 4");
+        System.out.println(gelatinousCube.getIntel() + ": should be 18");
+        System.out.println(bandit.getDex() + ": should be 19");
+        System.out.println(aboleth.getCha() + ": should be 55");
 
     }
 
