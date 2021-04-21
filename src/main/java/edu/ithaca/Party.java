@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class Party {
 
-    private ArrayList<PartyMember> characters;
+    public ArrayList<PartyMember> characters;
     private int partySize;
 
     /**
