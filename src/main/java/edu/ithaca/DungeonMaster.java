@@ -1,8 +1,7 @@
 package edu.ithaca;
 
 /**
- * Dungeon Master class holds a single property of username so different
- * DM's/users can access the interface and save their party info
+ * Dungeon Master class
  */
 public class DungeonMaster {
     private String username;
