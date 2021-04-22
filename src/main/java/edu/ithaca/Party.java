@@ -37,7 +37,8 @@ public class Party {
      * @param newMember - Party member to add
      */
     public void addCharacter(PartyMember newMember) {
-        characters.add(newMember);
+        this.characters.add(newMember);
+        this.partySize=this.characters.size();
     }
 
     public int getPartySize() {

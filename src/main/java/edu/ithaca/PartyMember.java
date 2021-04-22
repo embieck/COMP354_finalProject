@@ -44,7 +44,7 @@ public class PartyMember {
      * @param CharacterRace  - enum that indicates race of the character
      */
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace) {
-        this.name = "";
+        this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
 

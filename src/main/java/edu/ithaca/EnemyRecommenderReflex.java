@@ -3,7 +3,7 @@ import java.util.*;
 import edu.ithaca.QualatativeStats.*;
 import edu.ithaca.QualatativeStats.alignment;
 
-public class EnemyRecommenderReflex {
+public class EnemyRecommenderReflex implements EnemyRecommender{
 
 
     public static Enemy recommendEnemy(Party party){

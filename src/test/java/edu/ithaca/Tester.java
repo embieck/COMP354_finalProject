@@ -29,7 +29,7 @@ class Tester {
     }
 
     private static void uiTest() {
-        UserInterfaceMain.properUsernameLogin();
+        UserInterfaceMain.getProperUsernameLogin();
         Party testParty;
         // UserInterfaceMain.writePartyFile("test.csv", testParty);
         // UserInterfaceMain.readPartyFile("test.csv");
