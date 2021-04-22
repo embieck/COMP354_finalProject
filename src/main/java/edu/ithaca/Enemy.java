@@ -124,13 +124,36 @@ public class Enemy {
 
     public String toString(){
 
+        ArrayList<String> randEnemyNameList = new ArrayList<>();
+        randEnemyNameList.add("Yeti");
+        randEnemyNameList.add("Aarakocra");
+        randEnemyNameList.add("Dragon");
+        randEnemyNameList.add("Owl Bear");
+        randEnemyNameList.add("Gelatinous cube");
+        randEnemyNameList.add("Beholder");
+        randEnemyNameList.add("Aboleth");
+        randEnemyNameList.add("Bandit");
+        randEnemyNameList.add("Banshee");
+        randEnemyNameList.add("Goblin");
+        randEnemyNameList.add("Orc");
+        randEnemyNameList.add("Zombie");
+        randEnemyNameList.add("Werewolf");
+        randEnemyNameList.add("Giant Rat");
+        randEnemyNameList.add("Arachnid Queen");
+        randEnemyNameList.add("Rust Monster");
+        randEnemyNameList.add("Cultist"); 
+
+        int rnd = new Random().nextInt(randEnemyNameList.size());
+        String chosenEnemy = randEnemyNameList.get(rnd);
+
         //hp, con, str, wis, intel, dex, cha, cr, exp
         
-        return ("Enemy: Is Humanoid: " + isHumanoid + "\n" + "Is Magic User: " + isMagicUser + "\n"
+        return ("Enemy: " + chosenEnemy + "\n" + "Is Humanoid: " + isHumanoid + "\n" + "Is Magic User: " + isMagicUser + "\n"
         + "Movespeed: " + this.getMoveSpeed() + "\n" + "Armor Class: " + this.getArmorClass() + "\n"
         + "HP: " + this.getHP() + "\n" + "Constitution: " + this.getCon() + "\n" + "Strength: "
         + this.getStr() + "\n" + "Wisdom: " + this.getWis() + "\n" + "Intelligence: " + this.getIntel() + "\n"
-        + "Dexterity: " + this.getDex() + "\n" + "Charisma: " + this.getCha() + "\n");
+        + "Dexterity: " + this.getDex() + "\n" + "Charisma: " + this.getCha() + "\n" + "EXP: " 
+        + this.getExp() + "\n" + "Combat rating: " + this.getCr() + "\n");
 
     }
 
