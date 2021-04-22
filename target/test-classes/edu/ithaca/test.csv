@@ -1,5 +1,0 @@
-Name, CharacterRace, CharacterClass, alignment, size, languages, moveSpeed, AC, HP, con, str, wis, intel, dex, cha
-kemi, ELF, BARD, neutral, medium, common, 30, 8, 8, 12, 14, 10, 8, 9, 10
-Finn, Human, Fighter, lawfulNeutral, medium, common draconic dwarvish, 30, 17, 12, 15, 16, 13, 11, 9, 14
-Jake, halfelf, bard, neutralGood, small, common elvish halfling, 30, 15, 31, 14, 8, 10, 12, 16, 18
-BMO, dwarf, cleric, lawfulGood, medium, common dwarvish giant, 25, 18, 27, 15, 14, 16, 10, 8, 12

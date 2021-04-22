@@ -6,7 +6,7 @@ import edu.ithaca.QualatativeStats.alignment;
 public class EnemyRecommenderReflex {
 
 
-    public Enemy recommendEnemy(Party party){
+    public static Enemy recommendEnemy(Party party){
 
         //QUANT STAT: moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
@@ -22,7 +22,7 @@ public class EnemyRecommenderReflex {
         int combinedDEX = 0;
         int combinedCHA = 0;
 
-        for (int i = 0; i <= partySize; i++){
+        for (int i = 0; i <= party.getPartySize()-1; i++){
             PartyMember curMember = party.getCharacter(i);
             combinedMS += curMember.getMoveSpeed();
             combinedAC += curMember.getArmorClass(); 
@@ -145,6 +145,44 @@ public class EnemyRecommenderReflex {
         Enemy recommendedEnemy = new Enemy(chosenEnemy.getIsHumanoid(), chosenEnemy.getIsMagicUser(), chosenEnemy.getTerrain(), chosenEnemy.getMovementType(), chosenQuals, enemyQuant);
 
         return recommendedEnemy;
+
+    }
+
+    public void main(String args[]){
+
+        QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
+        QualatativeStats qualKemi = new QualatativeStats(alignment.lawfulGood, size.medium, "common, elvish, sylvan", ',');
+        
+        QuantativeStats quantEmma = new QuantativeStats(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        QualatativeStats qualEmma = new QualatativeStats(alignment.chaoticGood, size.tiny, "common, elvish", ',');
+        
+        QuantativeStats quantKelsey = new QuantativeStats(25, 14, 13, 14, 13, 11, 13, 14, 9);
+        QualatativeStats qualKelsey = new QualatativeStats(alignment.chaoticNeutral, size.large, "celestial, common", ',');
+        
+        QuantativeStats quantToby = new QuantativeStats(20, 12, 11, 8, 10, 13, 12, 13, 16);
+        QualatativeStats qualToby = new QualatativeStats(alignment.chaoticEvil, size.small, "common, draconic", ',');
+        
+
+        ArrayList<PartyMember> characters = new ArrayList<>();
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, qualKemi, quantKemi);
+        PartyMember emma = new PartyMember("emma", CharacterClass.PALADIN, CharacterRace.HALFELF, qualEmma, quantEmma);
+        PartyMember kelsey = new PartyMember("kelsey", CharacterClass.DRUID, CharacterRace.HALFORC, qualKelsey, quantKelsey);
+        PartyMember toby = new PartyMember("toby", CharacterClass.WIZARD, CharacterRace.DRAGONBORNE, qualToby, quantToby);
+        characters.add(kemi);
+        characters.add(emma);
+        characters.add(kelsey);
+        characters.add(toby);
+
+        Party newParty = new Party(characters, characters.size());
+
+        Enemy recommendedEnemy1 = recommendEnemy(newParty);
+        Enemy recommendedEnemy2 = recommendEnemy(newParty);
+        Enemy recommendedEnemy3 = recommendEnemy(newParty);
+
+        System.out.println("Here are three recommended enemies: " + "\n" );
+        System.out.println(recommendedEnemy1 + "\n");
+        System.out.println(recommendedEnemy2 + "\n");
+        System.out.println(recommendedEnemy3 + "\n");
 
     }
     

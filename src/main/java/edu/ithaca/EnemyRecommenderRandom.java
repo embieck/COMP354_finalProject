@@ -5,7 +5,7 @@ import edu.ithaca.QualatativeStats.alignment;
 
 public class EnemyRecommenderRandom {
 
-    public Enemy recommendRandomEnemy(){
+    public static Enemy recommendRandomEnemy(){
 
         //Small Enemy Database
 

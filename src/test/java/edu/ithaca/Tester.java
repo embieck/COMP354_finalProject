@@ -198,11 +198,63 @@ class Tester {
 
     }
 
+    private static Enemy enemyRecommenderReflexTest() {
+
+        QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
+        QualatativeStats qualKemi = new QualatativeStats(alignment.lawfulGood, size.medium, "common, elvish, sylvan", ',');
+        
+        QuantativeStats quantEmma = new QuantativeStats(30, 13, 11, 12, 15, 14, 14, 11, 12);
+        QualatativeStats qualEmma = new QualatativeStats(alignment.chaoticGood, size.tiny, "common, elvish", ',');
+        
+        QuantativeStats quantKelsey = new QuantativeStats(30, 14, 13, 14, 13, 11, 13, 14, 9);
+        QualatativeStats qualKelsey = new QualatativeStats(alignment.chaoticNeutral, size.large, "celestial, common", ',');
+        
+        QuantativeStats quantToby = new QuantativeStats(30, 12, 11, 8, 10, 13, 12, 13, 16);
+        QualatativeStats qualToby = new QualatativeStats(alignment.chaoticEvil, size.gargantuan, "common, draconic", ',');
+        
+
+        ArrayList<PartyMember> characters = new ArrayList<>();
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, qualKemi, quantKemi);
+        PartyMember emma = new PartyMember("emma", CharacterClass.PALADIN, CharacterRace.HALFELF, qualEmma, quantEmma);
+        PartyMember kelsey = new PartyMember("kelsey", CharacterClass.DRUID, CharacterRace.HALFORC, qualKelsey, quantKelsey);
+        PartyMember toby = new PartyMember("toby", CharacterClass.WIZARD, CharacterRace.DRAGONBORNE, qualToby, quantToby);
+        characters.add(kemi);
+        characters.add(emma);
+        characters.add(kelsey);
+        characters.add(toby);
+
+        Party newParty = new Party(characters, characters.size());
+
+        Enemy recommendedEnemy = EnemyRecommenderReflex.recommendEnemy(newParty);
+        return recommendedEnemy;
+
+
+    }
+
+    private static Enemy enemyRecommenderRandomTest(){
+
+        Enemy randomRecommendedEnemy = EnemyRecommenderRandom.recommendRandomEnemy();
+        return randomRecommendedEnemy;
+
+
+    }
+
+
+
     public static void main(String args[]) {
         //partyTest();
         //statsTest();
         //uiTest();
         //characterInheritanceTest();
-        enemyInheritanceTest();
+        //enemyInheritanceTest();
+        System.out.println(enemyRecommenderReflexTest());
+        System.out.println(enemyRecommenderReflexTest());
+        System.out.println(enemyRecommenderReflexTest());
+
+
+        enemyRecommenderRandomTest();
+        enemyRecommenderRandomTest();
+        enemyRecommenderRandomTest();
+
     }
 }
