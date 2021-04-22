@@ -30,7 +30,7 @@ public class UITester {
         UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest2.csv", party);
         UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv", party);
         
-        party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.HUMAN));
+        party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.ELF));
         UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv", party);
         Party newP = UserInterfaceMain.readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv");
         assertEquals(2,newP.getPartySize());
