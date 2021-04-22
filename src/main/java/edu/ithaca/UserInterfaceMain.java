@@ -44,18 +44,28 @@ public class UserInterfaceMain {
      */
     public static Party readPartyFile(String filename) throws FileNotFoundException, RuntimeException {
         File f = new File(filename);
-        System.out.println(f.exists());
         Scanner scan = new Scanner(f);
         scan.useDelimiter(",");
         ArrayList<PartyMember> partyMembers = new ArrayList<>();
-        // remove file header 
-        scan.nextLine();
         try{
             while (scan.hasNext()) {
                 String charName = scan.next();
-                CharacterClass cc = stringToClass(scan.next());
-                CharacterRace cr = stringToRace(scan.next());
-                partyMembers.add(new PartyMember(charName, cc, cr));
+                if(charName.equalsIgnoreCase("Name")){
+                    scan.nextLine();
+                    charName=scan.next();
+                }
+                String raceOrClass = scan.next();
+                if(isStringClass(raceOrClass)){
+                    CharacterClass cc = stringToClass(raceOrClass);
+                    CharacterRace cr = stringToRace(scan.next());
+                    partyMembers.add(new PartyMember(charName, cc, cr));
+                }
+                else{
+                    CharacterClass cc = stringToClass(scan.next());
+                    CharacterRace cr = stringToRace(raceOrClass);
+                    partyMembers.add(new PartyMember(charName, cc, cr));
+                }
+                
             }
         }catch(InputMismatchException e){
             System.out.println("type mismatch takes place. Party member list will be emptied");
@@ -120,14 +130,30 @@ public class UserInterfaceMain {
         EnumMap<CharacterClass, String> classesAndStrings = createStringToClassMapping();
         Set<Entry<CharacterClass, String>> entries = classesAndStrings.entrySet();
         Iterator<Entry<CharacterClass, String>> i = entries.iterator();
+        className=className.trim();
         while (i.hasNext()) {
             Entry<CharacterClass, String> entry = i.next();
             if (entry.getValue().equalsIgnoreCase(className)) {
                 return entry.getKey();
             }
         }
-
+        
         throw new IllegalArgumentException("invalid class name");
+
+    }
+
+    public static boolean isStringClass(String className) {
+        EnumMap<CharacterClass, String> classesAndStrings = createStringToClassMapping();
+        Set<Entry<CharacterClass, String>> entries = classesAndStrings.entrySet();
+        Iterator<Entry<CharacterClass, String>> i = entries.iterator();
+        className=className.trim();
+        while (i.hasNext()) {
+            Entry<CharacterClass, String> entry = i.next();
+            if (entry.getValue().equalsIgnoreCase(className)) {
+                return true;
+            }
+        }
+        return false;
 
     }
 
@@ -163,15 +189,30 @@ public class UserInterfaceMain {
         EnumMap<CharacterRace, String> racesAndStrings = createStringToRaceMapping();
         Set<Entry<CharacterRace, String>> entries = racesAndStrings.entrySet();
         Iterator<Entry<CharacterRace, String>> i = entries.iterator();
+        race = race.trim();
         while (i.hasNext()) {
             Entry<CharacterRace, String> entry = i.next();
             if (entry.getValue().equalsIgnoreCase(race)) {
                 return entry.getKey();
             }
         }
-
+        //System.out.println(race);
         throw new IllegalArgumentException("invalid race name");
 
+    }
+
+    public static boolean isStringRace(String race){
+        EnumMap<CharacterRace, String> racesAndStrings = createStringToRaceMapping();
+        Set<Entry<CharacterRace, String>> entries = racesAndStrings.entrySet();
+        Iterator<Entry<CharacterRace, String>> i = entries.iterator();
+        race = race.trim();
+        while (i.hasNext()) {
+            Entry<CharacterRace, String> entry = i.next();
+            if (entry.getValue().equalsIgnoreCase(race)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -185,8 +226,8 @@ public class UserInterfaceMain {
     public static void writePartyFile(String filename, Party p) throws FileNotFoundException, IOException {
         File f = new File(filename);
         BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-        bw.write("party info to be added");
-
+        //System.out.println(p.getPartySize());
+        bw.write("Name, CharacterRace/CharacterClass, CharacterRace/CharacterClass,\n");
         for (int i = 0; i < p.getPartySize(); i++) {
             PartyMember c = p.getCharacter(i);
             String delim = ",";
@@ -237,6 +278,10 @@ public class UserInterfaceMain {
             } else {
                 bw.write("human" + delim);
             }
+            
+            if(i<p.getPartySize()-1){
+                bw.write("\n");
+            }
         }
         bw.close();
 
@@ -245,6 +290,7 @@ public class UserInterfaceMain {
     public static void main(String[] args) {
         String username = properUsernameLogin();
         DungeonMaster dm = new DungeonMaster(username);
+
 
     }
 
