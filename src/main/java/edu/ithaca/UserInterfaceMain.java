@@ -19,7 +19,7 @@ public class UserInterfaceMain {
      * 
      * @return valid username string entered by user
      */
-    public static String properUsernameLogin() {
+    public static String getProperUsernameLogin() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter username:\n");
         String username = scan.nextLine();
@@ -142,6 +142,12 @@ public class UserInterfaceMain {
 
     }
 
+    /**
+     * checks to see whether string entered matches one of the class enums
+     * @param className
+     * @return boolean of whether className matches one of the enums
+     */
+
     public static boolean isStringClass(String className) {
         EnumMap<CharacterClass, String> classesAndStrings = createStringToClassMapping();
         Set<Entry<CharacterClass, String>> entries = classesAndStrings.entrySet();
@@ -200,6 +206,11 @@ public class UserInterfaceMain {
         throw new IllegalArgumentException("invalid race name");
 
     }
+    /**
+     * checks to see whether string entered matches one of the race enums
+     * @param race
+     * @return boolean of whether race matches one of the enums
+     */
 
     public static boolean isStringRace(String race){
         EnumMap<CharacterRace, String> racesAndStrings = createStringToRaceMapping();
@@ -213,6 +224,39 @@ public class UserInterfaceMain {
             }
         }
         return false;
+    }
+    /**
+     * Converts a string representing a terrain to its proper enum
+     * counterpart
+     * 
+     * @return enum Terrain
+     */
+    private static EnumMap<Terrain, String> createStringToTerrainMapping() {
+        EnumMap<Terrain, String> terrainsAndStrings = new EnumMap<>(Terrain.class);
+        terrainsAndStrings.put(Terrain.ARCTIC, "arctic");
+        terrainsAndStrings.put(Terrain.COAST, "coast");
+        terrainsAndStrings.put(Terrain.DESERT, "desert");
+        terrainsAndStrings.put(Terrain.FOREST, "forest");
+        terrainsAndStrings.put(Terrain.GRASSLAND, "grassland");
+        terrainsAndStrings.put(Terrain.MOUNTAIN, "mountain");
+        terrainsAndStrings.put(Terrain.SWAMP, "swamp");
+        terrainsAndStrings.put(Terrain.UNDERDARK, "underdark");
+        return terrainsAndStrings;
+    }
+
+    /**
+     * Converts a string representing a movement type to its proper enum
+     * counterpart
+     * 
+     * @return enum MovementType
+     */
+    private static EnumMap<MovementType, String> createStringToMovementTypeMapping() {
+        EnumMap<MovementType, String> movementsAndStrings = new EnumMap<>(MovementType.class);
+        movementsAndStrings.put(MovementType.FLY, "fly");
+        movementsAndStrings.put(MovementType.GROUND, "ground");
+        movementsAndStrings.put(MovementType.SWIM, "swim");
+        
+        return movementsAndStrings;
     }
 
     /**
@@ -286,11 +330,63 @@ public class UserInterfaceMain {
         bw.close();
 
     }
+    /**
+     * creates a basic party member w/ name, class, race from user input
+     * @return party member to be added to a party
+     */
+    public static PartyMember getPartyMemberEntered(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter party member's name:\n");
+        String name = scan.nextLine();
+        while (name.length() == 0) {
+            System.out.println("invalid party member name");
+            System.out.println("Enter party member's name:\n");
+            name = scan.nextLine();
+        }
+        System.out.println("Enter party member's class:\n");
+        String className = scan.nextLine();
+        while(!isStringClass(className)){
+            System.out.println("invalid class entered");
+            System.out.println("Enter party member's class:\n");
+            className = scan.nextLine();
+        }
+        CharacterClass cc = stringToClass(className);
 
-    public static void main(String[] args) {
-        String username = properUsernameLogin();
+        System.out.println("Enter party member's race:\n");
+        String race = scan.nextLine();
+        while(!isStringRace(race)){
+            System.out.println("invalid race entered");
+            System.out.println("Enter party member's race:\n");
+            race = scan.nextLine();
+        }
+        CharacterRace cr = stringToRace(race);
+
+        scan.close();
+        return new PartyMember(name, cc, cr);
+    }
+
+    public static void main(String[] args) throws IOException {
+        String username = getProperUsernameLogin();
         DungeonMaster dm = new DungeonMaster(username);
-
+        Party p = new Party(new ArrayList<PartyMember>());
+        Scanner scan = new Scanner(System.in);
+        try{
+            p = readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv");
+        }
+        catch(RuntimeException e){}
+        if(p.getPartySize()==0){
+            System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
+            String doneOrElse = scan.nextLine();
+            while(!doneOrElse.equalsIgnoreCase("done")){
+                PartyMember pm = getPartyMemberEntered();
+                p.addCharacter(pm);
+                System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
+                doneOrElse = scan.nextLine();
+            }
+            writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv", p);
+        }
+        
+        //Interface code for making a recommendation
 
     }
 
