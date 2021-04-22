@@ -6,7 +6,7 @@ import edu.ithaca.QualatativeStats.alignment;
 public class EnemyRecommenderReflex implements EnemyRecommender{
 
 
-    public static Enemy recommendEnemy(Party party){
+    public Enemy recommendEnemy(Party party){
 
         //QUANT STAT: moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 

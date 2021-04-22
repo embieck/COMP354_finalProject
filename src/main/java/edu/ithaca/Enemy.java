@@ -118,6 +118,22 @@ public class Enemy {
         return quanStats.getexp();
     }
 
+    // public String enemyToString(){
+    //     return this.toString();
+    // }
+
+    public String toString(){
+
+        //hp, con, str, wis, intel, dex, cha, cr, exp
+        
+        return ("Enemy: Is Humanoid: " + isHumanoid + "\n" + "Is Magic User: " + isMagicUser + "\n"
+        + "Movespeed: " + this.getMoveSpeed() + "\n" + "Armor Class: " + this.getArmorClass() + "\n"
+        + "HP: " + this.getHP() + "\n" + "Constitution: " + this.getCon() + "\n" + "Strength: "
+        + this.getStr() + "\n" + "Wisdom: " + this.getWis() + "\n" + "Intelligence: " + this.getIntel() + "\n"
+        + "Dexterity: " + this.getDex() + "\n" + "Charisma: " + this.getCha() + "\n");
+
+    }
+
     // /**
     //  * Constructor
     //  * @param isHumanoid - gives a clue to the default behavior of the creatures

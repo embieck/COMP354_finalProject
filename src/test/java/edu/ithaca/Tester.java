@@ -224,9 +224,14 @@ class Tester {
         characters.add(toby);
 
         Party newParty = new Party(characters, characters.size());
+        EnemyRecommender newRecommender = new EnemyRecommenderReflex();
 
-        Enemy recommendedEnemy = EnemyRecommenderReflex.recommendEnemy(newParty);
+        Enemy recommendedEnemy = newRecommender.recommendEnemy(newParty);
         return recommendedEnemy;
+        
+        //String recommendedEnemyString = recommendedEnemy.enemyToString(recommendedEnemy);
+
+        //return recommendedEnemyString;
 
 
     }
@@ -247,14 +252,24 @@ class Tester {
         //uiTest();
         //characterInheritanceTest();
         //enemyInheritanceTest();
+        System.out.println("REFLEX AGENT TESTS" + "\n");
+        System.out.println("REFLEX ENEMY 1");
+        System.out.println(enemyRecommenderReflexTest().toString());
+        System.out.println("REFLEX ENEMY 2");
         System.out.println(enemyRecommenderReflexTest());
-        System.out.println(enemyRecommenderReflexTest());
+        System.out.println("REFLEX ENEMY 3");
         System.out.println(enemyRecommenderReflexTest());
 
+        
 
-        enemyRecommenderRandomTest();
-        enemyRecommenderRandomTest();
-        enemyRecommenderRandomTest();
+        System.out.println("RANDOM AGENT TESTS" + "\n");
+        System.out.println("RANDOM ENEMY 1");
+        System.out.println(enemyRecommenderRandomTest().toString());
+        System.out.println("RANDOM ENEMY 2");
+        System.out.println(enemyRecommenderRandomTest());
+        System.out.println("RANDOM ENEMY 3");
+        System.out.println(enemyRecommenderRandomTest());
+       
 
     }
 }
