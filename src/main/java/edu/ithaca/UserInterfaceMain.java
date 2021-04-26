@@ -366,7 +366,7 @@ public class UserInterfaceMain {
     }
 
     public static void main(String[] args) throws IOException {
-        String username = getProperUsernameLogin();
+        /*String username = getProperUsernameLogin();
         DungeonMaster dm = new DungeonMaster(username);
         Party p = new Party(new ArrayList<PartyMember>());
         Scanner scan = new Scanner(System.in);
@@ -384,7 +384,7 @@ public class UserInterfaceMain {
                 doneOrElse = scan.nextLine();
             }
             writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv", p);
-        }
+        }*/
         
         //Interface code for making a recommendation
 

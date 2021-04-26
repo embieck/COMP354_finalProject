@@ -1,0 +1,16 @@
+{"party members":[
+    {
+    "name":"kemi",
+    "CharacterRace":"ELF",
+    "CharacterClass":"BARD",
+    "qualStats":{"languages":["Common","Draconic"],"alignment":"chaoticgood","size":"medium"},
+    "quantStats":{"speed":30, "armorClass":12, "hp":10,"con":10, "str":10, "wis":10, "intel":10, "dex":10, "cha": 10}
+    },
+    {
+    "name":"BMO",
+    "CharacterRace":"dwarf",
+    "CharacterClass":"cleric"
+    }
+
+    ]
+}

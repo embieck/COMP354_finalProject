@@ -47,7 +47,8 @@ public class PartyMember {
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
-
+        this.qualStats = new QualatativeStats();
+        this.quanStats = new QuantativeStats(30, 12, 10, 10, 10, 10, 10, 10, 10);
     }
 
     public String getName() {

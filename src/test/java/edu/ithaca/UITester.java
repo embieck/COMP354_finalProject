@@ -38,5 +38,13 @@ public class UITester {
         Party newP = UserInterfaceMain.readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest2.csv");
         assertEquals(2,newP.getPartySize());
     }
+
+    @Test
+    void readingJsonFileToPMListTest(){}
+    
+    @Test
+    void writingPMListToJsonFileTest(){}
+
+
     
 }
