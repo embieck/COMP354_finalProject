@@ -1,5 +1,6 @@
 package edu.ithaca;
 
+
 import java.util.*;
 
 /**
@@ -50,10 +51,17 @@ public class QualatativeStats {
     public enum alignment {
         unaligned, chaoticEvil, lawfulEvil, neutralEvil, chaoticGood, lawfulGood, neutralGood, chaoticNeutral,
         lawfulNeutral, trueNeutral;
+
+        public String getAlignment(){
+            return this.name();
+        }
     }
 
     public enum size {
         tiny, small, medium, large, huge, gargantuan;
+        public String getSize(){
+            return this.name();
+        }
     }
 
     public ArrayList<String> getLanguages() {

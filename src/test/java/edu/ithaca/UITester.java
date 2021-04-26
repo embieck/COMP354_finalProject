@@ -28,23 +28,21 @@ public class UITester {
         party.addCharacter(new PartyMember("Finn",CharacterClass.FIGHTER,CharacterRace.HUMAN));
         //file uitest2.csv should be blank to start
         UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest2.csv", party);
-        //time to check file
-        int time = 10000000;
-        while(time>0){
-            time/=2.0;
-        }
-        party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.HUMAN));
-        UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest2.csv", party);
-        Party newP = UserInterfaceMain.readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest2.csv");
+        UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv", party);
+        
+        party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.ELF));
+        UserInterfaceMain.writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv", party);
+        Party newP = UserInterfaceMain.readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest3.csv");
         assertEquals(2,newP.getPartySize());
     }
-
-    @Test
-    void readingJsonFileToPMListTest(){}
     
     @Test
-    void writingPMListToJsonFileTest(){}
+    void readJsonFileToPMList() throws IOException{
+        ArrayList<PartyMember> chars = (ArrayList<PartyMember>) JsonUtil.listFromJsonFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/test1.json",PartyMember.class);
+        for(int i=0;i<chars.size();i++){
+            System.out.println(chars.get(i).getName());
+        }
 
+    }
 
-    
 }

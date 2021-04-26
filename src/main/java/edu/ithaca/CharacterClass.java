@@ -1,9 +1,11 @@
 package edu.ithaca;
 
+
+
 /**
  * Enum for possible party member/character class options
  */
-public enum CharacterClass {
+public enum CharacterClass{
     BARBARIAN, 
     BARD, 
     CLERIC, 
@@ -16,6 +18,10 @@ public enum CharacterClass {
     SORCERER,     
     WARLOCK, 
     WIZARD;
+
+    public String getCharClass(){
+        return this.name();
+    }
     
 }
 

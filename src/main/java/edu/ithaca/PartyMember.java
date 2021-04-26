@@ -4,8 +4,7 @@ import java.util.ArrayList;
 // import java.util.LinkedList;
 // import java.util.List;
 
-import edu.ithaca.QualatativeStats;
-import edu.ithaca.QuantativeStats;
+
 import edu.ithaca.QualatativeStats.alignment;
 import edu.ithaca.QualatativeStats.size;
 

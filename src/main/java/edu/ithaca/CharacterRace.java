@@ -1,9 +1,11 @@
 package edu.ithaca;
 
+
+
 /**
  * Enum for possible party member/character race options
  */
-public enum CharacterRace {
+public enum CharacterRace{
     DRAGONBORNE, 
     DWARF, 
     ELF, 
@@ -13,4 +15,8 @@ public enum CharacterRace {
     HALFORC, 
     HUMAN, 
     TIEFLING;
+
+    public String getCharRace(){
+        return this.name();
+    }
 }
