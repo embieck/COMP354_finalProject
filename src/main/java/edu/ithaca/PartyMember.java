@@ -19,34 +19,41 @@ public class PartyMember {
     private CharacterRace characterRace;
     private QualatativeStats qualStats;
     private QuantativeStats quanStats;
+    private int level;
 
     /**
      * Complete constructor (assigns stats information)
+     * 
      * @param name           - String that contains name of the character
      * @param CharacterClass - enum that indicates class of the character
      * @param CharacterRace  - enum that indicates race of the character
      * @param qualStats      - object containing qualatative stats of party member
      * @param quanStats      - object containing quantative stats of party member
+     * @param level          - level of the party member
      */
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
-            QualatativeStats qualStats, QuantativeStats quanStats) {
+            QualatativeStats qualStats, QuantativeStats quanStats, int level) {
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
         this.qualStats = qualStats;
         this.quanStats = quanStats;
+        this.level = level;
+
     }
 
     /**
      * Constructor that doesn't assign stats information
+     * 
      * @param name           - String that contains name of the character
      * @param CharacterClass - enum that indicates class of the character
      * @param CharacterRace  - enum that indicates race of the character
      */
-    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace) {
+    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace, int level) {
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
+        this.level = level;
 
     }
 
@@ -111,5 +118,14 @@ public class PartyMember {
     public int getCha() {
         return quanStats.getCha();
     }
+    
+    //Getter for Level
+    public int getLevel(){
+        return this.level;
+    }
 
+    //Setter for Level
+    public void setLevel(int level){
+        this.level = level;
+    }
 }

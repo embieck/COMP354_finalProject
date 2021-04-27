@@ -3,7 +3,7 @@ D&D Enemy Recommender
 Agent Template: https://docs.google.com/document/d/1L0s0yYY_bOWPeGJpdq8vRsQ7hgFN_o_FCMS8XExaE3A/edit?usp=sharing
 
 The Agent:
-The simple reflex agent, EnemyRecommenderReflex, uses its sensor to recieve Party information. These includes the class, race, and ability scores of each party member. It then averages the ability scores of the party to randomly select an ememy monster and assign its ability score with the average of the party's to create a well-matched opponent. This information is returned as an Ememy object, which holds many of the same stats as party members. 
+The simple reflex agent, EnemyRecommenderReflex, uses its sensor to recieve Party information. These includes the class, race, and ability scores of each party member. It then averages the ability scores of the party to randomly select an ememy monster and assign its ability score with the average of the party's to create a well-matched opponent. This information is returned as an Enemy object, which holds many of the same stats as party members. 
 
 Other percepts our agents will consider in the future are terrain, whether the enemy is humanoid (and the langauges they speak), and movement type (should be appropriate to the terrain). We will also be adding a history of previously chosen enemies and an evaluation function to increase our agent's intelligence and improve future recommendations.
 
