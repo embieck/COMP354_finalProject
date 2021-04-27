@@ -1,11 +1,13 @@
 package edu.ithaca;
 
+import java.io.Serializable;
+
 /**
  * extended by Character class Includes a constructor to set inital stats
  * Includes public getters and setters for all stats to allow edits to stats w/o
  * creating a new character
  **/
-public class QuantativeStats {
+public class QuantativeStats implements Serializable{
     public int moveSpeed;
     public int armorClass;
     public int hp;
@@ -41,6 +43,18 @@ public class QuantativeStats {
         this.intel = intel;
         this.dex = dex;
         this.cha = cha;
+    }
+
+    public QuantativeStats(){
+        this.moveSpeed=30;
+        this.armorClass=12;
+        this.hp=11;
+        this.con = 10;
+        this.str = 10;
+        this.wis = 10;
+        this.intel = 10;
+        this.dex = 10;
+        this.cha = 10;
     }
 
     public int getMoveSpeed() {

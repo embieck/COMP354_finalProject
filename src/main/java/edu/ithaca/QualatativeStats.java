@@ -1,6 +1,7 @@
 package edu.ithaca;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -8,7 +9,7 @@ import java.util.*;
  * Includes public getters and setters for all stats to allow edits to stats
  **/
 
-public class QualatativeStats {
+public class QualatativeStats implements Serializable{
 
     public ArrayList<String> languages = new ArrayList<>();
     public alignment align;
@@ -31,7 +32,7 @@ public class QualatativeStats {
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
-    public QualatativeStats(alignment align, size size, String languageStr, char delimiter) {
+    public QualatativeStats(alignment align, size size, String languageStr, char delimiter){
         this.align = align;
         this.size = size;
         if (!languageStr.isEmpty()) {
