@@ -6,7 +6,7 @@ import edu.ithaca.QualatativeStats.alignment;
 public class EnemyRecommenderReflex implements EnemyRecommender{
 
 
-    public static Enemy recommendEnemy(Party party){
+    public Enemy recommendEnemy(Party party){
 
         //QUANT STAT: moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
@@ -141,7 +141,7 @@ public class EnemyRecommenderReflex implements EnemyRecommender{
         QualatativeStats chosenQuals = possibleEnemiesQuals.get(rnd);
 
         
-        EnemyQuantStats enemyQuant = new EnemyQuantStats(6, 1000, combinedMS, combinedAC, combinedHP, combinedCON, combinedSTR, combinedWIS, combinedINTEL, combinedDEX, combinedCHA);
+        EnemyQuantStats enemyQuant = new EnemyQuantStats(6, 30, combinedMS, combinedAC, combinedHP, combinedCON, combinedSTR, combinedWIS, combinedINTEL, combinedDEX, combinedCHA);
         Enemy recommendedEnemy = new Enemy(chosenEnemy.getIsHumanoid(), chosenEnemy.getIsMagicUser(), chosenEnemy.getTerrain(), chosenEnemy.getMovementType(), chosenQuals, enemyQuant);
 
         return recommendedEnemy;
