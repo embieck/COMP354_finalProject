@@ -5,6 +5,7 @@ import java.util.ArrayList;
 // import java.util.LinkedList;
 // import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import edu.ithaca.QualatativeStats.alignment;
 import edu.ithaca.QualatativeStats.size;
@@ -102,17 +103,18 @@ public class PartyMember implements Serializable{
     public void setQualStats(QualatativeStats qls){
         qualStats=qls;
     }
-    // public alignment getAlignment() {
-    //     return qualStats.getAlign();
-    // }
-
-    // public size getSize() {
-    //     return qualStats.getSize();
-    // }
-
-    // public ArrayList<String> getLanguages() {
-    //     return qualStats.getLanguages();
-    // }
+    @JsonIgnore
+    public alignment getAlignment() {
+        return qualStats.getAlign();
+    }
+    @JsonIgnore
+    public size getSize() {
+        return qualStats.getSize();
+    }
+    @JsonIgnore
+    public ArrayList<String> getLanguages() {
+        return qualStats.getLanguages();
+    }
 
     // quantitative stats
     public QuantativeStats getQuanStats(){
@@ -121,41 +123,44 @@ public class PartyMember implements Serializable{
     public void setQuanStats(QuantativeStats qns){
         quanStats=qns;
     }
-    // public int getMoveSpeed() {
-    //     return quanStats.getMoveSpeed();
-    // }
+    @JsonIgnore
+    public int getMoveSpeed() {
+        return quanStats.getMoveSpeed();
+    }
 
-    // public int getArmorClass() {
-    //     return quanStats.getArmorClass();
-    // }
+    @JsonIgnore
+    public int getArmorClass() {
+        return quanStats.getArmorClass();
+    }
 
-    // public int getHP() {
-    //     return quanStats.getHp();
-    // }
-
-    // public int getCon() {
-    //     return quanStats.getCon();
-    // }
-
-    // public int getStr() {
-    //     return quanStats.getStr();
-    // }
-
-    // public int getWis() {
-    //     return quanStats.getWis();
-    // }
-
-    // public int getIntel() {
-    //     return quanStats.getIntel();
-    // }
-
-    // public int getDex() {
-    //     return quanStats.getDex();
-    // }
-
-    // public int getCha() {
-    //     return quanStats.getCha();
-    // }
+    @JsonIgnore
+    public int getHP() {
+        return quanStats.getHp();
+    }
+    @JsonIgnore
+    public int getCon() {
+        return quanStats.getCon();
+    }
+    @JsonIgnore
+    public int getStr() {
+        return quanStats.getStr();
+    }
+    @JsonIgnore
+    public int getWis() {
+        return quanStats.getWis();
+    }
+    @JsonIgnore
+    public int getIntel() {
+        return quanStats.getIntel();
+    }
+    @JsonIgnore
+    public int getDex() {
+        return quanStats.getDex();
+    }
+    @JsonIgnore
+    public int getCha() {
+        return quanStats.getCha();
+    }
     
     //Getter for Level
     public int getLevel(){
