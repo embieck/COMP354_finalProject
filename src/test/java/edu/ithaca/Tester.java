@@ -28,12 +28,12 @@ class Tester {
         System.out.println(qualStats4.getLanguages() + ": Should be [common]");
     }
 
-    private static void uiTest() {
-        UserInterfaceMain.getProperUsernameLogin();
-        Party testParty;
-        // UserInterfaceMain.writePartyFile("test.csv", testParty);
-        // UserInterfaceMain.readPartyFile("test.csv");
-    }
+    // private static void uiTest() {
+    //     UserInterfaceMain.getProperUsernameLogin();
+    //     Party testParty;
+    //     // UserInterfaceMain.writePartyFile("test.csv", testParty);
+    //     // UserInterfaceMain.readPartyFile("test.csv");
+    // }
 
     private static void partyTest() {
         // Create characters in PartyMemberClass & add them to arrayList
@@ -113,22 +113,22 @@ class Tester {
         PartyMember jomi = new PartyMember("jomi", CharacterClass.DRUID, CharacterRace.HUMAN, qualJomi, quantJomi);
         PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF, qualSoromi, quantSoromi);
 
-        System.out.println("------Testing PartyMember: Qualitative Getters-------");
-        System.out.println(soromi.getAlignment() + ": should be neutralGood");
-        System.out.println(jomi.getSize() + ": should be small");
-        System.out.println(juliet.getLanguages() + ": should be celestial and common");
-        System.out.println(sj.getLanguages() + ": should be dragon");
+        // System.out.println("------Testing PartyMember: Qualitative Getters-------");
+        // System.out.println(soromi.getAlignment() + ": should be neutralGood");
+        // System.out.println(jomi.getSize() + ": should be small");
+        // System.out.println(juliet.getLanguages() + ": should be celestial and common");
+        // System.out.println(sj.getLanguages() + ": should be dragon");
 
-        System.out.println("------Testing PartyMember: Quantitative Getters-------");
-        System.out.println(kemi.getMoveSpeed() + ": should be 30");
-        System.out.println(sj.getArmorClass() + ": should be 2");
-        System.out.println(juliet.getHP() + ": should be 13");
-        System.out.println(jomi.getCon() + ": should be 8");
-        System.out.println(soromi.getStr() + ": should be 15");
-        System.out.println(kemi.getWis() + ": should be 11");
-        System.out.println(sj.getIntel() + ": should be 7");
-        System.out.println(juliet.getDex() + ": should be 14");
-        System.out.println(jomi.getCha() + ": should be 16");
+        // System.out.println("------Testing PartyMember: Quantitative Getters-------");
+        // System.out.println(kemi.getMoveSpeed() + ": should be 30");
+        // System.out.println(sj.getArmorClass() + ": should be 2");
+        // System.out.println(juliet.getHP() + ": should be 13");
+        // System.out.println(jomi.getCon() + ": should be 8");
+        // System.out.println(soromi.getStr() + ": should be 15");
+        // System.out.println(kemi.getWis() + ": should be 11");
+        // System.out.println(sj.getIntel() + ": should be 7");
+        // System.out.println(juliet.getDex() + ": should be 14");
+        // System.out.println(jomi.getCha() + ": should be 16");
 
     }
 

@@ -17,7 +17,8 @@
     "intel" : 10,
     "dex" : 10,
     "cha" : 10
-  }
+  },
+  "level" : 2
 }, {
   "name" : "Marceline",
   "characterClass" : "BARD",
@@ -37,7 +38,8 @@
     "intel" : 10,
     "dex" : 10,
     "cha" : 10
-  }
+  },
+  "level" : 7
 }, {
   "name" : "Neptor",
   "characterClass" : "BARBARIAN",
@@ -57,5 +59,6 @@
     "intel" : 7,
     "dex" : 10,
     "cha" : 11
-  }
+  },
+  "level" : 1
 } ]

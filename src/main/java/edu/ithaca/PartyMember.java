@@ -18,33 +18,6 @@ public class PartyMember implements Serializable{
     private QualatativeStats qualStats;
     private QuantativeStats quanStats;
     private int level;
-    /**
-     * Constructor for JSON file read in to create partymember
-     * @param name
-     * @param characterClass
-     * @param characterRace
-     * @param align
-     * @param size
-     * @param languageStr
-     * @param moveSpeed
-     * @param armorClass
-     * @param hp
-     * @param con
-     * @param str
-     * @param wis
-     * @param intel
-     * @param dex
-     * @param cha
-     */
-    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
-    alignment align, size size, String languageStr,
-    int moveSpeed, int armorClass, int hp, int con, int str, int wis, int intel, int dex, int cha) {
-        this.name = name;
-        this.characterClass = characterClass;
-        this.characterRace = characterRace;
-        this.qualStats = new QualatativeStats(align,size,languageStr,',');
-        this.quanStats = new QuantativeStats(moveSpeed, armorClass, hp, con, str, wis, intel, dex, cha);
-    }
 
     /**
      * Complete constructor (assigns stats information)
@@ -64,6 +37,24 @@ public class PartyMember implements Serializable{
         this.qualStats = qualStats;
         this.quanStats = quanStats;
         this.level = level;
+
+    }
+    /**
+     * Constructor with default level 1
+     * @param name
+     * @param characterClass
+     * @param characterRace
+     * @param qualStats
+     * @param quanStats
+     */
+    public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
+            QualatativeStats qualStats, QuantativeStats quanStats) {
+        this.name = name;
+        this.characterClass = characterClass;
+        this.characterRace = characterRace;
+        this.qualStats = qualStats;
+        this.quanStats = quanStats;
+        this.level = 1;
 
     }
 
@@ -89,6 +80,7 @@ public class PartyMember implements Serializable{
         this.characterRace=CharacterRace.HALFELF;
         this.qualStats=new QualatativeStats();
         this.quanStats = new QuantativeStats(30, 12, 10, 10, 10, 10, 10, 10, 10);
+        this.level=1;
     }
 
     public String getName() {

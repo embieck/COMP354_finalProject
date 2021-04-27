@@ -24,15 +24,24 @@ public class EnemyRecommenderReflex implements EnemyRecommender{
 
         for (int i = 0; i <= party.getPartySize()-1; i++){
             PartyMember curMember = party.getCharacter(i);
-            combinedMS += curMember.getMoveSpeed();
-            combinedAC += curMember.getArmorClass(); 
-            combinedHP += curMember.getHP();
-            combinedCON += curMember.getCon();
-            combinedSTR += curMember.getStr();
-            combinedWIS += curMember.getWis();
-            combinedINTEL += curMember.getIntel();
-            combinedDEX += curMember.getDex();
-            combinedCHA += curMember.getDex();
+            // combinedMS += curMember.getMoveSpeed();
+            // combinedAC += curMember.getArmorClass(); 
+            // combinedHP += curMember.getHP();
+            // combinedCON += curMember.getCon();
+            // combinedSTR += curMember.getStr();
+            // combinedWIS += curMember.getWis();
+            // combinedINTEL += curMember.getIntel();
+            // combinedDEX += curMember.getDex();
+            // combinedCHA += curMember.getCha();
+            combinedMS += curMember.getQuanStats().getMoveSpeed();
+            combinedAC += curMember.getQuanStats().getArmorClass(); 
+            combinedHP += curMember.getQuanStats().getHp();
+            combinedCON += curMember.getQuanStats().getCon();
+            combinedSTR += curMember.getQuanStats().getStr();
+            combinedWIS += curMember.getQuanStats().getWis();
+            combinedINTEL += curMember.getQuanStats().getIntel();
+            combinedDEX += curMember.getQuanStats().getDex();
+            combinedCHA += curMember.getQuanStats().getCha();
 
         } 
 
