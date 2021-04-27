@@ -111,7 +111,7 @@ public class PartyMember implements Serializable{
     public size getSize() {
         return qualStats.getSize();
     }
-    @JsonIgnore
+    @JsonIgnore   
     public ArrayList<String> getLanguages() {
         return qualStats.getLanguages();
     }
