@@ -1,4 +1,4 @@
-Name,Size,isHumanoid,Align.,AC,HP,Ground Speed,Fly Speed,Swim Speed,STR,DEX,CON,INT,WIS,CHA,Sav. Throws,Skills,Languages,CR,Additional
+Name,Size,isHumanoid,Align,AC,HP,Ground Speed,Fly Speed,Swim Speed,STR,DEX,CON,INT,WIS,CHA,Sav Throws,Skills,Languages,CR,Additional
 Aarakocra,Medium,TRUE,neutralGood,12,13,20,50,0,10,14,10,11,12,11,"None","Perception","Auran",0.25,"Dive Attack"
 Aboleth,Large,FALSE,lawfulEvil,17,135,10,0,40,21,9,15,18,15,18,"CON, INT, WIS","History, Perception","Deep Speech, Telepathy 120",10,"Amphibious, Mucous Cloud, Probing Telepathy, Legendary, Lair"
 Albino Dwarf Warrior,Medium,FALSE,unaligned,13,30,25,0,0,13,13,17,12,14,11,"None","Perception, Stealth, Survival","Common, Dwarvish",0.25,"Dwarven Resilience"

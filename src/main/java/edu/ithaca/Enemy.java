@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.ithaca.QualatativeStats.alignment;
 import edu.ithaca.QualatativeStats.size;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -14,7 +17,7 @@ import java.util.*;
  * other classes can access information. Setters are not required as the
  * information is taken from the database and will not change
  */
-public class Enemy {
+public class Enemy implements Serializable{
     private boolean isHumanoid;
     private boolean isMagicUser;
     private Terrain terrain;
@@ -61,59 +64,74 @@ public class Enemy {
     }
 
     // qualitative stats
+    
+    public QualatativeStats getQualStats(){
+        return qualStats;
+    }
+    public void setQualStats(QualatativeStats qls){
+        qualStats=qls;
+    }
+    @JsonIgnore
     public alignment getAlignment() {
         return qualStats.getAlign();
     }
-
+    @JsonIgnore
     public size getSize() {
         return qualStats.getSize();
     }
-
+    @JsonIgnore
     public ArrayList<String> getLanguages() {
         return qualStats.getLanguages();
     }
 
     // quantitative stats
+    public EnemyQuantStats getQuanStats(){
+        return quanStats;
+    }
+    public void setQuanStats(EnemyQuantStats qns){
+        quanStats=qns;
+    }
+    @JsonIgnore
     public int getMoveSpeed() {
         return quanStats.getMoveSpeed();
     }
-
+    @JsonIgnore
     public int getArmorClass() {
         return quanStats.getArmorClass();
     }
-
+    @JsonIgnore
     public int getHP() {
         return quanStats.getHp();
     }
-
+    @JsonIgnore
     public int getCon() {
         return quanStats.getCon();
     }
-
+    @JsonIgnore
     public int getStr() {
         return quanStats.getStr();
     }
-
+    @JsonIgnore
     public int getWis() {
         return quanStats.getWis();
     }
-
+    @JsonIgnore
     public int getIntel() {
         return quanStats.getIntel();
     }
-
+    @JsonIgnore
     public int getDex() {
         return quanStats.getDex();
     }
-
+    @JsonIgnore
     public int getCha() {
         return quanStats.getCha();
     }
-
+    @JsonIgnore
     public double getCr(){
         return quanStats.getCr();
     }
-
+    @JsonIgnore
     public double getExp(){
         return quanStats.getexp();
     }
@@ -121,7 +139,7 @@ public class Enemy {
     // public String enemyToString(){
     //     return this.toString();
     // }
-
+    @JsonIgnore
     public String toString(){
 
         ArrayList<String> randEnemyNameList = new ArrayList<>();

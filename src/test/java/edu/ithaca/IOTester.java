@@ -14,7 +14,7 @@ import edu.ithaca.dragon.util.JsonUtil;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UITester {
+public class IOTester {
     // @Test
     // void readFileTest() throws FileNotFoundException, JsonProcessingException{
     //     Party p = UserInterfaceMain.readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/uitest1.csv");
@@ -69,7 +69,9 @@ public class UITester {
             System.out.println(chars.get(i).getQuanStats().getCha());
             
         }
-
     }
-
+    @Test
+    void loadingInEnemyDBTest() throws FileNotFoundException{
+        DataBaseUtil.loadInDb("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv");
+    }
 }
