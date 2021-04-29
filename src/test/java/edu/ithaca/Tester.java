@@ -244,6 +244,23 @@ class Tester {
 
     }
 
+    public static void agentTest(){
+        ArrayList<PartyMember> characters = new ArrayList<>();
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, null, null);
+        PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, null, null);
+        PartyMember juliet = new PartyMember("juliet", CharacterClass.CLERIC, CharacterRace.GNOME, null, null);
+        PartyMember jomi = new PartyMember("jomi", CharacterClass.DRUID, CharacterRace.HUMAN, null, null);
+        PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF, null, null);
+        characters.add(soromi);
+        characters.add(juliet);
+        characters.add(jomi);
+        characters.add(sj);
+        characters.add(kemi);    
+    
+    Party party = new Party(characters);
+    calcAvPartyLevel(party);
+}
+
 
 
     public static void main(String args[]) {

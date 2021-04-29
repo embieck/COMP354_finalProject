@@ -6,7 +6,7 @@ public class EnemyRecommenderAgent {
     List<Enemy> appropriateEnemyList = new ArrayList<>();
     List<Integer> enemyScoreList = new ArrayList<>();
 
-    public double calcAvPartyLevel(Party party) {
+    public static double calcAvPartyLevel(Party party) {
         int partySize = party.getPartySize();
         int levelTotal = 0;
         for (int i = 0; i < partySize; i++) {
@@ -154,6 +154,4 @@ public class EnemyRecommenderAgent {
         popScoreList(preferences, crToFind);
         return bestEnemy();
     }
-
-
 }
