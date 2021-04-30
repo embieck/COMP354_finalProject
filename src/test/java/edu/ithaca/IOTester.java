@@ -8,8 +8,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.junit.jupiter.api.Test;
 
-import edu.ithaca.QualatativeStats.alignment;
-import edu.ithaca.QualatativeStats.size;
 import edu.ithaca.dragon.util.JsonUtil;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -69,9 +67,5 @@ public class IOTester {
             System.out.println(chars.get(i).getQuanStats().getCha());
             
         }
-    }
-    @Test
-    void loadingInEnemyDBTest() throws FileNotFoundException{
-        DataBaseUtil.loadInDb("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv");
     }
 }
