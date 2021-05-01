@@ -38,7 +38,7 @@ public class QualatativeStats implements Serializable{
         if (!languageStr.isEmpty()) {
             String curLang = "";
             for (int i = 0; i < languageStr.length(); i++) {
-                if (languageStr.charAt(i) != delimiter)
+                if (languageStr.charAt(i) != delimiter && languageStr.charAt(i) !=' ')
                     curLang += languageStr.charAt(i);
                 else {
                     this.languages.add(curLang);
@@ -51,6 +51,15 @@ public class QualatativeStats implements Serializable{
 
     public ArrayList<String> getLanguages() {
         return this.languages;
+    }
+
+    public String getLanguage(int index) throws RuntimeException{
+        if(languages!=null&&!languages.isEmpty()){
+            return languages.get(index);
+        }
+        else{
+            throw new RuntimeException("enemy has no languages recorded");
+        }
     }
 
     public Alignment getAlign() {

@@ -17,7 +17,7 @@ import java.util.*;
  * other classes can access information. Setters are not required as the
  * information is taken from the database and will not change
  */
-public class Enemy {
+public class Enemy implements Serializable{
     private String name;
     private boolean isHumanoid;
     private boolean isMagicUser;
@@ -56,7 +56,17 @@ public class Enemy {
         this.skills=null;
         this.additional=null;
     }
-
+    /**
+     * Enemy constructor that matches db
+     * contains fields that will be used for json conversion
+     * @param name
+     * @param isHumanoid
+     * @param qualStats
+     * @param quanStats
+     * @param savingThrows
+     * @param skills
+     * @param additional
+     */
     public Enemy(String name, boolean isHumanoid,
             QualatativeStats qualStats, EnemyQuantStats quanStats,String savingThrows,String skills, String additional) {
         this.name = name;
@@ -115,20 +125,69 @@ public class Enemy {
         }
     }
 
+    public Enemy(){
+        this.name="grunt";
+        this.qualStats=new QualatativeStats();
+        this.quanStats= new EnemyQuantStats();
+        this.movementType = MovementType.GROUND;
+        this.movementTypes=null;
+        this.terrains=new ArrayList<>();
+        fillTerrains();
+        this.terrain=null;
+        this.isMagicUser=false;
+        this.savingThrows=null;
+        this.skills=null;
+        this.additional=null;
+
+
+    }
+
     public boolean getIsHumanoid() {
         return isHumanoid;
+    }
+
+    public void setIsHumanoid(boolean h){
+        isHumanoid=h;
     }
 
     public boolean getIsMagicUser() {
         return isMagicUser;
     }
 
+    public void setIsMagicUser(boolean mu){
+        isMagicUser=mu;
+    }
+    @JsonIgnore
     public Terrain getTerrain() {
         return terrain;
     }
-
+    @JsonIgnore
+    public void setTerrain(Terrain t){
+        terrain=t;
+    }
+    @JsonIgnore
+    public ArrayList<Terrain> getTerrains() {
+        return terrains;
+    }
+    @JsonIgnore
+    public void setTerrains(ArrayList<Terrain> terrains){
+        this.terrains=terrains;
+    }
+    @JsonIgnore
     public MovementType getMovementType() {
         return movementType;
+    }
+    @JsonIgnore
+    public void setMovementType(MovementType m){
+        movementType=m;
+    }
+    @JsonIgnore
+    public ArrayList<MovementType> getMovementTypes() {
+        return movementTypes;
+    }
+    @JsonIgnore
+    public void setMovementTypes(ArrayList<MovementType> m){
+        movementTypes=m;
     }
 
     // qualitative stats
@@ -150,6 +209,10 @@ public class Enemy {
     @JsonIgnore
     public ArrayList<String> getLanguages() {
         return qualStats.getLanguages();
+    }
+    @JsonIgnore
+    public String getLanguage(int index){
+        return qualStats.getLanguage(index);
     }
 
     // quantitative stats
@@ -202,6 +265,63 @@ public class Enemy {
     @JsonIgnore
     public double getExp(){
         return quanStats.getexp();
+    }
+
+    @JsonIgnore
+    public int getGroundSpeed() {
+        return quanStats.getGroundSpeed();
+    }
+    @JsonIgnore
+    public void setGroundSpeed(int gs){
+        quanStats.setGroundSpeed(gs);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String n){
+        name =n;
+    }
+    @JsonIgnore
+    public int getSwimSpeed() {
+        return quanStats.getSwimSpeed();
+    }
+    @JsonIgnore
+    public void setSwimSpeed(int sws){
+        quanStats.setSwimSpeed(sws);
+    }
+    @JsonIgnore
+    public int getFlySpeed() {
+        return quanStats.getFlySpeed();
+    }
+    @JsonIgnore
+    public void setFlySpeed(int fs){
+        quanStats.setFlySpeed(fs);
+    }
+
+    public String getSavingThrows(){
+        return savingThrows;
+    }
+
+    public void setSavingThrows(String st){
+        savingThrows=st;
+    }
+
+    public String getSkills(){
+        return skills;
+    }
+
+    public void setSkills(String s){
+        skills=s;
+    }
+
+    public String getAdditional(){
+        return additional;
+    }
+
+    public void setAdditional(String a){
+        additional=a;
     }
 
     // public String enemyToString(){
