@@ -1,6 +1,5 @@
 package edu.ithaca;
 
-import java.io.Serializable;
 
 public class EnemyQuantStats extends QuantativeStats{
     private double cr;
