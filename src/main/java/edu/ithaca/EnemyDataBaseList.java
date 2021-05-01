@@ -51,20 +51,29 @@ public class EnemyDataBaseList {
         }
     }
 
+    public EnemyDataBaseList(){
+        enemyDBList=new ArrayList<>();
+    }
 
     private String convertToSemiColonSeparated(String line){
         boolean inString =false;
         char[] chLine = line.toCharArray();
+        int quoteCount=0;
         for(int i=0;i<chLine.length;i++){
             char ch = chLine[i];
-            if(ch=='"'&&!inString){
-                inString=true;
+            if(ch=='"'){
+                quoteCount++;
+                if(!inString){
+                    inString=true;
+                }
             }
             if(inString){
-                if(ch=='"'){
+                if(ch=='"'&&quoteCount%2==0){
                     inString=false;
                 }
-                else{
+            }
+            else{
+                if(ch==','){
                     chLine[i]=';';
                 }
             }
@@ -86,28 +95,50 @@ public class EnemyDataBaseList {
         //DB Columns
         //Name,Size,isHumanoid,Align.,AC,HP,Ground Speed,Fly Speed,Swim Speed,
         //STR,DEX,CON,INT,WIS,CHA,Sav. Throws,Skills,Languages,CR,Additional
-        String name = enemyFields[0];
-        Size size = Size.valueOf(enemyFields[1]);
-        boolean isHumanoid= Boolean.parseBoolean(enemyFields[2]);
-        Alignment align = Alignment.valueOf(enemyFields[3]);
-        int ac = Integer.parseInt(enemyFields[4]);
-        int hp = Integer.parseInt(enemyFields[5]);
-        int gs = Integer.parseInt(enemyFields[6]);
-        int fs = Integer.parseInt(enemyFields[7]);
-        int sws = Integer.parseInt(enemyFields[8]);
-        int str = Integer.parseInt(enemyFields[9]);
-        int dex = Integer.parseInt(enemyFields[10]);
-        int con = Integer.parseInt(enemyFields[11]);
-        int intel = Integer.parseInt(enemyFields[12]);
-        int wis = Integer.parseInt(enemyFields[13]);
-        int cha = Integer.parseInt(enemyFields[14]);
-        String savThrows = enemyFields[15];
-        String skills = enemyFields[16];
-        String languages = removeQuotesFromStartOrEnd(enemyFields[17]);
-        double cr = Double.parseDouble(enemyFields[18]);
-        String additional = enemyFields[19];
-        QualatativeStats qls = new QualatativeStats(align, size, languages,',');
-        EnemyQuantStats eqns = new EnemyQuantStats(cr, sws, gs, fs, ac, hp, con, str, wis,intel, dex, cha);
-        return new Enemy(name,isHumanoid,qls,eqns,savThrows,skills,additional);
+        try{
+            String name = removeQuotesFromStartOrEnd(enemyFields[0]);
+            Size size = Size.valueOf(enemyFields[1].toUpperCase());
+            boolean isHumanoid= Boolean.parseBoolean(enemyFields[2].toLowerCase());
+            Alignment align = Alignment.valueOf(enemyFields[3].toUpperCase());
+            int ac = Integer.parseInt(enemyFields[4]);
+            int hp = Integer.parseInt(enemyFields[5]);
+            int gs = Integer.parseInt(enemyFields[6]);
+            int fs = Integer.parseInt(enemyFields[7]);
+            int sws = Integer.parseInt(enemyFields[8]);
+            int str = Integer.parseInt(enemyFields[9]);
+            int dex = Integer.parseInt(enemyFields[10]);
+            int con = Integer.parseInt(enemyFields[11]);
+            int intel = Integer.parseInt(enemyFields[12]);
+            int wis = Integer.parseInt(enemyFields[13]);
+            int cha = Integer.parseInt(enemyFields[14]);
+            String savThrows = removeQuotesFromStartOrEnd(enemyFields[15]);
+            String skills = removeQuotesFromStartOrEnd(enemyFields[16]);
+            String languages = removeQuotesFromStartOrEnd(enemyFields[17]);
+            double cr = Double.parseDouble(enemyFields[18]);
+            String additional = removeQuotesFromStartOrEnd(enemyFields[19]);
+            QualatativeStats qls = new QualatativeStats(align, size, languages,',');
+            EnemyQuantStats eqns = new EnemyQuantStats(cr, sws, gs, fs, ac, hp, con, str, wis,intel, dex, cha);
+            return new Enemy(name,isHumanoid,qls,eqns,savThrows,skills,additional);
+        }catch(Exception e){
+            System.out.println("csv parsing error");
+            throw e;
+        }
+    }
+
+    public Enemy get(int index){
+        return enemyDBList.get(index);
+    }
+
+    public ArrayList<Enemy> head(int size){
+        if(enemyDBList!=null||!enemyDBList.isEmpty()){
+            ArrayList<Enemy> enemies=new ArrayList<>();
+            for(int i=0;i<size;i++){
+                enemies.add(enemyDBList.get(i));
+            }
+            return enemies;
+        }
+        else{
+            throw new RuntimeException("enemy database list has not been created yet");
+        }
     }
 }
