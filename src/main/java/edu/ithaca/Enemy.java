@@ -6,8 +6,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import edu.ithaca.QualatativeStats.alignment;
-import edu.ithaca.QualatativeStats.size;
+
+
 
 import java.io.Serializable;
 import java.util.*;
@@ -17,13 +17,19 @@ import java.util.*;
  * other classes can access information. Setters are not required as the
  * information is taken from the database and will not change
  */
-public class Enemy implements Serializable{
+public class Enemy {
+    private String name;
     private boolean isHumanoid;
     private boolean isMagicUser;
     private Terrain terrain;
+    private ArrayList<Terrain> terrains;
     private MovementType movementType;
+    private ArrayList<MovementType> movementTypes;
     private EnemyQuantStats quanStats;
     private QualatativeStats qualStats;
+    private String savingThrows;
+    private String skills;
+    private String additional;
 
     /**
      * 
@@ -45,6 +51,68 @@ public class Enemy implements Serializable{
         this.movementType = movementType;
         this.qualStats = qualStats;
         this.quanStats = quanStats;
+        this.movementTypes=null;
+        this.savingThrows=null;
+        this.skills=null;
+        this.additional=null;
+    }
+
+    public Enemy(String name, boolean isHumanoid,
+            QualatativeStats qualStats, EnemyQuantStats quanStats,String savingThrows,String skills, String additional) {
+        this.name = name;
+        this.isHumanoid = isHumanoid;
+        this.isMagicUser = false;
+        this.terrain = null;
+        this.qualStats = qualStats;
+        this.quanStats = quanStats;
+        this.movementTypes = new ArrayList<>();
+        this.movementType=null;
+        if(quanStats.getGroundSpeed()>0){
+            movementTypes.add(MovementType.GROUND);
+        }
+        if(quanStats.getFlySpeed()>0){
+            movementTypes.add(MovementType.FLY);
+        }
+        if(quanStats.getSwimSpeed()>0){
+            movementTypes.add(MovementType.SWIM);
+        }
+        this.terrains=new ArrayList<>();
+        fillTerrains();
+        this.savingThrows=savingThrows;
+        this.skills=skills;
+        this.additional=additional;
+    }
+
+    private void fillTerrains(){
+        if(movementTypes.size()!=0){
+            if(movementTypes.contains(MovementType.GROUND)){
+                Terrain[] terrArr = Terrain.values();
+                for(int i=0;i<terrArr.length;i++){
+                    terrains.add(terrArr[i]);
+                }
+            }
+            else{
+                if(movementTypes.contains(MovementType.SWIM)&&movementTypes.contains(MovementType.FLY)){
+                    terrains.add(Terrain.COAST);
+                    terrains.add(Terrain.DESERT);
+                    terrains.add(Terrain.GRASSLAND);
+                    terrains.add(Terrain.MOUNTAIN);
+                    terrains.add(Terrain.SWAMP);
+                    terrains.add(Terrain.UNDERDARK);
+
+                }
+                else if(movementTypes.contains(MovementType.SWIM)){
+                    terrains.add(Terrain.COAST);
+                    terrains.add(Terrain.SWAMP);
+                }
+                else{
+                    terrains.add(Terrain.DESERT);
+                    terrains.add(Terrain.GRASSLAND);
+                    terrains.add(Terrain.MOUNTAIN);
+                    terrains.add(Terrain.UNDERDARK);
+                }
+            }
+        }
     }
 
     public boolean getIsHumanoid() {
@@ -72,11 +140,11 @@ public class Enemy implements Serializable{
         qualStats=qls;
     }
     @JsonIgnore
-    public alignment getAlignment() {
+    public Alignment getAlignment() {
         return qualStats.getAlign();
     }
     @JsonIgnore
-    public size getSize() {
+    public Size getSize() {
         return qualStats.getSize();
     }
     @JsonIgnore

@@ -1,13 +1,13 @@
 package edu.ithaca;
-import edu.ithaca.QualatativeStats.alignment;
+
 
 public class Preferences {
-    private alignment alignment;
+    private Alignment alignment;
     private boolean isHumanoid;
     private Difficulty difficulty;
     private MovementType movementType;
 
-    public Preferences(alignment alignment, boolean isHumanoid, Difficulty difficulty, MovementType movementType){
+    public Preferences(Alignment alignment, boolean isHumanoid, Difficulty difficulty, MovementType movementType){
         this.alignment = alignment;
         this.isHumanoid = isHumanoid;
         this.difficulty = difficulty;
@@ -16,17 +16,17 @@ public class Preferences {
     }
 
     public Preferences(){
-        this.alignment = alignment.neutralEvil;
+        this.alignment = Alignment.NEUTRALEVIL;
         this.isHumanoid = false;
         this.difficulty = Difficulty.MEDIUM;
         this.movementType = MovementType.GROUND;
     }
 
-    public alignment getAlignment() {
+    public Alignment getAlignment() {
         return this.alignment;
     }
 
-    public void setAlignment(alignment alignment) {
+    public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
     }
 

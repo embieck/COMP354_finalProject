@@ -74,7 +74,32 @@ public class EnemyDataBaseList {
     public Enemy csvLineToEnemy(String line){
         String semiColonSeparatedLine = convertToSemiColonSeparated(line);
         String[] enemyFields = semiColonSeparatedLine.split(";");
-        return new Enemy();
+        //DB Columns
+        //Name,Size,isHumanoid,Align.,AC,HP,Ground Speed,Fly Speed,Swim Speed,
+        //STR,DEX,CON,INT,WIS,CHA,Sav. Throws,Skills,Languages,CR,Additional
+        String name = enemyFields[0];
+        Size size = Size.valueOf(enemyFields[1]);
+        boolean isHumanoid= Boolean.parseBoolean(enemyFields[2]);
+        Alignment align = Alignment.valueOf(enemyFields[3]);
+        int ac = Integer.parseInt(enemyFields[4]);
+        int hp = Integer.parseInt(enemyFields[5]);
+        int gs = Integer.parseInt(enemyFields[6]);
+        int fs = Integer.parseInt(enemyFields[7]);
+        int sws = Integer.parseInt(enemyFields[8]);
+        int str = Integer.parseInt(enemyFields[9]);
+        int dex = Integer.parseInt(enemyFields[10]);
+        int con = Integer.parseInt(enemyFields[11]);
+        int intel = Integer.parseInt(enemyFields[12]);
+        int wis = Integer.parseInt(enemyFields[13]);
+        int cha = Integer.parseInt(enemyFields[14]);
+        String savThrows = enemyFields[15];
+        String skills = enemyFields[16];
+        String languages = enemyFields[17];
+        double cr = Double.parseDouble(enemyFields[18]);
+        String additional = enemyFields[19];
+        QualatativeStats qls = new QualatativeStats(align, size, languages,',');
+        EnemyQuantStats eqns = new EnemyQuantStats(cr, sws, gs, fs, ac, hp, con, str, wis,intel, dex, cha);
+        return new Enemy(name,isHumanoid,qls,eqns,savThrows,skills,additional);
         
         
 
