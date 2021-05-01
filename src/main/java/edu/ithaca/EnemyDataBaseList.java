@@ -71,6 +71,15 @@ public class EnemyDataBaseList {
         }
         return new String(chLine);
     }
+    private String removeQuotesFromStartOrEnd(String field){
+        if(field.charAt(0)=='"'){
+            field = field.substring(1);
+        }
+        if(field.charAt(field.length()-1)=='"'){
+            field = field.substring(0,field.length()-1);
+        }
+        return field;
+    }
     public Enemy csvLineToEnemy(String line){
         String semiColonSeparatedLine = convertToSemiColonSeparated(line);
         String[] enemyFields = semiColonSeparatedLine.split(";");
@@ -94,14 +103,11 @@ public class EnemyDataBaseList {
         int cha = Integer.parseInt(enemyFields[14]);
         String savThrows = enemyFields[15];
         String skills = enemyFields[16];
-        String languages = enemyFields[17];
+        String languages = removeQuotesFromStartOrEnd(enemyFields[17]);
         double cr = Double.parseDouble(enemyFields[18]);
         String additional = enemyFields[19];
         QualatativeStats qls = new QualatativeStats(align, size, languages,',');
         EnemyQuantStats eqns = new EnemyQuantStats(cr, sws, gs, fs, ac, hp, con, str, wis,intel, dex, cha);
         return new Enemy(name,isHumanoid,qls,eqns,savThrows,skills,additional);
-        
-        
-
     }
 }
