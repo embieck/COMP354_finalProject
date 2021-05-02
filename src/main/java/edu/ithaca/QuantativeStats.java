@@ -8,15 +8,15 @@ import java.io.Serializable;
  * creating a new character
  **/
 public class QuantativeStats implements Serializable{
-    public int moveSpeed;
-    public int armorClass;
-    public int hp;
-    public int con;
-    public int str;
-    public int wis;
-    public int intel;
-    public int dex;
-    public int cha;
+    protected int moveSpeed;
+    protected int armorClass;
+    protected int hp;
+    protected int con;
+    protected int str;
+    protected int wis;
+    protected int intel;
+    protected int dex;
+    protected int cha;
 
     /**
      * Contructor

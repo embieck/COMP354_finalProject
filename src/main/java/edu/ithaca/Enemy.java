@@ -15,12 +15,17 @@ import java.util.*;
  * information is taken from the database and will not change
  */
 public class Enemy {
+    private String name;
     private boolean isHumanoid;
     private boolean isMagicUser;
     private Terrain terrain;
     private MovementType movementType;
+    private ArrayList<MovementType> movementTypes;
     private EnemyQuantStats quanStats;
     private QualatativeStats qualStats;
+    private String savingThrows;
+    private String skills;
+    private String additional;
 
     /**
      * 
@@ -42,6 +47,27 @@ public class Enemy {
         this.movementType = movementType;
         this.qualStats = qualStats;
         this.quanStats = quanStats;
+        this.movementTypes=null;
+    }
+
+    public Enemy(String name, boolean isHumanoid, Terrain terrain,
+            QualatativeStats qualStats, EnemyQuantStats quanStats) {
+        this.name = name;
+        this.isHumanoid = isHumanoid;
+        this.isMagicUser = false;
+        this.terrain = terrain;
+        this.qualStats = qualStats;
+        this.quanStats = quanStats;
+        this.movementTypes = new ArrayList<MovementType>();
+        if(quanStats.getGroundSpeed()>0){
+            movementTypes.add(MovementType.GROUND);
+        }
+        if(quanStats.getFlySpeed()>0){
+            movementTypes.add(MovementType.FLY);
+        }
+        if(quanStats.getSwimSpeed()>0){
+            movementTypes.add(MovementType.SWIM);
+        }
     }
 
     public boolean getIsHumanoid() {
