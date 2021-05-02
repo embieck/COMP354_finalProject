@@ -384,13 +384,76 @@ class Tester {
         calcScoreTest();
     }
 
+    private static void historyTest(){
+        History history = new History();
+        
+        
+        ArrayList<PartyMember> characters = new ArrayList<>();
+        PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, 1);
+        PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, 2);
+        PartyMember juliet = new PartyMember("juliet", CharacterClass.CLERIC, CharacterRace.GNOME, 3);
+        PartyMember jomi = new PartyMember("jomi", CharacterClass.DRUID, CharacterRace.HUMAN, 4);
+        PartyMember soromi = new PartyMember("soromi", CharacterClass.WARLOCK, CharacterRace.HALFELF, 5);
+        characters.add(juliet);
+        characters.add(jomi);
+        Party partySm = new Party(characters);
+        characters.add(kemi);
+        characters.add(sj);
+        Party party = new Party(characters);
+        characters.add(soromi);
+        Party partyLg = new Party(characters);
+        
+        Enemy enemy = EnemyRecommenderRandom.recommendRandomEnemy();
+        enemy.setName("dragon");
+        Preferences pref = new Preferences();
+        EnemyEval eval = new EnemyEval();
+        
+        //Testing addToHistory (full)
+        History.addToHistory(enemy, eval, partySm, pref);
+        History.printHistory(0);
+        //Testing addToHistory (partial)
+        History.addToHistory(enemy, party, pref);
+        History.printHistory(1);
+        //Testing append eval
+        History.appendEval(eval);
+        History.printHistory(1);
+        //Testing insert eval w/ index
+        History.addToHistory(enemy, partyLg, pref);
+        History.addToHistory(enemy, party, pref);
+        History.printHistory(3);
+        History.insertEval(3, eval);
+        History.printHistory(3);
+        //Testing insert eval w/o index
+        Enemy enemy2 = EnemyRecommenderRandom.recommendRandomEnemy();
+        enemy2.setName("test");
+        eval.setName("test");
+        History.addToHistory(enemy2, partySm, pref);
+        History.addToHistory(enemy, partyLg, pref);
+        History.printHistory(4);
+        History.insertEval(eval);
+        History.printHistory(4);
+        //Testing printAllHistory
+        System.out.println("-----Full History-----");
+        History.printHistory();
+        System.out.println("-----Done-----");
+        //Testing clearAll function
+        System.out.println("-----Clear History-----");
+        History.clearAll();
+        History.printHistory();
+        System.out.println("-----Should be clear-----");
+
+        
+    
+    }
+
     public static void main(String args[]) {
         // partyTest();
         // statsTest();
         // uiTest();
         // characterInheritanceTest();
         // enemyInheritanceTest();
-        agentTest();
+        // agentTest();
+        historyTest();
         // System.out.println("REFLEX AGENT TESTS" + "\n");
         // System.out.println("REFLEX ENEMY 1");
         // System.out.println(enemyRecommenderReflexTest().toString());
