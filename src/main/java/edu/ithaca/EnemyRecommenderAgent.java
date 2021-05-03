@@ -76,8 +76,8 @@ public class EnemyRecommenderAgent {
     }
 
     /**
-     * Searches db for enemies with matching combat ratings and adds Enemy to global
-     * appropriateEnemyList
+     * Calls method of EnemyDataBaseList class to search db for enemies with
+     * matching combat ratings; adds Enemy to global appropriateEnemyList
      * 
      * @param crToFind - Cr value to search for in database (based on difficulty
      *                 preference and party level)
@@ -86,19 +86,27 @@ public class EnemyRecommenderAgent {
      */
 
     public void crSearch(double crToFind) {
-        // TODO: Implement
+        new EnemyDataBaseList();
+        ArrayList<Enemy> enemies = EnemyDataBaseList.crSearch(crToFind);
+        for (int i = 0; i < enemies.size(); i++) {
+            appropriateEnemyList.add(enemies.get(i));
+        }
     }
 
     /**
-     * Searches db for enemies with matching preferences and adds Enemy to global
-     * appropriateEnemyList
+     * Calls method of ____ class to search db for enemies with matching
+     * preferences; adds Enemy to global appropriateEnemyList
      * 
      * @param preferences
      * @sideEffect - appropriateEnemyList is populated with enemies that match
      *             preferences
      */
     public void prefSearch(Preferences preferences) {
-        // TODO: Implement using db search
+        new EnemyDataBaseList();
+        ArrayList<Enemy> enemies = EnemyDataBaseList.prefSearch(preferences);
+        for (int i = 0; i < enemies.size(); i++) {
+            appropriateEnemyList.add(enemies.get(i));
+        }
     }
 
     /**
@@ -116,7 +124,7 @@ public class EnemyRecommenderAgent {
         int alignScore = 0;
         int moveScore = 0;
 
-        if (Math.abs(enemy.getCr() - crToFind) <=4) {
+        if (Math.abs(enemy.getCr() - crToFind) <= 4) {
             crScore = 1;
         }
 
@@ -132,17 +140,15 @@ public class EnemyRecommenderAgent {
             moveScore = 1;
         }
         double finalScore = 0;
-        for (int i=0; i<History.chosenEnemies.size(); i++){
-            for(int k =0; k<appropriateEnemyList.size();k++)
-            if(History.chosenEnemies.get(i) == appropriateEnemyList.get(k))
-                finalScore -= repeatPenalty;
+        for (int i = 0; i < History.chosenEnemies.size(); i++) {
+            for (int k = 0; k < appropriateEnemyList.size(); k++)
+                if (History.chosenEnemies.get(i) == appropriateEnemyList.get(k))
+                    finalScore -= repeatPenalty;
         }
         finalScore = (4 * crScore) - Math.abs(crToFind - enemy.getCr()) + (3 * humanoidScore) + (2 * alignScore)
                 + moveScore;
         return (int) finalScore;
     }
-
-    
 
     /**
      * Iterates through appropriateEnemyList and populates the corresponding

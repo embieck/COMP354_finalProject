@@ -1,11 +1,13 @@
-//Include history of # of death saving throws, HP % used by enemy, parties deaths 
-//After recommending an enemy, it should be added to history list with corresponding parties & preferences
-//Enemy history should also include its evaluation score
-//Map vs corresponding array list
 package edu.ithaca;
 
 import java.util.*;
 
+/**
+ * Holds a history of reccomendations that include: 1) The enemies recoomended
+ * by the agent 2) The party and 3) the preferences given to the agent to
+ * provide the reccommendation and 4) an evaluation of the enemy's performance
+ * in the encounter package edu.ithaca;
+ */
 public class History {
     public static ArrayList<Enemy> chosenEnemies = new ArrayList<>();
     public static ArrayList<EnemyEval> evaluations = new ArrayList<>();
@@ -13,7 +15,8 @@ public class History {
     public static ArrayList<Preferences> preferences = new ArrayList<>();
 
     /**
-     * Adds encounter information to corresponding history lists
+     * Adds encounter information to corresponding history lists (Used when enemy is
+     * not chosen)
      * 
      * @param enemy    - Enemy object used for encounter
      * @param eval     - Completed evaluation for the enemy (after encounter)
@@ -32,10 +35,10 @@ public class History {
     }
 
     /**
-     * Adds recommended enemy information to history Note: Evaluation object will
-     * need to be added via another method Note: Indexes are matched according to
-     * the index of the inserted enemy Note: Parameters should be the same objects
-     * passed to/from the agent recommender
+     * Adds recommended enemy information to history (Used when enemy is chosen)
+     * Note: Evaluation object will need to be added via another method Note:
+     * Indexes are matched according to the index of the inserted enemy Note:
+     * Parameters should be the same objects passed to/from the agent recommender
      * 
      * @param enemy    - Enemy object used for encounter
      * @param curParty - Party facing enemy during encounter
@@ -47,9 +50,9 @@ public class History {
         while (listSize < chosenEnemies.size() && chosenEnemies.get(listSize) != null) {
             listSize++;
         }
-        evaluations.add(listSize-1, null);
-        parties.add(listSize -1 , curParty);
-        preferences.add(listSize -1 , pref);
+        evaluations.add(listSize - 1, null);
+        parties.add(listSize - 1, curParty);
+        preferences.add(listSize - 1, pref);
     }
 
     /**
@@ -111,14 +114,14 @@ public class History {
                         + "\t HP drained by enemy = " + calcHpPerc(parties.get(index), evaluations.get(index))
                         + "\t Deaths = " + evaluations.get(index).getDeaths());
             if (index < parties.size())
-                System.out.println("Party: Party size = " + parties.get(index).getPartySize()
-                        + "\t Party members = " + parties.get(index).toStringMembers());
+                System.out.println("Party: Party size = " + parties.get(index).getPartySize() + "\t Party members = "
+                        + parties.get(index).toStringMembers());
             if (index < preferences.size())
                 System.out.println("Preferences: Difficulty= " + preferences.get(index).getDifficulty()
                         + "\t Humanoid = " + preferences.get(index).getIsHumanoid() + "\t Alignment = "
                         + preferences.get(index).getAlignment() + "\t Movement Type = "
                         + preferences.get(index).getMovementType());
-            System.out.print("-----done-----\n");
+            System.out.print("---------------\n");
         }
     }
 
