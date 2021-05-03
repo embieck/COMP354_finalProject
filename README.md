@@ -11,3 +11,18 @@ A human (DungeonMaster) doing this task would need to evaluate all of the same m
 
 Testing:
 The Tester.java class contains tests for the classes that make up the enviornment. Many of these classes are inherited by others, so much of the testing is grouped together and results will print to the console. Class tests can be commented out in the main method.
+
+
+
+Tests and Interfaces:
+
+All tests for this agent can be found in the 'resources' folder within the 'test/java/edu/ithaca' folder.
+
+The main interface for this agent is in UserInterfaceMain.java .
+
+Recommender System Implementation:
+
+As a software designed to recommend a monster to a D&D party based on stats and other preferences, implementing a recommender system based on the party's response to previous monsters would be an effective way to ensure our agent is as informed as possible. 
+
+**overleaf link coming soon**
+
