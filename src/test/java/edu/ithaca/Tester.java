@@ -2,30 +2,29 @@ package edu.ithaca;
 
 import java.util.*;
 
-import edu.ithaca.QualatativeStats.*;
 
 class Tester {
     private static void statsTest() {
         // Testing Default Contructor & Getters
         System.out.println("------Testing QualStats: Default Contructor-------");
         QualatativeStats qualStats1 = new QualatativeStats();
-        System.out.println(qualStats1.getAlign() + ": Should be unaligned");
-        System.out.println(qualStats1.getSize() + ": Should be medium");
+        System.out.println(qualStats1.getAlign() + ": Should be UNALIGNED");
+        System.out.println(qualStats1.getSize() + ": Should be MEDIUM");
         System.out.println(qualStats1.getLanguages() + ": Should be [common]");
 
         // Testing Contructor
         System.out.println("------Testing QualStats: Contructor-------");
         String delimeter = ",";
-        QualatativeStats qualStats2 = new QualatativeStats(alignment.chaoticGood, size.tiny, "common,dragon",
+        QualatativeStats qualStats2 = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common,dragon",
                 delimeter.charAt(0));
         System.out.println(qualStats2.getLanguages() + ": Should be [common, dragon]");
 
         String delimeter2 = " ";
-        QualatativeStats qualStats3 = new QualatativeStats(alignment.chaoticNeutral, size.huge, "dragon common spanish",
+        QualatativeStats qualStats3 = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "dragon common spanish",
                 delimeter2.charAt(0));
         System.out.println(qualStats3.getLanguages() + ": Should be [dragon, common, spanish]");
 
-        QualatativeStats qualStats4 = new QualatativeStats(alignment.chaoticNeutral, size.huge, "",
+        QualatativeStats qualStats4 = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "",
                 delimeter2.charAt(0));
         System.out.println(qualStats4.getLanguages() + ": Should be [common]");
     }
@@ -89,23 +88,23 @@ class Tester {
         // quantitative classes
 
         // QUANT STAT: moveSpeed, AC, hp, con, str, wis, intel, dex, cha
-        // QUAL STAT: alignment, size, languages, delimiter
+        // QUAL STAT: Alignment, size, languages, delimiter
 
         QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
-        QualatativeStats qualKemi = new QualatativeStats(alignment.lawfulGood, size.medium, "common", ',');
+        QualatativeStats qualKemi = new QualatativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common", ',');
 
         QuantativeStats quantSJ = new QuantativeStats(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        QualatativeStats qualSJ = new QualatativeStats(alignment.chaoticGood, size.tiny, "dragon", ',');
+        QualatativeStats qualSJ = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "dragon", ',');
 
         QuantativeStats quantJuliet = new QuantativeStats(25, 14, 13, 14, 13, 11, 13, 14, 9);
-        QualatativeStats qualJuliet = new QualatativeStats(alignment.chaoticNeutral, size.large, "celestial, common",
+        QualatativeStats qualJuliet = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE, "celestial, common",
                 ',');
 
         QuantativeStats quantJomi = new QuantativeStats(20, 12, 11, 8, 10, 13, 12, 13, 16);
-        QualatativeStats qualJomi = new QualatativeStats(alignment.chaoticEvil, size.small, "common, dragon", ',');
+        QualatativeStats qualJomi = new QualatativeStats(Alignment.CHAOTICEVIL, Size.SMALL, "common, dragon", ',');
 
         QuantativeStats quantSoromi = new QuantativeStats(30, 15, 65, 14, 15, 11, 14, 16, 14);
-        QualatativeStats qualSoromi = new QualatativeStats(alignment.neutralGood, size.huge, "common", ',');
+        QualatativeStats qualSoromi = new QualatativeStats(Alignment.NEUTRALGOOD, Size.HUGE, "common", ',');
 
         PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, qualKemi, quantKemi);
         PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, qualSJ, quantSJ);
@@ -116,8 +115,8 @@ class Tester {
                 quantSoromi);
 
         System.out.println("------Testing PartyMember: Qualitative Getters-------");
-        System.out.println(soromi.getAlignment() + ": should be neutralGood");
-        System.out.println(jomi.getSize() + ": should be small");
+        System.out.println(soromi.getAlignment() + ": should be NEUTRALGOOD");
+        System.out.println(jomi.getSize() + ": should be SMALL");
         System.out.println(juliet.getLanguages() + ": should be celestial and common");
         System.out.println(sj.getLanguages() + ": should be dragon");
 
@@ -137,26 +136,26 @@ class Tester {
     private static void enemyInheritanceTest() {
         // Create enemies and make sure that enemyquant stats inherets correctly
         // ENEMY: isHumanoid, isMagicUser, terrain, movementType, qualStats, quanStats
-        // QUAL: alignment, size, languages, delimiter
+        // QUAL: Alignment, size, languages, delimiter
         // ENEMYQUAN: cr, exp, moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
-        QualatativeStats qualYeti = new QualatativeStats(alignment.chaoticEvil, size.large, "Yeti", ',');
+        QualatativeStats qualYeti = new QualatativeStats(Alignment.CHAOTICEVIL, Size.LARGE, "Yeti", ',');
         EnemyQuantStats quanYeti = new EnemyQuantStats(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
-        QualatativeStats qualDragon = new QualatativeStats(alignment.neutralEvil, size.huge, "Dragon", ',');
+        QualatativeStats qualDragon = new QualatativeStats(Alignment.NEUTRALEVIL, Size.HUGE, "Dragon", ',');
         EnemyQuantStats quanDragon = new EnemyQuantStats(11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 
-        QualatativeStats qualGelatinousCube = new QualatativeStats(alignment.unaligned, size.medium, "None", ',');
+        QualatativeStats qualGelatinousCube = new QualatativeStats(Alignment.UNALIGNED, Size.MEDIUM, "None", ',');
         EnemyQuantStats quanGelationusCube = new EnemyQuantStats(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22);
 
-        QualatativeStats qualBandit = new QualatativeStats(alignment.neutralEvil, size.medium, "Common", ',');
+        QualatativeStats qualBandit = new QualatativeStats(Alignment.NEUTRALEVIL, Size.MEDIUM, "Common", ',');
         EnemyQuantStats quanBandit = new EnemyQuantStats(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21);
 
-        QualatativeStats qualAboleth = new QualatativeStats(alignment.lawfulEvil, size.gargantuan,
+        QualatativeStats qualAboleth = new QualatativeStats(Alignment.LAWFULEVIL, Size.GARGANTUAN,
                 "Aboleth, Aquan, Undercommon", ',');
         EnemyQuantStats quanAboleth = new EnemyQuantStats(5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55);
 
-        QualatativeStats qualBeholder = new QualatativeStats(alignment.lawfulEvil, size.large, "Beholder, Undercommon",
+        QualatativeStats qualBeholder = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Beholder, Undercommon",
                 ',');
         EnemyQuantStats quanBeholder = new EnemyQuantStats(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33);
 
@@ -179,10 +178,10 @@ class Tester {
         System.out.println(aboleth.getMovementType() + ": should be Swim");
 
         System.out.println("------Testing Enemy: Qualitative Getters-------");
-        System.out.println(gelatinousCube.getAlignment() + ": should be Unaligned");
+        System.out.println(gelatinousCube.getAlignment() + ": should be UNALIGNED");
         System.out.println(bandit.getAlignment() + ": should be Neutral Evil");
-        System.out.println(aboleth.getSize() + ": should be Gargantuan");
-        System.out.println(beholder.getSize() + ": should be Large");
+        System.out.println(aboleth.getSize() + ": should be GARGANTUAN");
+        System.out.println(beholder.getSize() + ": should be LARGE");
         System.out.println(yeti.getLanguages() + ": should be Yeti");
         System.out.println(aboleth.getLanguages() + ": should be Aboleth, Aquan, and Undercommon");
 
@@ -204,18 +203,18 @@ class Tester {
     private static Enemy enemyRecommenderReflexTest() {
 
         QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
-        QualatativeStats qualKemi = new QualatativeStats(alignment.lawfulGood, size.medium, "common, elvish, sylvan",
+        QualatativeStats qualKemi = new QualatativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common, elvish, sylvan",
                 ',');
 
         QuantativeStats quantEmma = new QuantativeStats(30, 13, 11, 12, 15, 14, 14, 11, 12);
-        QualatativeStats qualEmma = new QualatativeStats(alignment.chaoticGood, size.tiny, "common, elvish", ',');
+        QualatativeStats qualEmma = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common, elvish", ',');
 
         QuantativeStats quantKelsey = new QuantativeStats(30, 14, 13, 14, 13, 11, 13, 14, 9);
-        QualatativeStats qualKelsey = new QualatativeStats(alignment.chaoticNeutral, size.large, "celestial, common",
+        QualatativeStats qualKelsey = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE, "celestial, common",
                 ',');
 
         QuantativeStats quantToby = new QuantativeStats(30, 12, 11, 8, 10, 13, 12, 13, 16);
-        QualatativeStats qualToby = new QualatativeStats(alignment.chaoticEvil, size.gargantuan, "common, draconic",
+        QualatativeStats qualToby = new QualatativeStats(Alignment.CHAOTICEVIL, Size.GARGANTUAN, "common, draconic",
                 ',');
 
         ArrayList<PartyMember> characters = new ArrayList<>();
@@ -267,10 +266,10 @@ class Tester {
         Party partyLg = new Party(characters);
 
         EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
-        Preferences prefEasy = new Preferences(alignment.chaoticEvil, false, Difficulty.EASY, MovementType.GROUND);
+        Preferences prefEasy = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.GROUND);
         Preferences prefMed = new Preferences();
-        Preferences prefHard = new Preferences(alignment.chaoticEvil, false, Difficulty.HARD, MovementType.GROUND);
-        Preferences prefDeadly = new Preferences(alignment.chaoticEvil, false, Difficulty.DEADLY, MovementType.GROUND);
+        Preferences prefHard = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.HARD, MovementType.GROUND);
+        Preferences prefDeadly = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.DEADLY, MovementType.GROUND);
 
         // Testing crToFind with varying Difficulty
         // Party < 4
@@ -332,13 +331,13 @@ class Tester {
     public static void prefSearchTest() {
         EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
         List<Enemy> list = new ArrayList<>();
-        Preferences pref1 = new Preferences(alignment.chaoticEvil, false, Difficulty.EASY, MovementType.FLY);
-        Preferences pref2 = new Preferences(alignment.unaligned, true, Difficulty.HARD, MovementType.GROUND);
-        Preferences pref3 = new Preferences(alignment.chaoticNeutral, false, Difficulty.DEADLY, MovementType.SWIM);
+        Preferences pref1 = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.FLY);
+        Preferences pref2 = new Preferences(Alignment.UNALIGNED, true, Difficulty.HARD, MovementType.GROUND);
+        Preferences pref3 = new Preferences(Alignment.CHAOTICNEUTRAL, false, Difficulty.DEADLY, MovementType.SWIM);
 
         agent.prefSearch(pref1);
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("Should be false, chaoticEvil, Fly : " + list.get(i).getIsHumanoid()
+            System.out.println("Should be false, CHAOTICEVIL, Fly : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
         }
         list.clear();
@@ -346,7 +345,7 @@ class Tester {
 
         agent.prefSearch(pref2);
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("Should be true, unaligned, Ground : " + list.get(i).getIsHumanoid()
+            System.out.println("Should be true, UNALIGNED, Ground : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
         }
         list.clear();
@@ -354,15 +353,15 @@ class Tester {
 
         agent.prefSearch(pref3);
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("Should be false, chaoticNeutral, Swim : " + list.get(i).getIsHumanoid()
+            System.out.println("Should be false, CHAOTICNEUTRAL, Swim : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
         }
     }
 
     public static void calcScoreTest() {
         EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
-        Preferences pref1 = new Preferences(alignment.chaoticEvil, false, Difficulty.EASY, MovementType.FLY);
-        Preferences pref2 = new Preferences(alignment.unaligned, true, Difficulty.HARD, MovementType.GROUND);
+        Preferences pref1 = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.FLY);
+        Preferences pref2 = new Preferences(Alignment.UNALIGNED, true, Difficulty.HARD, MovementType.GROUND);
         QualatativeStats qualStats = new QualatativeStats();
         EnemyQuantStats quanStats = new EnemyQuantStats(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         Enemy enemy1 = new Enemy(true, false, Terrain.GRASSLAND, MovementType.GROUND, qualStats, quanStats);

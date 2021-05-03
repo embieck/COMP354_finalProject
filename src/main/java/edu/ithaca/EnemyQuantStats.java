@@ -1,6 +1,7 @@
 package edu.ithaca;
 
-public class EnemyQuantStats extends QuantativeStats {
+
+public class EnemyQuantStats extends QuantativeStats{
     private double cr;
     private int exp;
     private int swimSpeed;
@@ -21,14 +22,23 @@ public class EnemyQuantStats extends QuantativeStats {
         this.exp = exp;
     }
 
-    public EnemyQuantStats(double cr, int exp, int swimSpeed, int groundSpeed, int flySpeed, int armorClass, int hp, int con, int str, int wis,
+    public EnemyQuantStats(double cr, int swimSpeed, int groundSpeed, int flySpeed, int armorClass, int hp, int con, int str, int wis,
             int intel, int dex, int cha) {
-        super(0, armorClass, hp, con, str, wis, intel, dex, cha);
+        super(groundSpeed, armorClass, hp, con, str, wis, intel, dex, cha);
         this.cr = cr;
-        this.exp = exp;
+        this.exp = 0;
         this.swimSpeed = swimSpeed;
         this.groundSpeed = groundSpeed;
         this.flySpeed = flySpeed;
+    }
+
+    public EnemyQuantStats() {
+        super();
+        this.groundSpeed=super.getMoveSpeed();
+        this.swimSpeed=0;
+        this.flySpeed=0;
+        this.cr = 0.0;
+        this.exp = 0;
     }
 
     public double getCr() {
@@ -56,6 +66,18 @@ public class EnemyQuantStats extends QuantativeStats {
     }
     public int getFlySpeed(){
         return flySpeed;
+    }
+
+    public void setGroundSpeed(int gs) {
+        groundSpeed=gs;
+    }
+
+    public void setSwimSpeed(int sws) {
+        swimSpeed=sws;
+    }
+
+    public void setFlySpeed(int fs) {
+        flySpeed=fs;
     }
 
 }

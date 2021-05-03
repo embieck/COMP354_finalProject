@@ -1,7 +1,6 @@
 package edu.ithaca;
 import java.util.*;
-import edu.ithaca.QualatativeStats.*;
-import edu.ithaca.QualatativeStats.alignment;
+
 
 public class EnemyRecommenderRandom {
 
@@ -12,87 +11,87 @@ public class EnemyRecommenderRandom {
         ArrayList<Enemy> possibleEnemies = new ArrayList<>();
         ArrayList<QualatativeStats> possibleEnemiesQuals = new ArrayList<>();
         Enemy yeti = new Enemy(false, false, Terrain.ARCTIC, MovementType.GROUND, null, null);
-        QualatativeStats qualYeti = new QualatativeStats(alignment.lawfulEvil, size.large, "Yeti, Undercommon", ',');
+        QualatativeStats qualYeti = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Yeti, Undercommon", ',');
         possibleEnemies.add(yeti);
         possibleEnemiesQuals.add(qualYeti);
 
         Enemy aarakocra = new Enemy(false, false, Terrain.MOUNTAIN, MovementType.FLY, null, null);
-        QualatativeStats qualAarakocra = new QualatativeStats(alignment.lawfulEvil, size.large, "Auran, Common", ',');
+        QualatativeStats qualAarakocra = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Auran, Common", ',');
         possibleEnemies.add(aarakocra);
         possibleEnemiesQuals.add(qualAarakocra);
 
         Enemy dragon = new Enemy(false, true, Terrain.MOUNTAIN, MovementType.FLY, null, null);
-        QualatativeStats qualDragon = new QualatativeStats(alignment.neutralEvil, size.huge, "Draconic", ',');
+        QualatativeStats qualDragon = new QualatativeStats(Alignment.NEUTRALEVIL, Size.HUGE, "Draconic", ',');
         possibleEnemies.add(dragon);
         possibleEnemiesQuals.add(qualDragon);
 
         Enemy owlbear = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualOwlbear = new QualatativeStats(alignment.lawfulEvil, size.medium, "None", ',');
+        QualatativeStats qualOwlbear = new QualatativeStats(Alignment.LAWFULEVIL, Size.MEDIUM, "None", ',');
         possibleEnemies.add(owlbear);
         possibleEnemiesQuals.add(qualOwlbear);
 
         Enemy gelatinousCube = new Enemy(false, false, Terrain.GRASSLAND, MovementType.GROUND, null, null);
-        QualatativeStats qualgelatinousCube = new QualatativeStats(alignment.trueNeutral, size.medium, "None", ',');
+        QualatativeStats qualgelatinousCube = new QualatativeStats(Alignment.TRUENEUTRAL, Size.MEDIUM, "None", ',');
         possibleEnemies.add(gelatinousCube);
         possibleEnemiesQuals.add(qualgelatinousCube);
 
         Enemy beholder = new Enemy(false, true, Terrain.UNDERDARK, MovementType.FLY, null, null);
-        QualatativeStats qualBeholder = new QualatativeStats(alignment.lawfulEvil, size.large, "Beholder, Undercommon", ',');
+        QualatativeStats qualBeholder = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Beholder, Undercommon", ',');
         possibleEnemies.add(beholder);
         possibleEnemiesQuals.add(qualBeholder);
 
         Enemy aboleth = new Enemy(false, false, Terrain.COAST, MovementType.SWIM, null, null);
-        QualatativeStats qualAboleth = new QualatativeStats(alignment.lawfulEvil, size.gargantuan, "Aboleth, Aquan, Deep speech", ',');
+        QualatativeStats qualAboleth = new QualatativeStats(Alignment.LAWFULEVIL, Size.GARGANTUAN, "Aboleth, Aquan, Deep speech", ',');
         possibleEnemies.add(aboleth);
         possibleEnemiesQuals.add(qualAboleth);
 
         Enemy banshee = new Enemy(false, false, Terrain.UNDERDARK, MovementType.FLY, null, null);
-        QualatativeStats qualBanshee = new QualatativeStats(alignment.lawfulEvil, size.medium, "Common, Elvish", ',');
+        QualatativeStats qualBanshee = new QualatativeStats(Alignment.LAWFULEVIL, Size.MEDIUM, "Common, Elvish", ',');
         possibleEnemies.add(banshee);
         possibleEnemiesQuals.add(qualBanshee);
 
         Enemy bandit = new Enemy(true, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualBandit = new QualatativeStats(alignment.chaoticEvil, size.medium, "Common", ',');
+        QualatativeStats qualBandit = new QualatativeStats(Alignment.CHAOTICEVIL, Size.MEDIUM, "Common", ',');
         possibleEnemies.add(bandit);
         possibleEnemiesQuals.add(qualBandit);
 
         Enemy goblin = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualGoblin = new QualatativeStats(alignment.lawfulEvil, size.small, "Ghukliak", ',');
+        QualatativeStats qualGoblin = new QualatativeStats(Alignment.LAWFULEVIL, Size.SMALL, "Ghukliak", ',');
         possibleEnemies.add(goblin);
         possibleEnemiesQuals.add(qualGoblin);
 
         Enemy orc = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualOrc = new QualatativeStats(alignment.lawfulEvil, size.large, "Orcish, Common", ',');
+        QualatativeStats qualOrc = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Orcish, Common", ',');
         possibleEnemies.add(orc);
         possibleEnemiesQuals.add(qualOrc);
 
         Enemy zombie = new Enemy(false, false, Terrain.UNDERDARK, MovementType.GROUND, null, null);
-        QualatativeStats qualZombie= new QualatativeStats(alignment.neutralEvil, size.medium, "None", ',');
+        QualatativeStats qualZombie= new QualatativeStats(Alignment.NEUTRALEVIL, Size.MEDIUM, "None", ',');
         possibleEnemies.add(zombie);
         possibleEnemiesQuals.add(qualZombie);
 
         Enemy werewolf = new Enemy(false, false, Terrain.MOUNTAIN, MovementType.GROUND, null, null);
-        QualatativeStats qualWerewolf = new QualatativeStats(alignment.neutralEvil, size.medium, "Common", ',');
+        QualatativeStats qualWerewolf = new QualatativeStats(Alignment.NEUTRALEVIL, Size.MEDIUM, "Common", ',');
         possibleEnemies.add(werewolf);
         possibleEnemiesQuals.add(qualWerewolf);
 
         Enemy giantRat = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualGiantRat = new QualatativeStats(alignment.neutralEvil, size.small, "None", ',');
+        QualatativeStats qualGiantRat = new QualatativeStats(Alignment.NEUTRALEVIL, Size.SMALL, "None", ',');
         possibleEnemies.add(giantRat);
         possibleEnemiesQuals.add(qualGiantRat);
 
         Enemy arachnid = new Enemy(false, false, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualArachnid = new QualatativeStats(alignment.neutralEvil, size.small, "None", ',');
+        QualatativeStats qualArachnid = new QualatativeStats(Alignment.NEUTRALEVIL, Size.SMALL, "None", ',');
         possibleEnemies.add(arachnid);
         possibleEnemiesQuals.add(qualArachnid);
 
         Enemy rustMonster = new Enemy(false, false, Terrain.SWAMP, MovementType.GROUND, null, null);
-        QualatativeStats qualRustMonster = new QualatativeStats(alignment.lawfulEvil, size.medium, "Undercommon", ',');
+        QualatativeStats qualRustMonster = new QualatativeStats(Alignment.LAWFULEVIL, Size.MEDIUM, "Undercommon", ',');
         possibleEnemies.add(rustMonster);
         possibleEnemiesQuals.add(qualRustMonster);
 
         Enemy cultist = new Enemy(true, true, Terrain.FOREST, MovementType.GROUND, null, null);
-        QualatativeStats qualCultist = new QualatativeStats(alignment.lawfulEvil, size.medium, "Common", ',');
+        QualatativeStats qualCultist = new QualatativeStats(Alignment.LAWFULEVIL, Size.MEDIUM, "Common", ',');
         possibleEnemies.add(cultist);
         possibleEnemiesQuals.add(qualCultist);
 

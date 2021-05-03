@@ -1,0 +1,141 @@
+[ {
+  "name" : "Almiraj",
+  "isHumanoid" : false,
+  "isMagicUser" : false,
+  "quanStats" : {
+    "moveSpeed" : 50,
+    "armorClass" : 13,
+    "hp" : 3,
+    "con" : 10,
+    "str" : 2,
+    "wis" : 14,
+    "intel" : 2,
+    "dex" : 16,
+    "cha" : 10,
+    "cr" : 0.0,
+    "exp" : 0,
+    "swimSpeed" : 0,
+    "groundSpeed" : 50,
+    "flySpeed" : 0
+  },
+  "qualStats" : {
+    "languages" : [ "None" ],
+    "align" : "UNALIGNED",
+    "size" : "SMALL"
+  },
+  "savingThrows" : "None",
+  "skills" : "Perception, Stealth",
+  "additional" : "Keen Hearing, Keen Sight"
+}, {
+  "name" : "Chwinga",
+  "isHumanoid" : false,
+  "isMagicUser" : false,
+  "quanStats" : {
+    "moveSpeed" : 20,
+    "armorClass" : 15,
+    "hp" : 5,
+    "con" : 10,
+    "str" : 1,
+    "wis" : 16,
+    "intel" : 14,
+    "dex" : 20,
+    "cha" : 16,
+    "cr" : 0.0,
+    "exp" : 0,
+    "swimSpeed" : 20,
+    "groundSpeed" : 20,
+    "flySpeed" : 0
+  },
+  "qualStats" : {
+    "languages" : [ "None" ],
+    "align" : "TRUENEUTRAL",
+    "size" : "TINY"
+  },
+  "savingThrows" : "None",
+  "skills" : "Acrobatics, Perception, Stealth",
+  "additional" : "Evasion, Innate Spellcasting"
+}, {
+  "name" : "Cranium Rat",
+  "isHumanoid" : false,
+  "isMagicUser" : false,
+  "quanStats" : {
+    "moveSpeed" : 30,
+    "armorClass" : 12,
+    "hp" : 2,
+    "con" : 10,
+    "str" : 2,
+    "wis" : 11,
+    "intel" : 4,
+    "dex" : 14,
+    "cha" : 8,
+    "cr" : 0.0,
+    "exp" : 0,
+    "swimSpeed" : 0,
+    "groundSpeed" : 30,
+    "flySpeed" : 0
+  },
+  "qualStats" : {
+    "languages" : [ "Telepathy", "30" ],
+    "align" : "LAWFULEVIL",
+    "size" : "TINY"
+  },
+  "savingThrows" : "None",
+  "skills" : "None",
+  "additional" : "Illumination, Telepathic Shroud"
+}, {
+  "name" : "Crawling Claw",
+  "isHumanoid" : false,
+  "isMagicUser" : false,
+  "quanStats" : {
+    "moveSpeed" : 20,
+    "armorClass" : 12,
+    "hp" : 2,
+    "con" : 11,
+    "str" : 13,
+    "wis" : 10,
+    "intel" : 5,
+    "dex" : 14,
+    "cha" : 4,
+    "cr" : 0.0,
+    "exp" : 0,
+    "swimSpeed" : 0,
+    "groundSpeed" : 20,
+    "flySpeed" : 0
+  },
+  "qualStats" : {
+    "languages" : [ "Common" ],
+    "align" : "NEUTRALEVIL",
+    "size" : "TINY"
+  },
+  "savingThrows" : "None",
+  "skills" : "None",
+  "additional" : "Turn Immunity"
+}, {
+  "name" : "Devil, Lemure",
+  "isHumanoid" : false,
+  "isMagicUser" : false,
+  "quanStats" : {
+    "moveSpeed" : 15,
+    "armorClass" : 7,
+    "hp" : 13,
+    "con" : 11,
+    "str" : 10,
+    "wis" : 11,
+    "intel" : 1,
+    "dex" : 5,
+    "cha" : 3,
+    "cr" : 0.0,
+    "exp" : 0,
+    "swimSpeed" : 0,
+    "groundSpeed" : 15,
+    "flySpeed" : 0
+  },
+  "qualStats" : {
+    "languages" : [ "Infernal" ],
+    "align" : "LAWFULEVIL",
+    "size" : "MEDIUM"
+  },
+  "savingThrows" : "None",
+  "skills" : "None",
+  "additional" : "Devil's Sight, Hellish Rejuvenation\"0"
+} ]

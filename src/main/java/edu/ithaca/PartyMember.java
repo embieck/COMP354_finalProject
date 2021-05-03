@@ -2,13 +2,9 @@ package edu.ithaca;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-// import java.util.LinkedList;
-// import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import edu.ithaca.QualatativeStats.alignment;
-import edu.ithaca.QualatativeStats.size;
 
 
 public class PartyMember implements Serializable{
@@ -104,11 +100,11 @@ public class PartyMember implements Serializable{
         qualStats=qls;
     }
     @JsonIgnore
-    public alignment getAlignment() {
+    public Alignment getAlignment() {
         return qualStats.getAlign();
     }
     @JsonIgnore
-    public size getSize() {
+    public Size getSize() {
         return qualStats.getSize();
     }
     @JsonIgnore   

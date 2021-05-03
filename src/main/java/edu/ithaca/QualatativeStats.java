@@ -12,33 +12,33 @@ import java.util.*;
 public class QualatativeStats implements Serializable{
 
     public ArrayList<String> languages = new ArrayList<>();
-    public alignment align;
-    public size size;
+    public Alignment align;
+    public Size size;
 
     /**
      * Default constructor
      */
     public QualatativeStats() {
-        this.align = alignment.unaligned;
+        this.align = Alignment.UNALIGNED;
         this.languages.add("common");
-        this.size = size.medium;
+        this.size = Size.MEDIUM;
     }
 
     /**
      * Constructor
      * 
      * @param align     - gives a clue to the default behavior of the creatures
-     * @param size      - size of creature, how much space it occupies
+     * @param size2      - size of creature, how much space it occupies
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
-    public QualatativeStats(alignment align, size size, String languageStr, char delimiter){
+    public QualatativeStats(Alignment align, Size size, String languageStr, char delimiter){
         this.align = align;
         this.size = size;
         if (!languageStr.isEmpty()) {
             String curLang = "";
             for (int i = 0; i < languageStr.length(); i++) {
-                if (languageStr.charAt(i) != delimiter)
+                if (languageStr.charAt(i) != delimiter && languageStr.charAt(i) !=' ')
                     curLang += languageStr.charAt(i);
                 else {
                     this.languages.add(curLang);
@@ -49,39 +49,32 @@ public class QualatativeStats implements Serializable{
         }
     }
 
-    public enum alignment {
-        unaligned, chaoticEvil, lawfulEvil, neutralEvil, chaoticGood, lawfulGood, neutralGood, chaoticNeutral,
-        lawfulNeutral, trueNeutral;
-
-        public String getAlignment(){
-            return this.name();
-        }
-    }
-
-    public enum size {
-        tiny, small, medium, large, huge, gargantuan;
-        public String getSize(){
-            return this.name();
-        }
-    }
-
     public ArrayList<String> getLanguages() {
         return this.languages;
     }
 
-    public alignment getAlign() {
+    public String getLanguage(int index) throws RuntimeException{
+        if(languages!=null&&!languages.isEmpty()){
+            return languages.get(index);
+        }
+        else{
+            throw new RuntimeException("enemy has no languages recorded");
+        }
+    }
+
+    public Alignment getAlign() {
         return this.align;
     }
 
-    public void setAlign(alignment align) {
+    public void setAlign(Alignment align) {
         this.align = align;
     }
 
-    public size getSize() {
+    public Size getSize() {
         return this.size;
     }
 
-    public void setSize(size size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 
