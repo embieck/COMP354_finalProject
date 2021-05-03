@@ -429,7 +429,7 @@ class Tester {
         History.addToHistory(enemy2, partySm, pref);
         History.addToHistory(enemy, partyLg, pref);
         History.printHistory(4);
-        History.insertEval(eval);
+        System.out.println("Should be true: " + History.insertEval(eval));
         History.printHistory(4);
         //Testing printAllHistory
         System.out.println("-----Full History-----");
