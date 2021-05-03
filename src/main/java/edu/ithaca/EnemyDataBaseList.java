@@ -141,4 +141,24 @@ public class EnemyDataBaseList {
             throw new RuntimeException("enemy database list has not been created yet");
         }
     }
+    /**
+     * Searches db for enemies with matching combat ratings and returns them as a list 
+     * 
+     * @param crToFind - Cr value to search for in database
+     * @return - List of appropriate enemy objects
+     */
+
+    public static ArrayList<Enemy> crSearch(double crToFind) {
+        // TODO: Implement
+    }
+
+    /**
+     * Searches db for enemies with matching preferences and returns them as a list 
+     * 
+     * @param preferences
+     * @return - List of appropriate enemy objects
+     */
+    public static ArrayList<Enemy> prefSearch(Preferences preferences) {
+        // TODO: Implement using db search
+    }
 }
