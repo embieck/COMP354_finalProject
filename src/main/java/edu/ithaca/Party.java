@@ -95,4 +95,12 @@ public class Party {
         }
         return null;
     }
+
+	public String toStringMembers() {
+        String finalString = "";
+		for (int i = 0; i < this.partySize; i++){
+            finalString += characters.get(i).getName() + "  ";
+        }
+        return finalString;
+	}
 }

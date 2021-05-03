@@ -1,3 +1,4 @@
+
 package edu.ithaca;
 
 public interface EnemyRecommender {

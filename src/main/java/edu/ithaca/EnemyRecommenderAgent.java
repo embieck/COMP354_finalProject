@@ -5,6 +5,8 @@ import java.util.*;
 public class EnemyRecommenderAgent {
     List<Enemy> appropriateEnemyList = new ArrayList<>();
     List<Integer> enemyScoreList = new ArrayList<>();
+    public final History history = new History();
+    private final double repeatPenalty = 2;
 
     public static double calcAvPartyLevel(Party party) {
         int partySize = party.getPartySize();
@@ -129,10 +131,18 @@ public class EnemyRecommenderAgent {
         if (enemy.getMovementType() == preferences.getMovementType()) {
             moveScore = 1;
         }
-        double finalScore = (4 * crScore) - Math.abs(crToFind - enemy.getCr()) + (3 * humanoidScore) + (2 * alignScore)
+        double finalScore = 0;
+        for (int i=0; i<History.chosenEnemies.size(); i++){
+            for(int k =0; k<appropriateEnemyList.size();k++)
+            if(History.chosenEnemies.get(i) == appropriateEnemyList.get(k))
+                finalScore -= repeatPenalty;
+        }
+        finalScore = (4 * crScore) - Math.abs(crToFind - enemy.getCr()) + (3 * humanoidScore) + (2 * alignScore)
                 + moveScore;
         return (int) finalScore;
     }
+
+    
 
     /**
      * Iterates through appropriateEnemyList and populates the corresponding
