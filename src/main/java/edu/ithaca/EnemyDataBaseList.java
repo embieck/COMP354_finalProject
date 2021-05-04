@@ -179,7 +179,6 @@ public class EnemyDataBaseList {
             else if(emt.contains(preferences.getMovementType())){
                 enemiesWithPreference.add(e);
             }
-            //Not sure what to do about difficulty
         }
         return enemiesWithPreference;
     }
