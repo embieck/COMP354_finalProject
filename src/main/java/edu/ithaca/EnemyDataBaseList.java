@@ -148,8 +148,15 @@ public class EnemyDataBaseList {
      * @return - List of appropriate enemy objects
      */
 
-    public static ArrayList<Enemy> crSearch(double crToFind) {
-        // TODO: Implement
+    public ArrayList<Enemy> crFind(double crToFind) {
+        ArrayList<Enemy> enemiesWithCR = new ArrayList<>();
+        for(int i=0;i<enemyDBList.size();i++){
+            Enemy e = enemyDBList.get(i);
+            if(e.getCr()==crToFind){
+                enemiesWithCR.add(e);
+            }
+        }
+        return enemiesWithCR;
     }
 
     /**
@@ -158,7 +165,22 @@ public class EnemyDataBaseList {
      * @param preferences
      * @return - List of appropriate enemy objects
      */
-    public static ArrayList<Enemy> prefSearch(Preferences preferences) {
-        // TODO: Implement using db search
+    public ArrayList<Enemy> prefFind(Preferences preferences) {
+        ArrayList<Enemy> enemiesWithPreference = new ArrayList<>();
+        for(int i=0;i<enemyDBList.size();i++){
+            Enemy e = enemyDBList.get(i);
+            ArrayList<MovementType> emt = e.getMovementTypes();
+            if(e.getAlignment()==preferences.getAlignment()){
+                enemiesWithPreference.add(e);
+            }
+            else if(e.getIsHumanoid()==preferences.getIsHumanoid()){
+                enemiesWithPreference.add(e);
+            }
+            else if(emt.contains(preferences.getMovementType())){
+                enemiesWithPreference.add(e);
+            }
+            //Not sure what to do about difficulty
+        }
+        return enemiesWithPreference;
     }
 }

@@ -85,9 +85,8 @@ public class EnemyRecommenderAgent {
      *             crToFind
      */
 
-    public void crSearch(double crToFind) {
-        new EnemyDataBaseList();
-        ArrayList<Enemy> enemies = EnemyDataBaseList.crSearch(crToFind);
+    public void crSearch(double crToFind, EnemyDataBaseList edbl) {
+        ArrayList<Enemy> enemies = edbl.crFind(crToFind);
         for (int i = 0; i < enemies.size(); i++) {
             appropriateEnemyList.add(enemies.get(i));
         }
@@ -101,9 +100,8 @@ public class EnemyRecommenderAgent {
      * @sideEffect - appropriateEnemyList is populated with enemies that match
      *             preferences
      */
-    public void prefSearch(Preferences preferences) {
-        new EnemyDataBaseList();
-        ArrayList<Enemy> enemies = EnemyDataBaseList.prefSearch(preferences);
+    public void prefSearch(Preferences preferences, EnemyDataBaseList edbl) {
+        ArrayList<Enemy> enemies = edbl.prefFind(preferences);
         for (int i = 0; i < enemies.size(); i++) {
             appropriateEnemyList.add(enemies.get(i));
         }
@@ -181,14 +179,14 @@ public class EnemyRecommenderAgent {
         return appropriateEnemyList.get(maxIndex);
     }
 
-    public Enemy recommendEnemy(Party party, Preferences preferences) {
+    public Enemy recommendEnemy(Party party, Preferences preferences, EnemyDataBaseList edbl) {
         double crToFind = calcCrToFind(party, preferences);
-        crSearch(crToFind);
+        crSearch(crToFind, edbl);
         if (appropriateEnemyList.size() < 1) { // If no suitable enemies are found, repeat crSearch with +/- 1
-            crSearch(crToFind + 1);
-            crSearch(crToFind - 1);
+            crSearch(crToFind + 1, edbl);
+            crSearch(crToFind - 1, edbl);
         }
-        prefSearch(preferences);
+        prefSearch(preferences, edbl);
         popScoreList(preferences, crToFind);
         return bestEnemy();
     }
