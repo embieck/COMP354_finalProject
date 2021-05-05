@@ -1,9 +1,9 @@
 package edu.ithaca;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
+import edu.ithaca.dragon.util.JsonUtil;
 // import org.apache.spark.sql.Dataset;
 // import org.apache.spark.sql.Row;
 // import org.apache.spark.sql.SparkSession;
@@ -181,5 +181,22 @@ public class EnemyDataBaseList {
             }
         }
         return enemiesWithPreference;
+    }
+    /**
+     * Converts the entire enemy list to a json file
+     * @param filename
+     * @throws IOException
+     */
+    public void enemyListToJsonFile(String filename) throws IOException{
+        JsonUtil.toJsonFile(filename,enemyDBList);
+    }
+    /**
+     * Converts a list of the number of enemies specified to a json file
+     * @param filename
+     * @param numEnemies
+     * @throws IOException
+     */
+    public void enemyListHeadToJsonFile(String filename, int numEnemies) throws IOException{
+        JsonUtil.toJsonFile(filename,head(numEnemies));
     }
 }
