@@ -1,5 +1,6 @@
 package edu.ithaca;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import edu.ithaca.QualatativeStats.*;
@@ -324,7 +325,7 @@ class Tester {
 
     }
 
-    private static void agentTest() {
+    private static void agentTest() throws FileNotFoundException {
         crToFindTest();
         calcScoreTest();
         crSearchTest();
@@ -332,10 +333,10 @@ class Tester {
     }
 
     //Test for UI
-    public static void crSearchTest() {
+    public static void crSearchTest() throws FileNotFoundException {
         System.out.println("-----CR Find Test-----");
 
-        EnemyDataBaseList agent = new EnemyDataBaseList();
+        EnemyDataBaseList agent = new EnemyDataBaseList("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv");
         List<Enemy> list = new ArrayList<>();
 
         list = agent.crFind(1.0);
@@ -454,7 +455,7 @@ class Tester {
     
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws FileNotFoundException {
         // partyTest();
         // statsTest();
         // characterInheritanceTest();
