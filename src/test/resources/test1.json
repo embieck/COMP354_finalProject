@@ -4,8 +4,8 @@
   "characterRace" : "HUMAN",
   "qualStats" : {
     "languages" : [ "common" ],
-    "align" : "unaligned",
-    "size" : "medium"
+    "align" : "UNALIGNED",
+    "size" : "MEDIUM"
   },
   "quanStats" : {
     "moveSpeed" : 30,
@@ -25,8 +25,8 @@
   "characterRace" : "ELF",
   "qualStats" : {
     "languages" : [ "common" ],
-    "align" : "unaligned",
-    "size" : "medium"
+    "align" : "UNALIGNED",
+    "size" : "MEDIUM"
   },
   "quanStats" : {
     "moveSpeed" : 30,
@@ -46,8 +46,8 @@
   "characterRace" : "GNOME",
   "qualStats" : {
     "languages" : [ "Common", "Infernal" ],
-    "align" : "chaoticGood",
-    "size" : "small"
+    "align" : "CHAOTICGOOD",
+    "size" : "SMALL"
   },
   "quanStats" : {
     "moveSpeed" : 40,
