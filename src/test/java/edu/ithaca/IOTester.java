@@ -21,12 +21,12 @@ public class IOTester {
         party.addCharacter(new PartyMember("Finn",CharacterClass.FIGHTER,CharacterRace.HUMAN,2));
         party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.ELF,7));
         party.addCharacter(new PartyMember("Neptor",CharacterClass.BARBARIAN, CharacterRace.GNOME,new QualatativeStats(Alignment.CHAOTICGOOD,Size.SMALL, "Common,Infernal",','), new QuantativeStats(40, 11, 25, 12, 14, 10, 7, 10, 11)));
-        party.savePartyToJson("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/test1.json");
+        party.savePartyToJson("src/test/resources/test1.json");
 
     }
     @Test
     void readJsonFileToPMList() throws IOException{
-        Party p  = new Party("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/test1.json");
+        Party p  = new Party("src/test/resources/test1.json");
         for(int i=0;i<p.getPartySize();i++){
             System.out.println(p.getCharacter(i).getName());
             System.out.println(p.getCharacter(i).getCharacterRace().name());
@@ -49,7 +49,7 @@ public class IOTester {
     }
     @Test
     void EnemyFromStringTest()throws FileNotFoundException{
-        Scanner scan = new Scanner(new File("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv"));
+        Scanner scan = new Scanner(new File("src/test/resources/EnemyDb.csv"));
         scan.nextLine(); //removes header
         String enemyString = scan.nextLine();
         EnemyDataBaseList emptyList = new EnemyDataBaseList();
@@ -80,8 +80,8 @@ public class IOTester {
     }
     @Test
     void EnemyDataBaseListTest() throws IOException{
-        EnemyDataBaseList enemyDBList = new EnemyDataBaseList("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv");
-        enemyDBList.enemyListHeadToJsonFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/test2.json", 5);
+        EnemyDataBaseList enemyDBList = new EnemyDataBaseList("src/test/resources/EnemyDb.csv");
+        enemyDBList.enemyListHeadToJsonFile("src/test/resources/test2.json", 5);
     
 
     }

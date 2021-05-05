@@ -336,7 +336,7 @@ class Tester {
     public static void crSearchTest() throws FileNotFoundException {
         System.out.println("-----CR Find Test-----");
 
-        EnemyDataBaseList agent = new EnemyDataBaseList("/Users/erb/Comp354_AI/COMP354_finalProject/src/test/java/edu/ithaca/resources/EnemyDb.csv");
+        EnemyDataBaseList agent = new EnemyDataBaseList("src/test/resources/EnemyDb.csv");
         List<Enemy> list = new ArrayList<>();
 
         list = agent.crFind(1.0);
