@@ -250,6 +250,8 @@ class Tester {
     }
 
     public static void crToFindTest() {
+        System.out.println("-----CR To Find Test-----");
+
         ArrayList<PartyMember> characters = new ArrayList<>();
         PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, null, null, 1);
         PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, null, null, 1);
@@ -303,6 +305,8 @@ class Tester {
     }
 
     public static void calcScoreTest() {
+        System.out.println("-----Calc Score Test-----");
+
         EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
         Preferences pref1 = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.FLY);
         Preferences pref2 = new Preferences(Alignment.UNALIGNED, true, Difficulty.HARD, MovementType.GROUND);
@@ -323,28 +327,32 @@ class Tester {
     private static void agentTest() {
         crToFindTest();
         calcScoreTest();
+        crSearchTest();
+        prefSearchTest();
     }
 
     //Test for UI
     public static void crSearchTest() {
-        // EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
+        System.out.println("-----CR Find Test-----");
+
+        EnemyDataBaseList agent = new EnemyDataBaseList();
         List<Enemy> list = new ArrayList<>();
 
-        // agent.crSearch(1.0);
+        list = agent.crFind(1.0);
         System.out.println("Should all be 1: ");
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getCr());
         }
         list.clear();
         System.out.println("Should true: " + list.isEmpty());
-        // agent.crSearch(.13);
+        list = agent.crFind(.13);
         System.out.println("Should all be .13: ");
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getCr());
         }
         list.clear();
         System.out.println("Should true: " + list.isEmpty());
-        // agent.crSearch(10);
+        list = agent.crFind(10);
         System.out.println("Should all be 10: ");
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getCr());
@@ -353,13 +361,15 @@ class Tester {
     }
     //Test for UI
     public static void prefSearchTest() {
-        // EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
+        System.out.println("-----Pref Find Test-----");
+
+        EnemyDataBaseList agent = new EnemyDataBaseList();
         List<Enemy> list = new ArrayList<>();
         Preferences pref1 = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.FLY);
         Preferences pref2 = new Preferences(Alignment.UNALIGNED, true, Difficulty.HARD, MovementType.GROUND);
         Preferences pref3 = new Preferences(Alignment.CHAOTICNEUTRAL, false, Difficulty.DEADLY, MovementType.SWIM);
 
-        // agent.prefSearch(pref1);
+        list = agent.prefFind(pref1);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("Should be false, chaoticEvil, Fly : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
@@ -367,7 +377,7 @@ class Tester {
         list.clear();
         System.out.println("Should true: " + list.isEmpty());
 
-        // agent.prefSearch(pref2);
+        list = agent.prefFind(pref2);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("Should be true, unaligned, Ground : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
@@ -375,17 +385,13 @@ class Tester {
         list.clear();
         System.out.println("Should true: " + list.isEmpty());
 
-        // agent.prefSearch(pref3);
+        list = agent.prefFind(pref3);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("Should be false, chaoticNeutral, Swim : " + list.get(i).getIsHumanoid()
                     + list.get(i).getAlignment() + list.get(i).getMovementType());
         }
     }
 
-    private static void uiTest(){
-        crSearchTest();
-        prefSearchTest();
-    }
 
     private static void historyTest(){
         new History();
@@ -451,11 +457,10 @@ class Tester {
     public static void main(String args[]) {
         // partyTest();
         // statsTest();
-        // uiTest();
         // characterInheritanceTest();
         // enemyInheritanceTest();
-        // agentTest();
-        historyTest();
+        agentTest();
+        // historyTest();
         // System.out.println("REFLEX AGENT TESTS" + "\n");
         // System.out.println("REFLEX ENEMY 1");
         // System.out.println(enemyRecommenderReflexTest().toString());
