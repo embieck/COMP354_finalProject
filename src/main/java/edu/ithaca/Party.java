@@ -1,9 +1,11 @@
 package edu.ithaca;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Iterator;
+import edu.ithaca.dragon.util.JsonUtil;
 
 public class Party {
 
@@ -22,13 +24,32 @@ public class Party {
     }
 
     /**
-     * Constructor
+     * Constructor that builds party from ArrayList
      * 
      * @param characters - arraylist of all characters in the party
      */
     public Party(ArrayList<PartyMember> characters) {
         this.characters = characters;
         this.partySize = characters.size();
+    }
+
+    /**
+     * Constructor that builds party from Json file
+     * @param filename
+     * @throws IOException
+     */
+    public Party(String filename) throws IOException{
+        this.characters = (ArrayList<PartyMember>) JsonUtil.listFromJsonFile(filename, PartyMember.class);
+        this.partySize=characters.size();
+
+    }
+    /**
+     * Creates Json file with party information
+     * @param filename
+     * @throws IOException
+     */
+    public void savePartyToJson(String filename) throws IOException{
+        JsonUtil.toJsonFile(filename, characters);
     }
 
     /**
