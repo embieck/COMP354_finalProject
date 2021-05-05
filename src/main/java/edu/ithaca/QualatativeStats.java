@@ -28,7 +28,7 @@ public class QualatativeStats implements Serializable{
      * Constructor
      * 
      * @param align     - gives a clue to the default behavior of the creatures
-     * @param size2      - size of creature, how much space it occupies
+     * @param size      - size of creature, how much space it occupies
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
