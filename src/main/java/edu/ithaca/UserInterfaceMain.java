@@ -117,7 +117,98 @@ public class UserInterfaceMain {
         }
 
         Preferences pref = new Preferences(alignChoice, isHumanoidChoice, difficultyChoice, movementChoice);
-    
+
+        System.out.println("Got it! Your preferences have been recorded.\n");
+        System.out.println("Next, we'll need your party information to determine what stats to give your enemy.\n");
+
+        //take in stats here
+
+        Party party = new Party("src/main/resources/party.json");
+        EnemyDataBaseList edbl = new EnemyDataBaseList("src/main/resources/EnemyDB.csv");
+
+        EnemyRecommenderAgent newRecommender = new EnemyRecommenderAgent();
+
+        Enemy bestEnemyResult = newRecommender.recommendEnemy(party, pref, edbl);
+
+        String enemyName = bestEnemyResult.getName();
+        Boolean enemyHumanoid = bestEnemyResult.getIsHumanoid();
+        Boolean enemyMagic = bestEnemyResult.getIsMagicUser();
+        Terrain enemyTerrain = bestEnemyResult.getTerrain();
+        String enemyTerrainString = enemyTerrain.toString();
+        MovementType enemyMovement = bestEnemyResult.getMovementType();
+        String enemyMovementString = enemyMovement.toString();
+        Alignment enemyAlignment = bestEnemyResult.getAlignment();
+        String enemyAlignmentString = enemyAlignment.toString();
+        Size enemySize = bestEnemyResult.getSize();
+        String enemySizeString = enemySize.toString();
+        int enemyAC = bestEnemyResult.getArmorClass();
+        int enemyHp = bestEnemyResult.getHP();
+        int enemyCon = bestEnemyResult.getCon();
+        int enemyStr = bestEnemyResult.getStr();
+        int enemyWis = bestEnemyResult.getWis();
+        int enemyInt = bestEnemyResult.getIntel();
+        int enemyDex = bestEnemyResult.getDex();
+        int enemyCha = bestEnemyResult.getCha();
+        
+
+
+
+        System.out.println("Here is your chosen enemy:\n");
+        System.out.println("QUALITATIVE STATS:\n");
+        System.out.println("Enemy type: " + enemyName + "\n");
+        System.out.println("Humanoid?: " + enemyHumanoid  + "\n");
+        System.out.println("Magic user?: " + enemyMagic + "\n");
+        System.out.println("Terrain: " + enemyTerrainString + "\n");
+        System.out.println("Movement Type: " + enemyMovementString + "\n");
+        System.out.println("Alignment: " + enemyAlignmentString + "\n");
+        System.out.println("Size: " + enemySizeString + "\n");
+        System.out.println("QUANTITATIVE STATS:\n");
+        System.out.println("Armor Class: " + enemyAC +"\n");
+        System.out.println("HP: " + enemyHp +"\n");
+        System.out.println("Constitution: " + enemyCon +"\n");
+        System.out.println("Strength: " + enemyStr +"\n");
+        System.out.println("Wisdom: " + enemyWis +"\n");
+        System.out.println("Intelligence: " + enemyInt +"\n");
+        System.out.println("Dexterity: " + enemyDex +"\n");
+        System.out.println("Charisma: " + enemyCha +"\n");
+
+
+
+
+
+
+
+
+        
+        
+        // double crToFind = newRecommender.calcCrToFind(null, pref);
+        // newRecommender.crSearch(crToFind);
+
+        
+
+
+
+
+        /*String username = getProperUsernameLogin();
+        DungeonMaster dm = new DungeonMaster(username);
+        Party p = new Party(new ArrayList<PartyMember>());
+        Scanner scan = new Scanner(System.in);
+        try{
+            p = readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv");
+        }
+        catch(RuntimeException e){}
+        if(p.getPartySize()==0){
+            System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
+            String doneOrElse = scan.nextLine();
+            while(!doneOrElse.equalsIgnoreCase("done")){
+                PartyMember pm = getPartyMemberEntered();
+                p.addCharacter(pm);
+                System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
+                doneOrElse = scan.nextLine();
+            }
+            writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv", p);
+        }*/
+        
         //Interface code for making a recommendation
 
     }
