@@ -231,7 +231,7 @@ class Tester {
         characters.add(toby);
 
         Party newParty = new Party(characters, characters.size());
-        EnemyRecommender newRecommender = new EnemyRecommenderReflex();
+        EnemyRecommenderReflex newRecommender = new EnemyRecommenderReflex();
 
         Enemy recommendedEnemy = newRecommender.recommendEnemy(newParty);
         return recommendedEnemy;

@@ -146,6 +146,7 @@ public class UserInterfaceMain {
         int enemyInt = bestEnemyResult.getIntel();
         int enemyDex = bestEnemyResult.getDex();
         int enemyCha = bestEnemyResult.getCha();
+        double enemyCr = bestEnemyResult.getCr();
         
 
 
@@ -160,6 +161,7 @@ public class UserInterfaceMain {
         System.out.println("Alignment: " + enemyAlignmentString + "\n");
         System.out.println("Size: " + enemySizeString + "\n");
         System.out.println("QUANTITATIVE STATS:\n");
+        System.out.println("Challenge Rating: "+enemyCr+"\n");
         System.out.println("Armor Class: " + enemyAC +"\n");
         System.out.println("HP: " + enemyHp +"\n");
         System.out.println("Constitution: " + enemyCon +"\n");

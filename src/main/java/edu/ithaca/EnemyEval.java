@@ -12,7 +12,7 @@ public class EnemyEval {
         this.deathSaves = 0;
         this.hpDepleted = 0;
         this.deaths = 0;
-        isChosen = false;
+        this.isChosen = false;
     }
 
     /**
@@ -33,7 +33,7 @@ public class EnemyEval {
         this.deathSaves = deathSaves;
         this.hpDepleted = hpDepleted;
         this.deaths = deaths;
-        isChosen = true;
+        this.isChosen = true;
     }
 
     public String getName() {

@@ -2,7 +2,7 @@ package edu.ithaca;
 
 import java.util.*;
 
-public class EnemyRecommenderAgent {
+public class EnemyRecommenderAgent implements EnemyRecommender{
     List<Enemy> appropriateEnemyList = new ArrayList<>();
     List<Integer> enemyScoreList = new ArrayList<>();
     public final History history = new History();
@@ -190,4 +190,5 @@ public class EnemyRecommenderAgent {
         popScoreList(preferences, crToFind);
         return bestEnemy();
     }
+
 }
