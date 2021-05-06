@@ -190,5 +190,42 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
         popScoreList(preferences, crToFind);
         return bestEnemy();
     }
+    /**
+     * Determines an additional evaluation of the enemy based on whether user chooses the final enemy produced
+     * Pre: Recommendation must be made beforehand
+     */
+    public void recordEnemyResults(Enemy e, Party curParty, Preferences pref, EnemyEval eval){
+        if(eval.getIsChosen()){
+            history.addToHistory(e, eval, curParty, pref);
+        }
+        else{
+            history.addToHistory(e,eval,curParty,pref);
+        }
+        
+    }
+
+    public EnemyEval calcCombinedScore(Enemy e){
+        int enemyScore = enemyScoreList.get(findEnemy(e));
+        return new EnemyEval(e.getName(), enemyScore);
+
+    }
+
+    public EnemyEval calcCombinedScore(Enemy e, int deathSaves, int hpDepleted, int deaths){
+        int enemyScore = enemyScoreList.get(findEnemy(e));
+        return new EnemyEval(e.getName(), deathSaves, hpDepleted, deaths, enemyScore);
+    }
+
+    private int findEnemy(Enemy e){
+        for(int i=0;i<appropriateEnemyList.size();i++){
+            if(appropriateEnemyList.get(i).equals(e)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private int getEnemyScore(Enemy e){
+        return enemyScoreList.get(findEnemy(e));
+    }
 
 }

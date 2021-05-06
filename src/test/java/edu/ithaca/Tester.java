@@ -415,7 +415,7 @@ class Tester {
         Enemy enemy = EnemyRecommenderRandom.recommendRandomEnemy();
         enemy.setName("dragon");
         Preferences pref = new Preferences();
-        EnemyEval eval = new EnemyEval("dragon");
+        EnemyEval eval = new EnemyEval("dragon",0);
         
         //Testing addToHistory (full)
         History.addToHistory(enemy, eval, partySm, pref);

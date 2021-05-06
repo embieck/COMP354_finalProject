@@ -1,18 +1,20 @@
 package edu.ithaca;
 
 public class EnemyEval {
-    boolean isChosen;
-    String name;
-    int deathSaves;
-    int hpDepleted;
-    int deaths;
+    private boolean isChosen;
+    private String name;
+    private int deathSaves;
+    private int hpDepleted;
+    private int deaths;
+    private int totalScore;
 
-    public EnemyEval(String name) {
+    public EnemyEval(String name, int enemyScore) {
         this.name = name;
         this.deathSaves = 0;
         this.hpDepleted = 0;
         this.deaths = 0;
         this.isChosen = false;
+        this.totalScore=enemyScore;
     }
 
     /**
@@ -24,16 +26,25 @@ public class EnemyEval {
      *                   as db)
      * @param deathSaves - Number of death saving throws the party had to make
      *                   during encounter with recommended enemy
-     * @param hpDepleted - The number of hp points lost by the party during the
+     * @param hpDepleted - The percent of hp points lost by the party during the
      *                   encounter
      * @param deaths     - Number of party members that died during encounter
      */
-    public EnemyEval(String enemyName, int deathSaves, int hpDepleted, int deaths) {
+    public EnemyEval(String enemyName, int deathSaves, int hpDepleted, int deaths, int enemyScore) {
         this.name = enemyName;
         this.deathSaves = deathSaves;
         this.hpDepleted = hpDepleted;
         this.deaths = deaths;
         this.isChosen = true;
+        this.totalScore=calcCombinedScore(enemyScore);
+    }
+
+    private int calcCombinedScore(int enemyScore) {
+        return enemyScore+hpDepleted+deathSaves-(deaths*10);
+    }
+
+    public int getTotalScore(){
+        return totalScore;
     }
 
     public String getName() {
@@ -66,6 +77,10 @@ public class EnemyEval {
 
     public void setDeaths(int deaths) {
         this.deaths = deaths;
+    }
+
+    public boolean getIsChosen() {
+        return false;
     }
 
 }

@@ -90,7 +90,7 @@ public class History {
      */
     public static boolean insertEval(EnemyEval eval) {
         for (int i = 0; i < chosenEnemies.size(); i++) {
-            if (eval.name.equals(chosenEnemies.get(i).getName())) {
+            if (eval.getName().equals(chosenEnemies.get(i).getName())) {
                 evaluations.add(i, eval);
                 return true;
             }

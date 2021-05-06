@@ -20,7 +20,7 @@ Tests and Interfaces:
 All tests for this agent can be found in the 'resources' folder within the 'test/java/edu/ithaca' folder. 
 Note: The Tester.java class contains most tests for the classes that make up the enviornment. Many of these classes are inherited by others, so much of the testing is grouped together and results will print to the console. Class tests can be commented out in the main method.
 
-The current interface contains the recommend enemy method, which uses the following sensors -- Enemy Database List, DM Preferences, and Party Info -- to create an Enemy, or the actuator
+The current interface contains the recommend enemy method, which uses the following sensors -- Enemy Database List, DM Preferences, and Party Info -- to create an Enemy, or the actuator. It also has the calcCombinedScore methods that retroactively take in the enemy's combat data and adds it to the initial score to save it to the agent's history, depending on whether or not the enemy is chosen.
 
 
 Recommender System Implementation:

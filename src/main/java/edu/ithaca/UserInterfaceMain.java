@@ -171,7 +171,27 @@ public class UserInterfaceMain {
         System.out.println("Dexterity: " + enemyDex +"\n");
         System.out.println("Charisma: " + enemyCha +"\n");
 
-
+        System.out.println("\nWill you choose this enemy for your encounter? (y/n)");
+        String input = scan.nextLine();
+        while(!input.equalsIgnoreCase("y")||!input.equalsIgnoreCase("n")){
+            System.out.println("Invalid input. try again.");
+            System.out.println("Will you choose this enemy for your encounter? (y/n)");
+            input = scan.nextLine();
+        }
+        if(input.equalsIgnoreCase("y")){
+            System.out.println("Enter number of death saving throws caused by enemy: ");
+            int deathSaves = Integer.parseInt(scan.nextLine());
+            System.out.println("Enter percentage of party hp the enemy depleted (Whole numbers please): ");
+            int depletedHP = Integer.parseInt(scan.nextLine());
+            System.out.println("Enter number of party deaths caused by enemy");
+            int deaths = Integer.parseInt(scan.nextLine());
+            EnemyEval eval = newRecommender.calcCombinedScore(bestEnemyResult, deathSaves, depletedHP, deaths);
+            System.out.println("Enemy Score: "+eval.getTotalScore());
+        }
+        else{
+            EnemyEval eval = newRecommender.calcCombinedScore(bestEnemyResult);
+            System.out.println("Enemy Score: "+eval.getTotalScore());
+        }
 
 
 
@@ -209,6 +229,8 @@ public class UserInterfaceMain {
         }*/
         
         //Interface code for making a recommendation
+
+        scan.close();
 
     }
 
