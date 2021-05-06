@@ -119,7 +119,7 @@ public class UserInterfaceMain {
         Preferences pref = new Preferences(alignChoice, isHumanoidChoice, difficultyChoice, movementChoice);
 
         System.out.println("Got it! Your preferences have been recorded.\n");
-        System.out.println("Next, we'll need your party information to determine what stats to give your enemy.\n");
+        System.out.println("Next, we'll take your party information from your json file to determine what stats to give your enemy.\n");
         //take in stats here
 
         Party party = new Party("src/main/resources/party.json");
@@ -173,7 +173,7 @@ public class UserInterfaceMain {
 
         System.out.println("\nWill you choose this enemy for your encounter? (y/n)");
         String input = scan.nextLine();
-        while(!input.equalsIgnoreCase("y")||!input.equalsIgnoreCase("n")){
+        while(!input.equalsIgnoreCase("y")&&!input.equalsIgnoreCase("n")){
             System.out.println("Invalid input. try again.");
             System.out.println("Will you choose this enemy for your encounter? (y/n)");
             input = scan.nextLine();

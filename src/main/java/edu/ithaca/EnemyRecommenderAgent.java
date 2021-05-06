@@ -137,13 +137,19 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
         if (enemy.getMovementType() == preferences.getMovementType()) {
             moveScore = 1;
         }
-        double finalScore = 0;
+        int finalScore = 0;
         for (int i = 0; i < History.chosenEnemies.size(); i++) {
             for (int k = 0; k < appropriateEnemyList.size(); k++)
                 if (History.chosenEnemies.get(i) == appropriateEnemyList.get(k))
                     finalScore -= repeatPenalty;
         }
-        finalScore = (4 * crScore) - Math.abs(crToFind - enemy.getCr()) + (3 * humanoidScore) + (2 * alignScore)
+        //feature hierarchy
+        finalScore += calcScoreWithFeatureHierarchy((int)Math.abs(crToFind - enemy.getCr()), crScore, humanoidScore, alignScore, moveScore);
+        return finalScore;
+    }
+
+    public int calcScoreWithFeatureHierarchy(int crGapPenalty, int crScore, int humanoidScore, int alignScore, int moveScore){
+        int finalScore = (4 * crScore) - crGapPenalty + (3 * humanoidScore) + (2 * alignScore)
                 + moveScore;
         return (int) finalScore;
     }
