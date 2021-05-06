@@ -323,6 +323,24 @@ public class Enemy implements Serializable{
     public void setAdditional(String a){
         additional=a;
     }
+    
+    @JsonIgnore
+    public String getStringMovementTypes(){
+        String str = "";
+        for(int i=0;i<movementTypes.size();i++){
+            str+=movementTypes.get(i).toString()+" ";
+        }
+        return str;
+    }
+
+    @JsonIgnore
+    public String getStringTerrains(){
+        String str = "";
+        for(int i=0;i<terrains.size();i++){
+            str+=terrains.get(i).toString()+" ";
+        }
+        return str;
+    }
 
     // public String enemyToString(){
     //     return this.toString();

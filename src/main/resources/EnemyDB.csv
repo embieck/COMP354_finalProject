@@ -799,5 +799,5 @@ Tarrasque,Gargantuan,FALSE,unaligned,25,676,40,0,0,30,11,30,3,11,11,"None","None
 Tiamat,Gargantuan,FALSE,chaoticEvil,25,615,60,20,0,30,10,30,26,26,28,"None","Arcana, Perception, Religion","Common, Draconic, Infernal",30.00,"Discorporation, Innate Spellcasting, Legendary Resistance, Limited Magic immunity, Magic Weapons, Multiple Heads, Regeneration"
 Dracolich Generic,Huge,FALSE,lawfulEvil,19,225,40,80,0,25,10,23,16,15,19,"DEX, CON, WIS, CHA","Perception, Stealth","Common, Draconic",17.00,"Legendary Resistance, Magic Resistance"
 Half-Dragon Generic Humanoid,Medium,TRUE,unaligned,18,65,30,0,0,18,12,16,13,14,14,"TEMP","TEMP","Any, Draconic",5.00,"TEMP, Breath Weapon, AC can vary, Movement Speeds may vary"
-Spore Servant Template,TEMP,FALSE,unaligned,TEMP,TEMP,0,0,0,17,12,16,2,6,1,"None","TEMP","TEMP",TEMP,""
+Spore Servant Generic,Medium,FALSE,unaligned,13,45,20,0,0,17,12,16,2,6,1,"None","None","None",1.00,"AC, HP, STR, DEX, CON may vary"
 Avatar of Death,Medium,FALSE,neutralEvil,20,0,60,60,0,16,16,16,16,16,16,"None","None","Creator",0,"HP is equal to half of its summoner's, Incorporeal Movement, Turning Immunity"

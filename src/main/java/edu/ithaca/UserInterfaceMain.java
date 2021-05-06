@@ -120,7 +120,6 @@ public class UserInterfaceMain {
 
         System.out.println("Got it! Your preferences have been recorded.\n");
         System.out.println("Next, we'll need your party information to determine what stats to give your enemy.\n");
-
         //take in stats here
 
         Party party = new Party("src/main/resources/party.json");
@@ -133,10 +132,8 @@ public class UserInterfaceMain {
         String enemyName = bestEnemyResult.getName();
         Boolean enemyHumanoid = bestEnemyResult.getIsHumanoid();
         Boolean enemyMagic = bestEnemyResult.getIsMagicUser();
-        Terrain enemyTerrain = bestEnemyResult.getTerrain();
-        String enemyTerrainString = enemyTerrain.toString();
-        MovementType enemyMovement = bestEnemyResult.getMovementType();
-        String enemyMovementString = enemyMovement.toString();
+        String enemyTerrainString = bestEnemyResult.getStringTerrains();
+        String enemyMovementString = bestEnemyResult.getStringMovementTypes();
         Alignment enemyAlignment = bestEnemyResult.getAlignment();
         String enemyAlignmentString = enemyAlignment.toString();
         Size enemySize = bestEnemyResult.getSize();
@@ -158,7 +155,7 @@ public class UserInterfaceMain {
         System.out.println("Enemy type: " + enemyName + "\n");
         System.out.println("Humanoid?: " + enemyHumanoid  + "\n");
         System.out.println("Magic user?: " + enemyMagic + "\n");
-        System.out.println("Terrain: " + enemyTerrainString + "\n");
+        System.out.println("Terrain(s): " + enemyTerrainString + "\n");
         System.out.println("Movement Type: " + enemyMovementString + "\n");
         System.out.println("Alignment: " + enemyAlignmentString + "\n");
         System.out.println("Size: " + enemySizeString + "\n");
