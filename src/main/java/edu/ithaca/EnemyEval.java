@@ -30,17 +30,13 @@ public class EnemyEval {
      *                   encounter
      * @param deaths     - Number of party members that died during encounter
      */
-    public EnemyEval(String enemyName, int deathSaves, int hpDepleted, int deaths, int enemyScore) {
+    public EnemyEval(String enemyName, int deathSaves, int hpDepleted, int deaths, int totalScore) {
         this.name = enemyName;
         this.deathSaves = deathSaves;
         this.hpDepleted = hpDepleted;
         this.deaths = deaths;
         this.isChosen = true;
-        this.totalScore=calcCombinedScore(enemyScore);
-    }
-
-    private int calcCombinedScore(int enemyScore) {
-        return enemyScore+hpDepleted+deathSaves-(deaths*10);
+        this.totalScore=totalScore;
     }
 
     public int getTotalScore(){

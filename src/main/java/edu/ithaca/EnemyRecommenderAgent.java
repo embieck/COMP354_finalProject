@@ -144,11 +144,11 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
                     finalScore -= repeatPenalty;
         }
         //feature hierarchy
-        finalScore += calcScoreWithFeatureHierarchy((int)Math.abs(crToFind - enemy.getCr()), crScore, humanoidScore, alignScore, moveScore);
+        finalScore += calcPreferenceFitScore((int)Math.abs(crToFind - enemy.getCr()), crScore, humanoidScore, alignScore, moveScore);
         return finalScore;
     }
 
-    public int calcScoreWithFeatureHierarchy(int crGapPenalty, int crScore, int humanoidScore, int alignScore, int moveScore){
+    public int calcPreferenceFitScore(int crGapPenalty, int crScore, int humanoidScore, int alignScore, int moveScore){
         int finalScore = (4 * crScore) - crGapPenalty + (3 * humanoidScore) + (2 * alignScore)
                 + moveScore;
         return (int) finalScore;
@@ -210,15 +210,18 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
         
     }
 
-    public EnemyEval calcCombinedScore(Enemy e){
-        int enemyScore = enemyScoreList.get(findEnemy(e));
+    public EnemyEval evaluateUnchosenEnemy(Enemy e){
+        int enemyScore = getEnemyScore(e);
         return new EnemyEval(e.getName(), enemyScore);
 
     }
+    public int calcCombatPerformanceScore(int enemyScore, int hpDepleted, int deathSaves, int deaths){
+        return enemyScore+hpDepleted+deathSaves-(deaths*20);
+    }
 
-    public EnemyEval calcCombinedScore(Enemy e, int deathSaves, int hpDepleted, int deaths){
-        int enemyScore = enemyScoreList.get(findEnemy(e));
-        return new EnemyEval(e.getName(), deathSaves, hpDepleted, deaths, enemyScore);
+    public EnemyEval evaluateChosenEnemy(Enemy e, int deathSaves, int hpDepleted, int deaths){
+        int totalScore = calcCombatPerformanceScore(getEnemyScore(e),hpDepleted, deathSaves, deaths);
+        return new EnemyEval(e.getName(), deathSaves, hpDepleted, deaths, totalScore);
     }
 
     private int findEnemy(Enemy e){

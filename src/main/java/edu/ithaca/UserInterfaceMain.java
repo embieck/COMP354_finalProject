@@ -39,7 +39,7 @@ public class UserInterfaceMain {
         System.out.println("For lawful neutral, press 8\n");
         System.out.println("For true neutral, press 9\n");
         //System.out.println("For random, press any other character\n");
-        int choice1 = scan.nextInt();
+        int choice1 = Integer.parseInt(scan.nextLine());
         if(choice1 == 0){   
             alignChoice = Alignment.UNALIGNED;
         }
@@ -75,7 +75,7 @@ public class UserInterfaceMain {
         System.out.println("Would you like your enemy to be a humanoid?\n");
         System.out.println("For yes, press 1\n");
         System.out.println("For no, press 2\n");
-        int choice2 = scan.nextInt();
+        int choice2 = Integer.parseInt(scan.nextLine());
         if(choice2 == 1){
             isHumanoidChoice = true;
         }
@@ -86,7 +86,7 @@ public class UserInterfaceMain {
         System.out.println("For medium, press 2\n");
         System.out.println("For hard, press 3\n");
         System.out.println("For deadly, press 4\n");
-        int choice3 = scan.nextInt();
+        int choice3 = Integer.parseInt(scan.nextLine());
         if(choice3 == 1){
             difficultyChoice = Difficulty.EASY;
         }
@@ -105,7 +105,7 @@ public class UserInterfaceMain {
         System.out.println("For ground, press 1\n");
         System.out.println("For flying, press 2\n");
         System.out.println("For swinning, press 3\n");
-        int choice4 = scan.nextInt();
+        int choice4 = Integer.parseInt(scan.nextLine());
         if(choice4 == 1){
             movementChoice = MovementType.GROUND;
         }
@@ -185,11 +185,11 @@ public class UserInterfaceMain {
             int depletedHP = Integer.parseInt(scan.nextLine());
             System.out.println("Enter number of party deaths caused by enemy");
             int deaths = Integer.parseInt(scan.nextLine());
-            EnemyEval eval = newRecommender.calcCombinedScore(bestEnemyResult, deathSaves, depletedHP, deaths);
+            EnemyEval eval = newRecommender.evaluateChosenEnemy(bestEnemyResult, deathSaves, depletedHP, deaths);
             System.out.println("Enemy Score: "+eval.getTotalScore());
         }
         else{
-            EnemyEval eval = newRecommender.calcCombinedScore(bestEnemyResult);
+            EnemyEval eval = newRecommender.evaluateUnchosenEnemy(bestEnemyResult);
             System.out.println("Enemy Score: "+eval.getTotalScore());
         }
 
@@ -203,32 +203,6 @@ public class UserInterfaceMain {
         // double crToFind = newRecommender.calcCrToFind(null, pref);
         // newRecommender.crSearch(crToFind);
 
-        
-
-
-
-
-        /*String username = getProperUsernameLogin();
-        DungeonMaster dm = new DungeonMaster(username);
-        Party p = new Party(new ArrayList<PartyMember>());
-        Scanner scan = new Scanner(System.in);
-        try{
-            p = readPartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv");
-        }
-        catch(RuntimeException e){}
-        if(p.getPartySize()==0){
-            System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
-            String doneOrElse = scan.nextLine();
-            while(!doneOrElse.equalsIgnoreCase("done")){
-                PartyMember pm = getPartyMemberEntered();
-                p.addCharacter(pm);
-                System.out.println("No pre existing party info. Enter 'done' to stop or any key to continue:\n");
-                doneOrElse = scan.nextLine();
-            }
-            writePartyFile("/Users/erb/Comp354_AI/COMP354_finalProject/src/main/java/edu/ithaca/resources/party.csv", p);
-        }*/
-        
-        //Interface code for making a recommendation
 
         scan.close();
 
