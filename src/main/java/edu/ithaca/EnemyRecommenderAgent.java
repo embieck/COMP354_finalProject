@@ -202,10 +202,10 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
      */
     public void recordEnemyResults(Enemy e, Party curParty, Preferences pref, EnemyEval eval){
         if(eval.getIsChosen()){
-            history.addToHistory(e, eval, curParty, pref);
+            History.addToHistory(e, eval, curParty, pref);
         }
         else{
-            history.addToHistory(e,eval,curParty,pref);
+            History.addToHistory(e,eval,curParty,pref);
         }
         
     }
