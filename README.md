@@ -6,12 +6,15 @@ EnemyDatabaseList - 800+ possible enemies and their stats
 UserInterfaceMain - Party and user preferences
 
 
-Actuators (Agents):
+Actuators:
+The UserInterfaceMain class  makes all calls to the agent to recommend an enemy.
+
+Agents:
 The simple reflex agent, EnemyRecommenderReflex, uses its sensor to recieve Party information. These includes the class, race, and ability scores of each party member. It then averages the ability scores of the party to randomly select an ememy monster and assign its ability score with the average of the party's to create a well-matched opponent. This information is returned as an Enemy object, which holds many of the same stats as party members.
 
-EnemyRecommenderRandom assigns random stats with ability scores capped at 20. It does not have access to sensors.
-
 In addition to party stats, the  model based agent (EnemyRecommenderAgent) also considers the user's preferences for the recommended enemy such as difficulty, whether the enemy is humanoid, its alignment, and its movement type. It also has access to a History of previously recommended enemies to avoid repeat recommendations.
+
+EnemyRecommenderRandom assigns random stats with ability scores capped at 20. It does not have access to sensors.
 
 A human (DungeonMaster) doing this task would need to evaluate all of the same metrics of the party and compare it against enemy base stats, adjusting them for their party's needs. This agent allows for more variety of monsters and automates the process of fitting the stats to the party.
 
