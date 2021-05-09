@@ -6,7 +6,7 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
     List<Enemy> appropriateEnemyList = new ArrayList<>();
     List<Integer> enemyScoreList = new ArrayList<>();
     public final History history = new History();
-    private final double repeatPenalty = 2;
+    private final double repeatPenalty = 2; 
 
     public static double calcAvPartyLevel(Party party) {
         int partySize = party.getPartySize();
@@ -141,6 +141,7 @@ public class EnemyRecommenderAgent implements EnemyRecommender{
         for (int i = 0; i < History.chosenEnemies.size(); i++) {
             for (int k = 0; k < appropriateEnemyList.size(); k++)
                 if (History.chosenEnemies.get(i) == appropriateEnemyList.get(k))
+                //  && History.parties.get(i) == party) //If party is the same and the enemy was previously reccommended to them
                     finalScore -= repeatPenalty;
         }
         //feature hierarchy
