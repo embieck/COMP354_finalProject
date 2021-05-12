@@ -1,17 +1,9 @@
 package edu.ithaca;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.Map.Entry;
+
 
 public class UserInterfaceMain {
 
