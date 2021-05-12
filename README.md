@@ -37,4 +37,4 @@ A new agent should be implement the methods defined by EnemyRecommender class, w
 Recommender System Implementation:
 As a software designed to recommend a monster to a D&D party based on stats and other preferences, implementing a recommender system based on the party's response to previous monsters would be an effective way to ensure our agent is as informed as possible. 
 
-**overleaf link coming soon**
+Overleaf Link for Advanced Agent: https://www.overleaf.com/read/hdbgshxgzqmb
