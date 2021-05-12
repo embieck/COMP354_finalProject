@@ -1,0 +1,87 @@
+[ {
+  "name" : "Ice King",
+  "characterClass" : "WIZARD",
+  "characterRace" : "HUMAN",
+  "qualStats" : {
+    "languages" : [ "Common","Undercommon","Halfling" ],
+    "align" : "UNALIGNED",
+    "size" : "MEDIUM"
+  },
+  "quanStats" : {
+    "moveSpeed" : 50,
+    "armorClass" : 10,
+    "hp" : 74,
+    "con" : 17,
+    "str" : 18,
+    "wis" : 16,
+    "intel" : 11,
+    "dex" : 13,
+    "cha" : 10
+  },
+  "level" : 12
+}, {
+  "name" : "Marceline",
+  "characterClass" : "BARD",
+  "characterRace" : "TIEFLING",
+  "qualStats" : {
+    "languages" : [ "Common, Infernal" ],
+    "align" : "NEUTRALGOOD",
+    "size" : "MEDIUM"
+  },
+  "quanStats" : {
+    "moveSpeed" : 50,
+    "armorClass" : 12,
+    "hp" : 105,
+    "con" : 17,
+    "str" : 13,
+    "wis" : 15,
+    "intel" : 16,
+    "dex" : 12,
+    "cha" : 11
+  },
+  "level" : 17
+}, {
+  "name" : "Bonnibel",
+  "characterClass" : "SORCERER",
+  "characterRace" : "ELF",
+  "qualStats" : {
+    "languages" : [ "Common", "Infernal", "Draconic" ],
+    "align" : "LAWFULNEUTRAL",
+    "size" : "MEDIUM"
+  },
+  "quanStats" : {
+    "moveSpeed" : 30,
+    "armorClass" : 17,
+    "hp" : 87,
+    "con" : 16,
+    "str" : 18,
+    "wis" : 16,
+    "intel" : 19,
+    "dex" : 12,
+    "cha" : 10
+  },
+  "level" : 17
+} ,{
+  "name" : "Sweet Pea",
+  "characterClass" : "WARLOCK",
+  "characterRace" : "HALFORC",
+  "qualStats" : {
+    "languages" : [ "Common", "Infernal","Undercommon" ],
+    "align" : "CHAOTICGOOD",
+    "size" : "LARGE"
+  },
+  "quanStats" : {
+    "moveSpeed" : 30,
+    "armorClass" : 11,
+    "hp" : 75,
+    "con" : 15,
+    "str" : 18,
+    "wis" : 10,
+    "intel" : 11,
+    "dex" : 13,
+    "cha" : 12
+  },
+  "level" : 12
+}
+
+]

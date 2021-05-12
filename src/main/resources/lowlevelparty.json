@@ -4,7 +4,7 @@
   "characterRace" : "HUMAN",
   "qualStats" : {
     "languages" : [ "common" ],
-    "align" : "UNALIGNED",
+    "align" : "LAWFULGOOD",
     "size" : "MEDIUM"
   },
   "quanStats" : {
@@ -20,11 +20,32 @@
   },
   "level" : 2
 }, {
-  "name" : "Marceline",
-  "characterClass" : "BARD",
-  "characterRace" : "ELF",
+  "name" : "Jake",
+  "characterClass" : "MONK",
+  "characterRace" : "DWARF",
   "qualStats" : {
-    "languages" : [ "common" ],
+    "languages" : [ "Common", "Draconic" ],
+    "align" : "CHAOTICGOOD",
+    "size" : "MEDIUM"
+  },
+  "quanStats" : {
+    "moveSpeed" : 40,
+    "armorClass" : 14,
+    "hp" : 25,
+    "con" : 12,
+    "str" : 14,
+    "wis" : 10,
+    "intel" : 8,
+    "dex" : 15,
+    "cha" : 9
+  },
+  "level" : 2
+}, {
+  "name" : "BMO",
+  "characterClass" : "BARD",
+  "characterRace" : "GNOME",
+  "qualStats" : {
+    "languages" : [ "Common" ],
     "align" : "UNALIGNED",
     "size" : "MEDIUM"
   },
@@ -39,7 +60,7 @@
     "dex" : 10,
     "cha" : 10
   },
-  "level" : 7
+  "level" : 1
 }, {
   "name" : "Neptor",
   "characterClass" : "BARBARIAN",

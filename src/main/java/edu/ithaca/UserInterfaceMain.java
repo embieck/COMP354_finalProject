@@ -121,9 +121,23 @@ public class UserInterfaceMain {
 
             System.out.println("Got it! Your preferences have been recorded.\n");
             System.out.println("Next, we'll take your party information from your json file to determine what stats to give your enemy.\n");
+            
+            System.out.println("Enter (1) for the low-level party or (2) for the high-level party:");
+            String filename="";
+            int partyChoice = Integer.parseInt(scan.nextLine());
+            while(!(partyChoice==1||partyChoice==2)){
+                System.out.println("Invalid number entered. Try again.");
+                System.out.println("Enter (1) for the low-level party or (2) for the high-level party:");
+                partyChoice = Integer.parseInt(scan.nextLine());
+            }
+            if(partyChoice==1){
+                filename="src/main/resources/lowlevelparty.json";
+            }
+            else{
+                filename="src/main/resources/highlevelparty.json";
+            }
             //take in stats here
-
-            Party party = new Party("src/main/resources/party.json");
+            Party party = new Party(filename);
             EnemyDataBaseList edbl = new EnemyDataBaseList("src/main/resources/EnemyDB.csv");
 
             EnemyRecommenderAgent newRecommender = new EnemyRecommenderAgent();
