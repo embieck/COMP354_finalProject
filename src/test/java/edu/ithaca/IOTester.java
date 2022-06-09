@@ -20,7 +20,7 @@ public class IOTester {
         Party party = new Party(chars);
         party.addCharacter(new PartyMember("Finn",CharacterClass.FIGHTER,CharacterRace.HUMAN,2));
         party.addCharacter(new PartyMember("Marceline",CharacterClass.BARD, CharacterRace.ELF,7));
-        party.addCharacter(new PartyMember("Neptor",CharacterClass.BARBARIAN, CharacterRace.GNOME,new QualatativeStats(Alignment.CHAOTICGOOD,Size.SMALL, "Common,Infernal",','), new QuantativeStats(40, 11, 25, 12, 14, 10, 7, 10, 11)));
+        party.addCharacter(new PartyMember("Neptor",CharacterClass.BARBARIAN, CharacterRace.GNOME,new QualitativeStats(Alignment.CHAOTICGOOD,Size.SMALL, "Common,Infernal",','), new QuantativeStats(40, 11, 25, 12, 14, 10, 7, 10, 11)));
         party.savePartyToJson("src/test/resources/test1.json");
 
     }

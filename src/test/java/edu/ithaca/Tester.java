@@ -3,13 +3,13 @@ package edu.ithaca;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-import edu.ithaca.QualatativeStats.*;
+import edu.ithaca.QualitativeStats.*;
 
 class Tester {
     private static void statsTest() {
         // Testing Default Contructor & Getters
         System.out.println("------Testing QualStats: Default Contructor-------");
-        QualatativeStats qualStats1 = new QualatativeStats();
+        QualitativeStats qualStats1 = new QualitativeStats();
         System.out.println(qualStats1.getAlign() + ": Should be unaligned");
         System.out.println(qualStats1.getSize() + ": Should be medium");
         System.out.println(qualStats1.getLanguages() + ": Should be [common]");
@@ -17,16 +17,16 @@ class Tester {
         // Testing Contructor
         System.out.println("------Testing QualStats: Contructor-------");
         String delimeter = ",";
-        QualatativeStats qualStats2 = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common,dragon",
+        QualitativeStats qualStats2 = new QualitativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common,dragon",
                 delimeter.charAt(0));
         System.out.println(qualStats2.getLanguages() + ": Should be [common, dragon]");
 
         String delimeter2 = " ";
-        QualatativeStats qualStats3 = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "dragon common spanish",
+        QualitativeStats qualStats3 = new QualitativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "dragon common spanish",
                 delimeter2.charAt(0));
         System.out.println(qualStats3.getLanguages() + ": Should be [dragon, common, spanish]");
 
-        QualatativeStats qualStats4 = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "",
+        QualitativeStats qualStats4 = new QualitativeStats(Alignment.CHAOTICNEUTRAL, Size.HUGE, "",
                 delimeter2.charAt(0));
         System.out.println(qualStats4.getLanguages() + ": Should be [common]");
     }
@@ -93,19 +93,19 @@ class Tester {
         // QUAL STAT: alignment, size, languages, delimiter
 
         QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
-        QualatativeStats qualKemi = new QualatativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common", ',');
+        QualitativeStats qualKemi = new QualitativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common", ',');
 
         QuantativeStats quantSJ = new QuantativeStats(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        QualatativeStats qualSJ = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "dragon", ',');
+        QualitativeStats qualSJ = new QualitativeStats(Alignment.CHAOTICGOOD, Size.TINY, "dragon", ',');
 
         QuantativeStats quantJuliet = new QuantativeStats(25, 14, 13, 14, 13, 11, 13, 14, 9);
-        QualatativeStats qualJuliet = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE , "celestial, common", ',');
+        QualitativeStats qualJuliet = new QualitativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE , "celestial, common", ',');
 
         QuantativeStats quantJomi = new QuantativeStats(20, 12, 11, 8, 10, 13, 12, 13, 16);
-        QualatativeStats qualJomi = new QualatativeStats(Alignment.CHAOTICEVIL, Size.SMALL, "common, dragon", ',');
+        QualitativeStats qualJomi = new QualitativeStats(Alignment.CHAOTICEVIL, Size.SMALL, "common, dragon", ',');
 
         QuantativeStats quantSoromi = new QuantativeStats(30, 15, 65, 14, 15, 11, 14, 16, 14);
-        QualatativeStats qualSoromi = new QualatativeStats(Alignment.NEUTRALGOOD, Size.HUGE, "common", ',');
+        QualitativeStats qualSoromi = new QualitativeStats(Alignment.NEUTRALGOOD, Size.HUGE, "common", ',');
 
         PartyMember kemi = new PartyMember("kemi", CharacterClass.BARD, CharacterRace.ELF, qualKemi, quantKemi);
         PartyMember sj = new PartyMember("SJ", CharacterClass.ROGUE, CharacterRace.DRAGONBORNE, qualSJ, quantSJ);
@@ -140,23 +140,23 @@ class Tester {
         // QUAL: alignment, size, languages, delimiter
         // ENEMYQUAN: cr, exp, moveSpeed, AC, hp, con, str, wis, intel, dex, cha
 
-        QualatativeStats qualYeti = new QualatativeStats(Alignment.CHAOTICEVIL, Size.LARGE, "Yeti", ',');
+        QualitativeStats qualYeti = new QualitativeStats(Alignment.CHAOTICEVIL, Size.LARGE, "Yeti", ',');
         EnemyQuantStats quanYeti = new EnemyQuantStats(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
-        QualatativeStats qualDragon = new QualatativeStats(Alignment.NEUTRALEVIL, Size.HUGE, "Dragon", ',');
+        QualitativeStats qualDragon = new QualitativeStats(Alignment.NEUTRALEVIL, Size.HUGE, "Dragon", ',');
         EnemyQuantStats quanDragon = new EnemyQuantStats(11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 
-        QualatativeStats qualGelatinousCube = new QualatativeStats(Alignment.UNALIGNED, Size.MEDIUM, "None", ',');
+        QualitativeStats qualGelatinousCube = new QualitativeStats(Alignment.UNALIGNED, Size.MEDIUM, "None", ',');
         EnemyQuantStats quanGelationusCube = new EnemyQuantStats(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22);
 
-        QualatativeStats qualBandit = new QualatativeStats(Alignment.NEUTRALEVIL, Size.MEDIUM, "Common", ',');
+        QualitativeStats qualBandit = new QualitativeStats(Alignment.NEUTRALEVIL, Size.MEDIUM, "Common", ',');
         EnemyQuantStats quanBandit = new EnemyQuantStats(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21);
 
-        QualatativeStats qualAboleth = new QualatativeStats(Alignment.LAWFULEVIL, Size.GARGANTUAN,
+        QualitativeStats qualAboleth = new QualitativeStats(Alignment.LAWFULEVIL, Size.GARGANTUAN,
                 "Aboleth, Aquan, Undercommon", ',');
         EnemyQuantStats quanAboleth = new EnemyQuantStats(5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55);
 
-        QualatativeStats qualBeholder = new QualatativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Beholder, Undercommon",
+        QualitativeStats qualBeholder = new QualitativeStats(Alignment.LAWFULEVIL, Size.LARGE, "Beholder, Undercommon",
                 ',');
         EnemyQuantStats quanBeholder = new EnemyQuantStats(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33);
 
@@ -204,18 +204,18 @@ class Tester {
     private static Enemy enemyRecommenderReflexTest() {
 
         QuantativeStats quantKemi = new QuantativeStats(30, 17, 32, 15, 17, 11, 12, 10, 15);
-        QualatativeStats qualKemi = new QualatativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common, elvish, sylvan",
+        QualitativeStats qualKemi = new QualitativeStats(Alignment.LAWFULGOOD, Size.MEDIUM, "common, elvish, sylvan",
                 ',');
 
         QuantativeStats quantEmma = new QuantativeStats(30, 13, 11, 12, 15, 14, 14, 11, 12);
-        QualatativeStats qualEmma = new QualatativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common, elvish", ',');
+        QualitativeStats qualEmma = new QualitativeStats(Alignment.CHAOTICGOOD, Size.TINY, "common, elvish", ',');
 
         QuantativeStats quantKelsey = new QuantativeStats(30, 14, 13, 14, 13, 11, 13, 14, 9);
-        QualatativeStats qualKelsey = new QualatativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE, "celestial, common",
+        QualitativeStats qualKelsey = new QualitativeStats(Alignment.CHAOTICNEUTRAL, Size.LARGE, "celestial, common",
                 ',');
 
         QuantativeStats quantToby = new QuantativeStats(30, 12, 11, 8, 10, 13, 12, 13, 16);
-        QualatativeStats qualToby = new QualatativeStats(Alignment.CHAOTICEVIL, Size.GARGANTUAN, "common, draconic",
+        QualitativeStats qualToby = new QualitativeStats(Alignment.CHAOTICEVIL, Size.GARGANTUAN, "common, draconic",
                 ',');
 
         ArrayList<PartyMember> characters = new ArrayList<>();
@@ -311,7 +311,7 @@ class Tester {
         EnemyRecommenderAgent agent = new EnemyRecommenderAgent();
         Preferences pref1 = new Preferences(Alignment.CHAOTICEVIL, false, Difficulty.EASY, MovementType.FLY);
         Preferences pref2 = new Preferences(Alignment.UNALIGNED, true, Difficulty.HARD, MovementType.GROUND);
-        QualatativeStats qualStats = new QualatativeStats();
+        QualitativeStats qualStats = new QualitativeStats();
         EnemyQuantStats quanStats = new EnemyQuantStats(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         Enemy enemy1 = new Enemy(true, false, Terrain.GRASSLAND, MovementType.GROUND, qualStats, quanStats);
         double crToFind;

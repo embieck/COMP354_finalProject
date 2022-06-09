@@ -16,7 +16,4 @@ public enum CharacterRace{
     HUMAN, 
     TIEFLING;
 
-    public String getCharRace(){
-        return this.name();
-    }
 }

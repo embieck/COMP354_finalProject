@@ -116,7 +116,7 @@ public class EnemyDataBaseList {
             String languages = removeQuotesFromStartOrEnd(enemyFields[17]);
             double cr = Double.parseDouble(enemyFields[18]);
             String additional = removeQuotesFromStartOrEnd(enemyFields[19]);
-            QualatativeStats qls = new QualatativeStats(align, size, languages,',');
+            QualitativeStats qls = new QualitativeStats(align, size, languages,',');
             EnemyQuantStats eqns = new EnemyQuantStats(cr, sws, gs, fs, ac, hp, con, str, wis,intel, dex, cha);
             return new Enemy(name,isHumanoid,qls,eqns,savThrows,skills,additional);
         }catch(Exception e){

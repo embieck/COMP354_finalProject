@@ -26,7 +26,7 @@ public class Enemy implements Serializable{
     private MovementType movementType;
     private ArrayList<MovementType> movementTypes;
     private EnemyQuantStats quanStats;
-    private QualatativeStats qualStats;
+    private QualitativeStats qualStats;
     private String savingThrows;
     private String skills;
     private String additional;
@@ -44,7 +44,7 @@ public class Enemy implements Serializable{
      * @param quanStats    - class that holds quantatative enemy stats
      */
     public Enemy(boolean isHumanoid, boolean isMagicUser, Terrain terrain, MovementType movementType,
-            QualatativeStats qualStats, EnemyQuantStats quanStats) {
+            QualitativeStats qualStats, EnemyQuantStats quanStats) {
         this.isHumanoid = isHumanoid;
         this.isMagicUser = isMagicUser;
         this.terrain = terrain;
@@ -68,7 +68,7 @@ public class Enemy implements Serializable{
      * @param additional
      */
     public Enemy(String name, boolean isHumanoid,
-            QualatativeStats qualStats, EnemyQuantStats quanStats,String savingThrows,String skills, String additional) {
+            QualitativeStats qualStats, EnemyQuantStats quanStats,String savingThrows,String skills, String additional) {
         this.name = name;
         this.isHumanoid = isHumanoid;
         this.isMagicUser = false;
@@ -127,7 +127,7 @@ public class Enemy implements Serializable{
 
     public Enemy(){
         this.name="grunt";
-        this.qualStats=new QualatativeStats();
+        this.qualStats=new QualitativeStats();
         this.quanStats= new EnemyQuantStats();
         this.movementType = MovementType.GROUND;
         this.movementTypes=null;
@@ -192,10 +192,10 @@ public class Enemy implements Serializable{
 
     // qualitative stats
     
-    public QualatativeStats getQualStats(){
+    public QualitativeStats getQualStats(){
         return qualStats;
     }
-    public void setQualStats(QualatativeStats qls){
+    public void setQualStats(QualitativeStats qls){
         qualStats=qls;
     }
     @JsonIgnore

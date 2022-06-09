@@ -19,9 +19,5 @@ public enum CharacterClass{
     WARLOCK, 
     WIZARD;
 
-    public String getCharClass(){
-        return this.name();
-    }
-    
 }
 

@@ -9,7 +9,7 @@ import java.util.*;
  * Includes public getters and setters for all stats to allow edits to stats
  **/
 
-public class QualatativeStats implements Serializable{
+public class QualitativeStats implements Serializable{
 
     public ArrayList<String> languages = new ArrayList<>();
     public Alignment align;
@@ -18,7 +18,7 @@ public class QualatativeStats implements Serializable{
     /**
      * Default constructor
      */
-    public QualatativeStats() {
+    public QualitativeStats() {
         this.align = Alignment.UNALIGNED;
         this.languages.add("common");
         this.size = Size.MEDIUM;
@@ -32,7 +32,7 @@ public class QualatativeStats implements Serializable{
      * @param languages - list of languages the character can speak
      * @param delimiter - the char used to seperate in the languages parameter
      */
-    public QualatativeStats(Alignment align, Size size, String languageStr, char delimiter){
+    public QualitativeStats(Alignment align, Size size, String languageStr, char delimiter){
         this.align = align;
         this.size = size;
         if (!languageStr.isEmpty()) {

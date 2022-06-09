@@ -12,7 +12,7 @@ public class PartyMember implements Serializable{
     private String name;
     private CharacterClass characterClass;
     private CharacterRace characterRace;
-    private QualatativeStats qualStats;
+    private QualitativeStats qualStats;
     private QuantativeStats quanStats;
     private int level;
 
@@ -27,7 +27,7 @@ public class PartyMember implements Serializable{
      * @param level          - level of the party member
      */
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
-            QualatativeStats qualStats, QuantativeStats quanStats, int level) {
+            QualitativeStats qualStats, QuantativeStats quanStats, int level) {
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
@@ -45,7 +45,7 @@ public class PartyMember implements Serializable{
      * @param quanStats
      */
     public PartyMember(String name, CharacterClass characterClass, CharacterRace characterRace,
-            QualatativeStats qualStats, QuantativeStats quanStats) {
+            QualitativeStats qualStats, QuantativeStats quanStats) {
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
@@ -66,7 +66,7 @@ public class PartyMember implements Serializable{
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
-        this.qualStats = new QualatativeStats();
+        this.qualStats = new QualitativeStats();
         this.quanStats = new QuantativeStats(30, 12, 10, 10, 10, 10, 10, 10, 10);
         this.level = level;
     }
@@ -75,7 +75,7 @@ public class PartyMember implements Serializable{
         this.name= "Frank N. Furter";
         this.characterClass=CharacterClass.ROGUE;
         this.characterRace=CharacterRace.HALFELF;
-        this.qualStats=new QualatativeStats();
+        this.qualStats=new QualitativeStats();
         this.quanStats = new QuantativeStats(30, 12, 10, 10, 10, 10, 10, 10, 10);
         this.level=1;
     }
@@ -93,10 +93,10 @@ public class PartyMember implements Serializable{
     }
 
     // qualitative stats
-    public QualatativeStats getQualStats(){
+    public QualitativeStats getQualStats(){
         return qualStats;
     }
-    public void setQualStats(QualatativeStats qls){
+    public void setQualStats(QualitativeStats qls){
         qualStats=qls;
     }
     @JsonIgnore
